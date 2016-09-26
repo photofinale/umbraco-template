@@ -76,6 +76,10 @@
       <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Diplo.TraceLogViewer, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DiploTraceLogViewer.2.3.0\lib\net45\Diplo.TraceLogViewer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Examine, Version=0.1.69.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Examine.0.1.69.0\lib\Examine.dll</HintPath>
       <Private>True</Private>
@@ -304,6 +308,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app_plugins\DiploTraceLogViewer\backoffice\diplotracelog\detail.html" />
+    <Content Include="app_plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Controller.js" />
+    <Content Include="app_plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Resources.js" />
+    <Content Include="app_plugins\DiploTraceLogViewer\backoffice\diplotracelog\edit.html" />
+    <Content Include="app_plugins\DiploTraceLogViewer\backoffice\diplotracelog\pagination.html" />
+    <Content Include="app_plugins\DiploTraceLogViewer\backoffice\diplotracelog\plugins\smart-table.min.js" />
+    <Content Include="app_plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog2.css" />
+    <Content Include="app_plugins\DiploTraceLogViewer\readme.txt" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -359,6 +371,7 @@
     <Content Include="config\BaseRestExtensions.config" />
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
+    <Content Include="app_plugins\DiploTraceLogViewer\package.manifest" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
