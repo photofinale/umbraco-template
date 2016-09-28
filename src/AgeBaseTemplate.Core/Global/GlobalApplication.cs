@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Web;
 using System.Web.Mvc;
 using AgeBaseTemplate.Core.Controllers;
 using AgeBaseTemplate.Core.Services;
@@ -23,15 +24,23 @@ namespace AgeBaseTemplate.Core.Global
         {
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
+
+            container.Register<ILogService, LogService>(Lifestyle.Scoped);
+            container.Register<IMasterPageService, MasterPageService>(Lifestyle.Scoped);
+
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
             container.RegisterMvcIntegratedFilterProvider();
-
-            container.Register<ILogService, LogService>();
-            container.Register<IMasterPageService, MasterPageService>();
-
             container.Verify();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+        }
+
+        public override string GetVaryByCustomString(HttpContext context, string custom)
+        {
+            if (!custom.ToLower().Equals("url"))
+                return base.GetVaryByCustomString(context, custom);
+
+            return "url=" + context.Request.Url.AbsoluteUri;
         }
     }
 }

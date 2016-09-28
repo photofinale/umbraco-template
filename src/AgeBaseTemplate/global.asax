@@ -1,1 +1,1 @@
-﻿<%@ Application Inherits="Umbraco.Web.UmbracoApplication" Language="C#" %>
+﻿<%@ Application Inherits="AgeBaseTemplate.Core.Global.GlobalApplication" Language="C#" %>

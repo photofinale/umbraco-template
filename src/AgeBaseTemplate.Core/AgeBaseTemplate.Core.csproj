@@ -297,8 +297,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentTypes\Builder.cs" />
+    <Compile Include="ContentTypes\Builder.cs">
+      <Generator>UmbracoModelsBuilder</Generator>
+      <CustomToolNamespace>AgeBaseTemplate.Core.ContentTypes</CustomToolNamespace>
+      <LastGenOutput>Builder.generated.cs</LastGenOutput>
+    </Compile>
+    <Compile Include="ContentTypes\HomePage.generated.cs">
+      <DependentUpon>Builder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\BasePageController.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Global\GlobalApplication.cs" />
     <Compile Include="Models\IMasterPage.cs" />
     <Compile Include="Models\Implementations\MasterPage.cs" />

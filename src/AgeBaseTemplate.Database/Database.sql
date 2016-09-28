@@ -72,7 +72,7 @@ CREATE TABLE [dbo].[cmsContentVersion](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[ContentId] [int] NOT NULL,
 	[VersionId] [uniqueidentifier] NOT NULL,
-	[VersionDate] [datetime] NOT NULL,
+	[VersionDate] [datetime] NOT NULL CONSTRAINT [DF_cmsContentVersion_VersionDate]  DEFAULT (getdate()),
  CONSTRAINT [PK_cmsContentVersion] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -155,9 +155,9 @@ CREATE TABLE [dbo].[cmsDocument](
 	[text] [nvarchar](255) COLLATE Latin1_General_CI_AS NOT NULL,
 	[releaseDate] [datetime] NULL,
 	[expireDate] [datetime] NULL,
-	[updateDate] [datetime] NOT NULL,
+	[updateDate] [datetime] NOT NULL CONSTRAINT [DF_cmsDocument_updateDate]  DEFAULT (getdate()),
 	[templateId] [int] NULL,
-	[newest] [bit] NOT NULL,
+	[newest] [bit] NOT NULL CONSTRAINT [DF_cmsDocument_newest]  DEFAULT ('0'),
  CONSTRAINT [PK_cmsDocument] PRIMARY KEY CLUSTERED 
 (
 	[versionId] ASC
@@ -172,7 +172,7 @@ GO
 CREATE TABLE [dbo].[cmsDocumentType](
 	[contentTypeNodeId] [int] NOT NULL,
 	[templateNodeId] [int] NOT NULL,
-	[IsDefault] [bit] NOT NULL,
+	[IsDefault] [bit] NOT NULL CONSTRAINT [DF_cmsDocumentType_IsDefault]  DEFAULT ('0'),
  CONSTRAINT [PK_cmsDocumentType] PRIMARY KEY CLUSTERED 
 (
 	[contentTypeNodeId] ASC,
@@ -590,7 +590,7 @@ CREATE TABLE [dbo].[umbracoLog](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[userId] [int] NOT NULL,
 	[NodeId] [int] NOT NULL,
-	[Datestamp] [datetime] NOT NULL CONSTRAINT [DF_umbracoLog_Datestamp]  DEFAULT (getdate()),
+	[Datestamp] [datetime] NOT NULL,
 	[logHeader] [nvarchar](50) COLLATE Latin1_General_CI_AS NOT NULL,
 	[logComment] [nvarchar](4000) COLLATE Latin1_General_CI_AS NULL,
  CONSTRAINT [PK_umbracoLog] PRIMARY KEY CLUSTERED 
@@ -700,7 +700,7 @@ CREATE TABLE [dbo].[umbracoServer](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[address] [nvarchar](500) COLLATE Latin1_General_CI_AS NOT NULL,
 	[computerName] [nvarchar](255) COLLATE Latin1_General_CI_AS NOT NULL,
-	[registeredDate] [datetime] NOT NULL CONSTRAINT [DF_umbracoServer_registeredDate]  DEFAULT (getdate()),
+	[registeredDate] [datetime] NOT NULL,
 	[lastNotifiedDate] [datetime] NOT NULL,
 	[isActive] [bit] NOT NULL,
 	[isMaster] [bit] NOT NULL,
@@ -804,6 +804,13 @@ CREATE TABLE [dbo].[umbracoUserType](
 )
 
 GO
+SET IDENTITY_INSERT [dbo].[cmsContent] ON 
+
+GO
+INSERT [dbo].[cmsContent] ([pk], [nodeId], [contentType]) VALUES (1, 1048, 1047)
+GO
+SET IDENTITY_INSERT [dbo].[cmsContent] OFF
+GO
 SET IDENTITY_INSERT [dbo].[cmsContentType] ON 
 
 GO
@@ -815,6 +822,8 @@ INSERT [dbo].[cmsContentType] ([pk], [nodeId], [alias], [icon], [thumbnail], [de
 GO
 INSERT [dbo].[cmsContentType] ([pk], [nodeId], [alias], [icon], [thumbnail], [description], [isContainer], [allowAtRoot]) VALUES (534, 1033, N'File', N'icon-document', N'icon-document', NULL, 0, 0)
 GO
+INSERT [dbo].[cmsContentType] ([pk], [nodeId], [alias], [icon], [thumbnail], [description], [isContainer], [allowAtRoot]) VALUES (535, 1047, N'homePage', N'icon-home', N'folder.png', NULL, 0, 1)
+GO
 SET IDENTITY_INSERT [dbo].[cmsContentType] OFF
 GO
 INSERT [dbo].[cmsContentTypeAllowedContentType] ([Id], [AllowedId], [SortOrder]) VALUES (1031, 1031, 0)
@@ -822,6 +831,15 @@ GO
 INSERT [dbo].[cmsContentTypeAllowedContentType] ([Id], [AllowedId], [SortOrder]) VALUES (1031, 1032, 0)
 GO
 INSERT [dbo].[cmsContentTypeAllowedContentType] ([Id], [AllowedId], [SortOrder]) VALUES (1031, 1033, 0)
+GO
+SET IDENTITY_INSERT [dbo].[cmsContentVersion] ON 
+
+GO
+INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (1, 1048, N'db12570f-1428-4264-803b-f1edd6697f8e', CAST(N'2016-09-28 14:44:53.180' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[cmsContentVersion] OFF
+GO
+INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1048, N'<homePage id="1048" key="4d4630a5-185c-4cbc-8dbf-2505122da3a2" parentID="-1" level="1" creatorID="0" sortOrder="0" createDate="2016-09-28T14:44:53" updateDate="2016-09-28T14:44:53" nodeName="Home" urlName="home" path="-1,1048" isDoc="" nodeType="1047" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="1046" nodeTypeAlias="homePage" />')
 GO
 SET IDENTITY_INSERT [dbo].[cmsDataType] ON 
 
@@ -905,6 +923,12 @@ INSERT [dbo].[cmsDataTypePreValues] ([id], [datatypeNodeId], [value], [sortorder
 GO
 SET IDENTITY_INSERT [dbo].[cmsDataTypePreValues] OFF
 GO
+INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1048, 1, 0, N'db12570f-1428-4264-803b-f1edd6697f8e', N'Home', NULL, NULL, CAST(N'2016-09-28 14:44:53.180' AS DateTime), 1046, 1)
+GO
+INSERT [dbo].[cmsDocumentType] ([contentTypeNodeId], [templateNodeId], [IsDefault]) VALUES (1047, 1046, 1)
+GO
+INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1048, N'db12570f-1428-4264-803b-f1edd6697f8e', CAST(N'2016-09-28 14:44:53.243' AS DateTime), N'<homePage id="1048" key="4d4630a5-185c-4cbc-8dbf-2505122da3a2" parentID="-1" level="1" creatorID="0" sortOrder="0" createDate="2016-09-28T14:44:53" updateDate="2016-09-28T14:44:53" nodeName="Home" urlName="home" path="-1,1048" isDoc="" nodeType="1047" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="1046" nodeTypeAlias="homePage" />')
+GO
 SET IDENTITY_INSERT [dbo].[cmsPropertyType] ON 
 
 GO
@@ -962,16 +986,20 @@ INSERT [dbo].[cmsTaskType] ([id], [alias]) VALUES (1, N'toTranslate')
 GO
 SET IDENTITY_INSERT [dbo].[cmsTaskType] OFF
 GO
-SET IDENTITY_INSERT [dbo].[umbracoCacheInstruction] ON 
+SET IDENTITY_INSERT [dbo].[cmsTemplate] ON 
 
 GO
-INSERT [dbo].[umbracoCacheInstruction] ([id], [utcStamp], [jsonInstruction], [originated]) VALUES (1, CAST(N'2016-09-26 10:59:15.510' AS DateTime), N'[{"RefreshType":3,"RefresherId":"3e0f95d8-0be5-44b8-8394-2b8750b62654","GuidId":"00000000-0000-0000-0000-000000000000","IntId":0,"JsonIds":"[1]","JsonPayload":null}]', N'DESKTOP-AIEHB2H//LM/W3SVC/2/ROOT [P8692/D2] 68D678EE1E5C41ECAE2ED736B5F38A34')
+INSERT [dbo].[cmsTemplate] ([pk], [nodeId], [alias], [design]) VALUES (1, 1046, N'HomePage', N'@{
+	Layout = "BasePage.cshtml";
+}
+@inherits UmbracoViewPage<MasterPage<HomePage>>')
 GO
-INSERT [dbo].[umbracoCacheInstruction] ([id], [utcStamp], [jsonInstruction], [originated]) VALUES (2, CAST(N'2016-09-26 11:00:35.027' AS DateTime), N'[{"RefreshType":5,"RefresherId":"3e0f95d8-0be5-44b8-8394-2b8750b62654","GuidId":"00000000-0000-0000-0000-000000000000","IntId":1,"JsonIds":null,"JsonPayload":null}]', N'DESKTOP-AIEHB2H//LM/W3SVC/2/ROOT [P16192/D2] 0BC12C6DE4604C5787BD513D7432ED44')
+INSERT [dbo].[cmsTemplate] ([pk], [nodeId], [alias], [design]) VALUES (2, 1049, N'BasePage', N'@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+	Layout = null;
+}')
 GO
-INSERT [dbo].[umbracoCacheInstruction] ([id], [utcStamp], [jsonInstruction], [originated]) VALUES (3, CAST(N'2016-09-26 11:42:59.290' AS DateTime), N'[{"RefreshType":3,"RefresherId":"3e0f95d8-0be5-44b8-8394-2b8750b62654","GuidId":"00000000-0000-0000-0000-000000000000","IntId":0,"JsonIds":"[2]","JsonPayload":null}]', N'DESKTOP-AIEHB2H//LM/W3SVC/2/ROOT [P16192/D2] 0BC12C6DE4604C5787BD513D7432ED44')
-GO
-SET IDENTITY_INSERT [dbo].[umbracoCacheInstruction] OFF
+SET IDENTITY_INSERT [dbo].[cmsTemplate] OFF
 GO
 SET IDENTITY_INSERT [dbo].[umbracoLanguage] ON 
 
@@ -979,17 +1007,6 @@ GO
 INSERT [dbo].[umbracoLanguage] ([id], [languageISOCode], [languageCultureName]) VALUES (2, N'en-GB', N'English (United Kingdom)')
 GO
 SET IDENTITY_INSERT [dbo].[umbracoLanguage] OFF
-GO
-SET IDENTITY_INSERT [dbo].[umbracoLog] ON 
-
-GO
-INSERT [dbo].[umbracoLog] ([id], [userId], [NodeId], [Datestamp], [logHeader], [logComment]) VALUES (1, 0, 1, CAST(N'2016-09-26 11:59:15.490' AS DateTime), N'Save', N'Save Language performed by user')
-GO
-INSERT [dbo].[umbracoLog] ([id], [userId], [NodeId], [Datestamp], [logHeader], [logComment]) VALUES (2, 0, 1, CAST(N'2016-09-26 12:00:35.013' AS DateTime), N'Delete', N'Delete Language performed by user')
-GO
-INSERT [dbo].[umbracoLog] ([id], [userId], [NodeId], [Datestamp], [logHeader], [logComment]) VALUES (3, 0, 2, CAST(N'2016-09-26 12:42:59.280' AS DateTime), N'Save', N'Save Language performed by user')
-GO
-SET IDENTITY_INSERT [dbo].[umbracoLog] OFF
 GO
 SET IDENTITY_INSERT [dbo].[umbracoMigration] ON 
 
@@ -1065,6 +1082,14 @@ INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [p
 GO
 INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (1045, 0, -1, 0, 1, N'-1,1045', 2, N'7e3962cc-ce20-4ffc-b661-5897a894ba7e', N'Multiple Media Picker', N'30a2a501-1978-4ddb-a57b-f7efed43ba3c', CAST(N'2016-09-20 10:32:04.487' AS DateTime))
 GO
+INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (1046, 0, 1049, NULL, 1, N'-1,1049,1046', 0, N'66853ee6-7f51-450a-8673-fe2649036785', N'Home Page', N'6fbde604-4178-42ce-a10b-8a2600a2f07d', CAST(N'2016-09-28 14:35:27.803' AS DateTime))
+GO
+INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (1047, 0, -1, 0, 1, N'-1,1047', 2, N'8c75061c-1bd1-4eec-bf3d-14f2012617fa', N'Home Page', N'a2cb7800-f571-4787-9638-bc48539a0efb', CAST(N'2016-09-28 14:35:28.010' AS DateTime))
+GO
+INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (1048, 0, -1, 0, 1, N'-1,1048', 0, N'4d4630a5-185c-4cbc-8dbf-2505122da3a2', N'Home', N'c66ba18e-eaf3-4cff-8a22-41b16d66a972', CAST(N'2016-09-28 14:44:53.180' AS DateTime))
+GO
+INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (1049, 0, -1, NULL, 1, N'-1,1049', 0, N'37e0a919-bc3d-4390-8c7f-020f5ccdfcb2', N'Base Page', N'6fbde604-4178-42ce-a10b-8a2600a2f07d', CAST(N'2016-09-28 14:45:25.377' AS DateTime))
+GO
 SET IDENTITY_INSERT [dbo].[umbracoNode] OFF
 GO
 SET IDENTITY_INSERT [dbo].[umbracoRelationType] ON 
@@ -1076,17 +1101,10 @@ INSERT [dbo].[umbracoRelationType] ([id], [dual], [parentObjectType], [childObje
 GO
 SET IDENTITY_INSERT [dbo].[umbracoRelationType] OFF
 GO
-SET IDENTITY_INSERT [dbo].[umbracoServer] ON 
-
-GO
-INSERT [dbo].[umbracoServer] ([id], [address], [computerName], [registeredDate], [lastNotifiedDate], [isActive], [isMaster]) VALUES (1, N'http://localhost:56731/umbraco', N'DESKTOP-AIEHB2H//LM/W3SVC/2/ROOT', CAST(N'2016-09-20 10:32:30.073' AS DateTime), CAST(N'2016-09-26 12:43:50.330' AS DateTime), 1, 1)
-GO
-SET IDENTITY_INSERT [dbo].[umbracoServer] OFF
-GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] ON 
 
 GO
-INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userType], [startStructureID], [startMediaID], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate]) VALUES (0, 0, 0, 1, -1, -1, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2016-09-26 12:42:38.193' AS DateTime))
+INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userType], [startStructureID], [startMediaID], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate]) VALUES (0, 0, 0, 1, -1, -1, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2016-09-28 14:38:33.127' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] OFF
 GO

@@ -325,6 +325,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app_browsers\Form.browser" />
+    <Content Include="app_browsers\w3cvalidator.browser" />
     <Content Include="app_plugins\DiploTraceLogViewer\backoffice\diplotracelog\detail.html" />
     <Content Include="app_plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Controller.js" />
     <Content Include="app_plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Resources.js" />
@@ -396,6 +398,8 @@
     <Content Include="config\uSyncCore.Config" />
     <Content Include="config\uSyncBackOffice.Config" />
     <Content Include="app_plugins\uSync\package.manifest" />
+    <Content Include="views\HomePage.cshtml" />
+    <Content Include="views\BasePage.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
