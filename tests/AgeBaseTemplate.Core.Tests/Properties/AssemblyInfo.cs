@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AgeBaseTemplate.Tests")]
+[assembly: AssemblyTitle("AgeBaseTemplate.Core.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AgeBaseTemplate.Tests")]
+[assembly: AssemblyProduct("AgeBaseTemplate.Core.Tests")]
 [assembly: AssemblyCopyright("Copyright © AgeBase 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -6,8 +6,8 @@
     <ProjectGuid>{32C081EC-0362-4B95-8A0D-08E5DEB373B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AgeBaseTemplate.Tests</RootNamespace>
-    <AssemblyName>AgeBaseTemplate.Tests</AssemblyName>
+    <RootNamespace>AgeBaseTemplate.Core.Tests</RootNamespace>
+    <AssemblyName>AgeBaseTemplate.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -264,11 +264,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AgeBaseTemplate.Core\AgeBaseTemplate.Core.csproj">
+    <ProjectReference Include="..\..\src\AgeBaseTemplate.Core\AgeBaseTemplate.Core.csproj">
       <Project>{32d7cf8c-b93e-4968-bf3f-1394b368d806}</Project>
       <Name>AgeBaseTemplate.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AgeBaseTemplate\AgeBaseTemplate.csproj">
+    <ProjectReference Include="..\..\src\AgeBaseTemplate\AgeBaseTemplate.csproj">
       <Project>{8C77EE90-1D86-49D3-A2C0-C6A6663374D5}</Project>
       <Name>AgeBaseTemplate</Name>
     </ProjectReference>
