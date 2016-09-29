@@ -367,6 +367,7 @@
     <Content Include="global.asax" />
     <Content Include="packages.config" />
     <Content Include="app_plugins\ModelsBuilder\package.manifest" />
+    <Content Include="robots.txt" />
     <Content Include="views\web.config" />
     <Content Include="views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="views\Partials\Grid\Editors\Rte.cshtml" />
@@ -400,11 +401,23 @@
     <Content Include="app_plugins\uSync\package.manifest" />
     <Content Include="views\HomePage.cshtml" />
     <Content Include="views\BasePage.cshtml" />
+    <None Include="config\log4net.Debug.config">
+      <DependentUpon>log4net.config</DependentUpon>
+    </None>
+    <None Include="config\log4net.Release.config">
+      <DependentUpon>log4net.config</DependentUpon>
+    </None>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="robots.Debug.txt">
+      <DependentUpon>robots.txt</DependentUpon>
+    </None>
+    <None Include="robots.Release.txt">
+      <DependentUpon>robots.txt</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -466,11 +479,9 @@
     <Error Condition="!Exists('..\packages\OctoPack.3.4.1\tools\OctoPack.targets') And ('$(RunOctoPack)' != '' And $(RunOctoPack))" Text="You are trying to build with OctoPack, but the NuGet targets file that OctoPack depends on is not available on this computer. This is probably because the OctoPack package has not been committed to source control, or NuGet Package Restore is not enabled. Please enable NuGet Package Restore to download them. For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
     <Error Condition="Exists('..\packages\OctoPack.3.4.1\tools\OctoPack.targets') And ('$(RunOctoPack)' != '' And $(RunOctoPack))" Text="OctoPack cannot be run because NuGet packages were restored prior to the build running, and the targets file was unavailable when the build started. Please build the project again to include these packages in the build. You may also need to make sure that your build server does not delete packages prior to each build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
+    <TransformXml Source="config\log4net.config" Transform="config\log4net.$(Configuration).config" Destination="config\log4net.config" />
+    <Copy SourceFiles="robots.$(Configuration).txt" DestinationFiles="robots.txt" />
+    <TransformXml Source="web.config" Transform="web.$(Configuration).config" Destination="web.config" />
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
