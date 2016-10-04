@@ -307,6 +307,7 @@
     </Compile>
     <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Events\ClearOutputCacheManager.cs" />
     <Compile Include="Global\GlobalApplication.cs" />
     <Compile Include="Models\IMasterPage.cs" />
     <Compile Include="Models\Implementations\MasterPage.cs" />

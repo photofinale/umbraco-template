@@ -1,7 +1,7 @@
 {
   "name": "agebasetemplate-ui",
   "version": "0.0.0",
-  "devDependencies": {
+  "dependencies": {
     "gulp": "^3.9.1"
   }
 }

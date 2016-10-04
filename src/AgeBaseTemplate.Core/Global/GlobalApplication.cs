@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using AgeBaseTemplate.Core.Controllers;
 using AgeBaseTemplate.Core.Services;
 using AgeBaseTemplate.Core.Services.Implementations;
+using DevTrends.MvcDonutCaching;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
@@ -27,6 +28,7 @@ namespace AgeBaseTemplate.Core.Global
 
             container.Register<ILogService, LogService>(Lifestyle.Scoped);
             container.Register<IMasterPageService, MasterPageService>(Lifestyle.Scoped);
+            container.Register<IOutputCacheManager, OutputCacheManager>(Lifestyle.Scoped);
 
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
             container.RegisterMvcIntegratedFilterProvider();
