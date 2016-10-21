@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E279A4E9-CF0B-4E22-BDD8-3B87504015BE}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AgeBaseTemplate.UI", "AgeBaseTemplate.UI\", "{311D3D1C-BDDA-4CAB-B010-C28C2ABDEDCA}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54901"
+		Debug.AspNetCompiler.PhysicalPath = "AgeBaseTemplate.UI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54901\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54901"
+		Release.AspNetCompiler.PhysicalPath = "AgeBaseTemplate.UI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54901\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54901"
+		SlnRelativePath = "AgeBaseTemplate.UI\"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AgeBaseTemplate.UI.Tests", "..\tests\AgeBaseTemplate.UI.Tests\", "{9E5A14A8-59E2-4A55-9370-63F0B0E5574A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54949"
+		Debug.AspNetCompiler.PhysicalPath = "..\tests\AgeBaseTemplate.UI.Tests\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54949\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54949"
+		Release.AspNetCompiler.PhysicalPath = "..\tests\AgeBaseTemplate.UI.Tests\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54949\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54949"
+		SlnRelativePath = "..\tests\AgeBaseTemplate.UI.Tests\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{311D3D1C-BDDA-4CAB-B010-C28C2ABDEDCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{311D3D1C-BDDA-4CAB-B010-C28C2ABDEDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E5A14A8-59E2-4A55-9370-63F0B0E5574A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E5A14A8-59E2-4A55-9370-63F0B0E5574A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9E5A14A8-59E2-4A55-9370-63F0B0E5574A} = {E279A4E9-CF0B-4E22-BDD8-3B87504015BE}
+	EndGlobalSection
+EndGlobal
