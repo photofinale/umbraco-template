@@ -1013,6 +1013,8 @@ SET IDENTITY_INSERT [dbo].[umbracoMigration] ON
 GO
 INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (1, N'Umbraco', CAST(N'2016-09-20 10:32:05.103' AS DateTime), N'7.5.3')
 GO
+INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (2, N'Umbraco', CAST(N'2016-10-21 17:40:56.470' AS DateTime), N'7.5.4')
+GO
 SET IDENTITY_INSERT [dbo].[umbracoMigration] OFF
 GO
 SET IDENTITY_INSERT [dbo].[umbracoNode] ON 
@@ -1104,7 +1106,7 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] ON 
 
 GO
-INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userType], [startStructureID], [startMediaID], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate]) VALUES (0, 0, 0, 1, -1, -1, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2016-09-28 15:24:56.757' AS DateTime))
+INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userType], [startStructureID], [startMediaID], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate]) VALUES (0, 0, 0, 1, -1, -1, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2016-10-21 17:45:59.293' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] OFF
 GO
