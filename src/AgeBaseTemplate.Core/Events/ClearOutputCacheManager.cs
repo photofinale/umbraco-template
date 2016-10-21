@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Web.Mvc;
 using AgeBaseTemplate.Core.Services;
+using AgeBaseTemplate.Core.Services.Implementations;
 using DevTrends.MvcDonutCaching;
 using Umbraco.Core;
 using Umbraco.Core.Cache;
@@ -33,10 +33,10 @@ namespace AgeBaseTemplate.Core.Events
         public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
             if (_logService == null)
-                _logService = DependencyResolver.Current.GetService<ILogService>();
+                _logService = new LogService();
 
             if (_outputCacheManager == null)
-                _outputCacheManager = DependencyResolver.Current.GetService<IOutputCacheManager>();
+                _outputCacheManager = new OutputCacheManager();
 
             if (_ran)
                 return;
