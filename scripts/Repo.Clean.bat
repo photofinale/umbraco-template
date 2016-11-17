@@ -26,9 +26,14 @@ IF "%isAdmin%" == "1" (
 	ECHO Resetting repo... 
 	git reset -q --hard HEAD > NUL
 
-	IF EXIST node_modules (
+	IF EXIST "src\AgeBaseTemplate.UI\node_modules" (
 		ECHO Removing node modules... 
 		rmdir /s /q "src\AgeBaseTemplate.UI\node_modules" > NUL
+	)
+
+	IF EXIST "src\AgeBaseTemplate.UI\bower_components" (
+		ECHO Removing bower components... 
+		rmdir /s /q "src\AgeBaseTemplate.UI\bower_components" > NUL
 	)
 
 	ECHO Installing node modules... 
