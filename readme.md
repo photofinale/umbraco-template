@@ -1,4 +1,22 @@
+- Umbraco
+ - [ ] Base Page
+ - [ ] Home Page
+ - [ ] Content Page
+ - [ ] Contact Page
+ - [ ] Legal Page
+ - [ ] Search Page
+ - [ ] Redirect Page
+ - [ ] Error Page
+ - [ ] Meta Properties
+ - [ ] Navigation Properties
+ - [ ] Seo Properties
+ - [ ] Umbraco Properties
+ - [ ] Site Configuration
+ - [ ] Site Redirects
+ - [ ] Site Messages
+ - [ ] Multiple Sites
 - Web
+ - [ ] Domain Manager
  - [x] Robots.txt
  - [ ] Favicon
  - [ ] Donut Caching
@@ -11,9 +29,11 @@
  - [x] Gulp
  - [x] Bower
  - [ ] Sass
+ - [ ] Js
+ - [ ] Compression
+ - [ ] Minification
  - [ ] Unit Tests
 - Core
- - [x] Umbraco
  - [x] uSync
  - [x] Models Builder
  - [x] Core Value Converters
