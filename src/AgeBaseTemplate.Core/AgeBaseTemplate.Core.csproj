@@ -154,8 +154,8 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Our.Umbraco.PropertyEditorConverters, Version=3.1.1.81, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Our.Umbraco.CoreValueConverters.3.1.1\lib\net45\Our.Umbraco.PropertyEditorConverters.dll</HintPath>
+    <Reference Include="Our.Umbraco.PropertyEditorConverters, Version=3.1.2.88, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Our.Umbraco.CoreValueConverters.3.1.2\lib\net45\Our.Umbraco.PropertyEditorConverters.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
