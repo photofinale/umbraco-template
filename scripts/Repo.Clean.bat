@@ -41,7 +41,12 @@ IF "%isAdmin%" == "1" (
 	call npm -s install > NUL
 	cd ..\..\ > NUL
 
-	ECHO Running gulp less task... 
+	ECHO Installing bower components... 
+	cd src\AgeBaseTemplate.UI > NUL
+	call node_modules\.bin\bower -s install > NUL
+	cd ..\..\ > NUL
+
+	ECHO Running gulp... 
 	cd src\AgeBaseTemplate.UI > NUL
 	call node_modules\.bin\gulp > NUL
 	cd ..\..\ > NUL
