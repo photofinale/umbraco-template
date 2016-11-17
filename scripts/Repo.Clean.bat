@@ -43,7 +43,7 @@ IF "%isAdmin%" == "1" (
 
 	ECHO Restoring database... 
 	cd scripts > NUL
-	call Restore.bat > NUL
+	call Database.Restore.bat > NUL
 	cd ..\ > NUL
 
 	ECHO Restoring nuget packages... 
