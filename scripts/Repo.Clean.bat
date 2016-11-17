@@ -39,12 +39,12 @@ IF "%isAdmin%" == "1" (
 	ECHO Installing node modules... 
 	cd src\AgeBaseTemplate.UI > NUL
 	call npm -s install > NUL
-	cd ..\ > NUL
+	cd ..\..\ > NUL
 
 	ECHO Running gulp less task... 
 	cd src\AgeBaseTemplate.UI > NUL
 	call node_modules\.bin\gulp > NUL
-	cd ..\ > NUL
+	cd ..\..\ > NUL
 
 	ECHO Restoring database... 
 	cd scripts > NUL
