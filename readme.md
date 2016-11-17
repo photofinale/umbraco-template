@@ -1,0 +1,33 @@
+- Web
+ - [x] Umbraco
+ - [x] uSync
+- Web UI
+ - [x] Gulp
+ - [x] Bower
+ - [ ] Sass
+ - [ ] Unit Tests
+- Core
+ - [x] Strongly Typed Models
+ - [x] Core Value Convertors
+ - [x] Simple Injector
+ - [ ] Donut Caching
+ - [ ] Unit Tests
+- Deployment
+ - [ ] Build Server
+ - [ ] Deployment Server
+ - [ ] Automatic Versioning
+- Azure
+ - [ ] Resource Template
+ - [ ] Dedicated Back Office
+ - [ ] Load Balancing
+ - [ ] Media Cdn
+ - [ ] Assets Cdn
+ - [ ] Examine Cdn
+ - [ ] Logging Cdn
+- Misc
+ - [x] Clean Script
+ - [x] Database Backup Script
+ - [x] Database Clean Script
+ - [x] Database Drop Script
+ - [x] Database Restore Script
+ - [ ] Setup Script
