@@ -43,7 +43,7 @@ IF "%isAdmin%" == "1" (
 
 	ECHO Running gulp less task... 
 	cd src\AgeBaseTemplate.UI > NUL
-	call gulp > NUL
+	call node_modules\.bin\gulp > NUL
 	cd ..\ > NUL
 
 	ECHO Restoring database... 
