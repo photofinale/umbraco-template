@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using DevTrends.MvcDonutCaching;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
 
@@ -7,7 +6,6 @@ namespace AgeBaseTemplate.Core.Controllers
 {
     public class BasePageController : SurfaceController, IRenderMvcController
     {
-        [DonutOutputCache(CacheProfile = "OneDay")]
         public virtual ActionResult Index(RenderModel model)
         {
             return CurrentTemplate(model);

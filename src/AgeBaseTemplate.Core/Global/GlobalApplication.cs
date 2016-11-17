@@ -34,13 +34,5 @@ namespace AgeBaseTemplate.Core.Global
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
         }
-
-        public override string GetVaryByCustomString(HttpContext context, string custom)
-        {
-            if (!custom.ToLower().Equals("url"))
-                return base.GetVaryByCustomString(context, custom);
-
-            return "url=" + context.Request.Url.AbsoluteUri;
-        }
     }
 }
