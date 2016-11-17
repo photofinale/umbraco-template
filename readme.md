@@ -1,16 +1,24 @@
 - Web
- - [x] Umbraco
- - [x] uSync
+ - [x] Robots.txt
+ - [ ] Favicon
+ - [ ] Donut Caching
+ - [x] Http Compression
+ - [x] Force Https
+ - [x] Force Remove Www
+ - [x] Force Trailing Slash
+ - [x] Mime Types
 - Web UI
  - [x] Gulp
  - [x] Bower
  - [ ] Sass
  - [ ] Unit Tests
 - Core
- - [x] Strongly Typed Models
- - [x] Core Value Convertors
+ - [x] Umbraco
+ - [x] uSync
+ - [x] Models Builder
+ - [x] Core Value Converters
  - [x] Simple Injector
- - [ ] Donut Caching
+ - [ ] Send Grid
  - [ ] Unit Tests
 - Deployment
  - [ ] Build Server
@@ -24,6 +32,7 @@
  - [ ] Assets Cdn
  - [ ] Examine Cdn
  - [ ] Logging Cdn
+ - [ ] Alerts
 - Misc
  - [x] Clean Script
  - [x] Database Backup Script
