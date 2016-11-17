@@ -28,16 +28,16 @@ IF "%isAdmin%" == "1" (
 
 	IF EXIST node_modules (
 		ECHO Removing node modules... 
-		rmdir /s /q "src\AgeBaseTemplate.Client\node_modules" > NUL
+		rmdir /s /q "src\AgeBaseTemplate.UI\node_modules" > NUL
 	)
 
 	ECHO Installing node modules... 
-	cd src\AgeBaseTemplate.Client > NUL
+	cd src\AgeBaseTemplate.UI > NUL
 	call npm -s install > NUL
 	cd ..\ > NUL
 
 	ECHO Running gulp less task... 
-	cd src\AgeBaseTemplate.Client > NUL
+	cd src\AgeBaseTemplate.UI > NUL
 	call gulp debug > NUL
 	cd ..\ > NUL
 
