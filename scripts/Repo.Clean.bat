@@ -47,7 +47,9 @@ IF "%isAdmin%" == "1" (
 	cd ..\ > NUL
 
 	ECHO Restoring nuget packages... 
-	tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln > NUL
+	cd tools\NuGet > NUL
+	nuget.exe restore ..\..\src\AgeBaseTemplate.sln > NUL
+	cd ..\..\ > NUL
 
 	ECHO Building application... 
 	msbuild src\AgeBaseTemplate.sln /p:Configuration=Debug > NUL
