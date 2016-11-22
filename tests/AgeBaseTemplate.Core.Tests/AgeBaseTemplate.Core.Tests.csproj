@@ -44,6 +44,10 @@
       <HintPath>..\..\src\packages\UmbracoCms.Core.7.5.4\lib\businesslogic.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ClientDependency.Core, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\src\packages\ClientDependency.1.9.2\lib\net45\ClientDependency.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="cms, Version=1.0.6136.27244, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\src\packages\UmbracoCms.Core.7.5.4\lib\cms.dll</HintPath>
       <Private>True</Private>
