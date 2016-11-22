@@ -11,8 +11,10 @@ assembly_info:
 install:
 - tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
 - ps: Install-Product node Stable
-- src\AgeBaseTemplate.UI\npm -s install
-- src\AgeBaseTemplate.UI\node_modules\.bin\bower -s install
+- cd src\AgeBaseTemplate.UI
+- npm install
+- node_modules\.bin\bower -s install
+- cd ..\..
 build:
   project: src\AgeBaseTemplate.sln
   publish_wap: true
