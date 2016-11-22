@@ -11,7 +11,9 @@ assembly_info:
 install:
 - cmd: >-
     tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
+
     src\AgeBaseTemplate.UI\npm -s install
+
     src\AgeBaseTemplate.UI\node_modules\.bin\bower -s install
 build:
   project: src\AgeBaseTemplate.sln
