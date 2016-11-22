@@ -29,6 +29,7 @@ The project is a work in progress. We have a desired feature list which shows wh
 - Web
  - [x] Domain Manager
  - [x] Robots.txt
+ - [ ] Sitemap.xml
  - [ ] Favicon
  - [ ] Donut Caching
  - [x] Http Compression
