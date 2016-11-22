@@ -1,4 +1,6 @@
 version: 0.1.{build}
+pull_requests:
+  do_not_increment_build_number: true
 configuration: Release
 assembly_info:
   patch: true
@@ -6,8 +8,11 @@ assembly_info:
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
-before_build:
-- cmd: tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
+install:
+- cmd: >-
+    tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
+    src\AgeBaseTemplate.UI\npm -s install
+    src\AgeBaseTemplate.UI\node_modules\.bin\bower -s install
 build:
   project: src\AgeBaseTemplate.sln
   publish_wap: true
