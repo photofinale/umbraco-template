@@ -9,12 +9,10 @@ assembly_info:
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
 install:
-- cmd: >-
-    tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
-
-    src\AgeBaseTemplate.UI\npm -s install
-
-    src\AgeBaseTemplate.UI\node_modules\.bin\bower -s install
+- tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
+- ps: Install-Product node Stable
+- src\AgeBaseTemplate.UI\npm -s install
+- src\AgeBaseTemplate.UI\node_modules\.bin\bower -s install
 build:
   project: src\AgeBaseTemplate.sln
   publish_wap: true
