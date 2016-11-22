@@ -10,4 +10,5 @@ before_build:
 - cmd: tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
 build:
   project: src\AgeBaseTemplate.sln
+  publish_wap: true
   verbosity: quiet
