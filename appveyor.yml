@@ -1,0 +1,7 @@
+version: 0.1.{build}
+configuration: Release
+before_build:
+- cmd: tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
+build:
+  project: src\AgeBaseTemplate.sln
+  verbosity: quiet
