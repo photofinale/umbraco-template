@@ -1,21 +1,38 @@
-version: 0.1.{build}
+version: 0.0.{build}
+
 pull_requests:
   do_not_increment_build_number: true
+  
 configuration: Release
+
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
+  
 install:
-- tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
-- ps: Install-Product node Stable
-- cd src\AgeBaseTemplate.UI
-- npm install
-- node_modules\.bin\bower -s install
-- cd ..\..
+  # Restore nuget packages
+  - cmd: tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
+  
+  # Install latest version of NodeJS
+  - ps: Install-Product node Stable
+  
+  # Install NodeJS and Bower packages
+  - cmd: cd src\AgeBaseTemplate.UI
+  - cmd: npm install
+  - cmd: node_modules\.bin\bower -s install
+  - cmd: cd ..\..
+  
+before_build:
+  # Run default gulp task to compile sass and js files
+  - cmd: cd src\AgeBaseTemplate.UI
+  - cmd: node_modules\.bin\gulp
+  - cmd: cd ..\..
+  
 build:
+  # Build solution
   project: src\AgeBaseTemplate.sln
   publish_wap: true
   verbosity: quiet
