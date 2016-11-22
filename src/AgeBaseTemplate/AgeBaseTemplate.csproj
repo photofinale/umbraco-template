@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AgeBase.DomainManager, Version=1.0.1.24790, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AgeBase.DomainManager.1.0.1\lib\AgeBase.DomainManager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -319,6 +323,9 @@
   <ItemGroup>
     <Content Include="app_browsers\Form.browser" />
     <Content Include="app_browsers\w3cvalidator.browser" />
+    <Content Include="app_plugins\AgeBase.DomainManager\Index.Controller.js" />
+    <Content Include="app_plugins\AgeBase.DomainManager\Index.css" />
+    <Content Include="app_plugins\AgeBase.DomainManager\Index.html" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -375,6 +382,7 @@
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
     <Content Include="app_plugins\ModelsBuilder\package.manifest" />
+    <Content Include="app_plugins\AgeBase.DomainManager\Package.manifest" />
     <None Include="config\log4net.Debug.config">
       <DependentUpon>log4net.config</DependentUpon>
     </None>
