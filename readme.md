@@ -1,6 +1,8 @@
 # AgeBase Umbraco Template
 
-**AgeBase Umbraco Template** is a hopefully handy template for creating Umbraco web applications. It includes your usually Umbraco features and also some nice extra features. Things like automated deployments, strongly typed models, donut caching, gulp scripts and Azure hosting. We've also added some handy scripts to managed Umbraco databases and setting up a development machine to run the template.
+**AgeBase Umbraco Template** is a hopefully handy template for creating Umbraco web applications. It includes your usual Umbraco features and also some nice extra features. Things like automated deployments, strongly typed models, donut caching, gulp scripts and Azure hosting. We've also added some handy scripts to managed Umbraco databases and setting up a development machine to run the template.
+
+[![Build Status](https://ci.appveyor.com/api/projects/status/4c8rl1r57yu2i7md/branch/master?svg=true)](https://ci.appveyor.com/project/AgeBase/umbraco-template/branch/master)
 
 ### Features
 
@@ -34,11 +36,11 @@ The project is a work in progress. We have a desired feature list which shows wh
  - [x] Force Remove Www
  - [x] Force Trailing Slash
  - [x] Mime Types
-- Web UI
+- UI
  - [x] Gulp
  - [x] Bower
  - [ ] Sass
- - [ ] Js
+ - [ ] JavaScript
  - [ ] Compression
  - [ ] Minification
  - [ ] Unit Tests
@@ -57,10 +59,10 @@ The project is a work in progress. We have a desired feature list which shows wh
  - [ ] Resource Template
  - [ ] Dedicated Back Office
  - [ ] Load Balancing
- - [ ] Media Cdn
- - [ ] Assets Cdn
- - [ ] Examine Cdn
- - [ ] Logging Cdn
+ - [ ] Media CDN
+ - [ ] Assets CDN
+ - [ ] Examine CDN
+ - [ ] Logging CDN
  - [ ] Alerts
 - Misc
  - [x] Clean Script
