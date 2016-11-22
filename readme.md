@@ -1,5 +1,6 @@
 - Umbraco
- - [ ] Base Page
+ - [ ] Base Template
+ - [ ] Country Page
  - [ ] Home Page
  - [ ] Content Page
  - [ ] Contact Page
