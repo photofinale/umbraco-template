@@ -65,6 +65,7 @@ The project is a work in progress. We have a desired feature list which shows wh
  - [ ] Examine CDN
  - [ ] Logging CDN
  - [ ] Alerts
+ - [ ] Backups
 - Misc
  - [x] Clean Script
  - [x] Database Backup Script

@@ -36,3 +36,13 @@ build:
   project: src\AgeBaseTemplate.sln
   publish_wap: true
   verbosity: quiet
+  
+environment:
+  # Deploy to Azure App Service
+  webdeploy_package: '%appveyor_build_folder%\%deploy_artifact%.zip'
+  webdeploy_server: https://%webdeploy_site%.scm.azurewebsites.net:443/msdeploy.axd?site=%webdeploy_site%
+  webdeploy_site: as-agebasetemplate
+  webdeploy_resource_group: rg-appservices
+  webdeploy_username: $as-agebasetemplate
+  webdeploy_password: 
+    secure: 39Pr/uaKTmwVaWsGVe4tiFN8vp9RF0nDVm84iu3tv/zXIW0ZL8yoQLk5RjYKLAxbscEiS6GKq73OaJBkw877aA==
