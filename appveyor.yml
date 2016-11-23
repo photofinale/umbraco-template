@@ -12,39 +12,46 @@ assembly_info:
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
   
+environment:
+  projectname: AgeBaseTemplate
+  # Azure App Service deployment credentials
+  azurewebappname: as-agebasetemplate
+  azurewebappusername: $as-agebasetemplate
+  azurewebapppassword: 
+    secure: HQjJQi0JOLEpEEdWyLScoLLDK+syGM5W5ewcRJQkf2e24o7mfYX/rTPOOhsRXpaLWDxI603jAIn/sGpv9SnsYA==
+  
 install:
   # Restore nuget packages
-  - cmd: tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
+  - cmd: tools\NuGet\nuget.exe restore src\%projectname%.sln
   
   # Install latest version of NodeJS
   - ps: Install-Product node Stable
   
   # Install NodeJS and Bower packages
-  - cmd: cd src\AgeBaseTemplate.UI
+  - cmd: cd src\%projectname%.UI
   - cmd: npm install
   - cmd: node_modules\.bin\bower -s install
   - cmd: cd ..\..
   
 before_build:
   # Run default gulp task to compile sass and js files
-  - cmd: cd src\AgeBaseTemplate.UI
+  - cmd: cd src\%projectname%.UI
   - cmd: node_modules\.bin\gulp
   - cmd: cd ..\..
   
 build:
   # Build solution
-  project: src\AgeBaseTemplate.sln
+  project: src\%projectname%.sln
   publish_wap: true
   verbosity: quiet
 
 deploy:
   # Deploy to Azure App Service
   provider: WebDeploy
-  server: https://as-agebasetemplate.scm.azurewebsites.net:443/msdeploy.axd?site=as-agebasetemplate
-  website: as-agebasetemplate
-  username: $as-agebasetemplate
-  password:
-    secure: 39Pr/uaKTmwVaWsGVe4tiFN8vp9RF0nDVm84iu3tv/zXIW0ZL8yoQLk5RjYKLAxbscEiS6GKq73OaJBkw877aA==
+  server: https://%azurewebappname%.scm.azurewebsites.net:443/msdeploy.axd?site=%azurewebappname%
+  website: %azurewebappname%
+  username: %azurewebappusername%
+  password: %azurewebapppassword%
   ntlm: false
   remove_files: true
   on:
