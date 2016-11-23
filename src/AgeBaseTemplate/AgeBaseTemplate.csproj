@@ -357,6 +357,7 @@
     <Content Include="default.aspx" />
     <Content Include="global.asax" />
     <Content Include="packages.config" />
+    <Content Include="parameters.xml" />
     <Content Include="robots.txt" />
     <Content Include="views\web.config" />
     <Content Include="config\umbracoSettings.config">
