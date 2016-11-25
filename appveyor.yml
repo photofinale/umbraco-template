@@ -37,3 +37,8 @@ build:
   project: src\AgeBaseTemplate.sln
   publish_wap: true
   verbosity: quiet
+  
+deploy:
+  # Use this for continuous deployment
+- provider: Environment
+  name: as-agebasetemplate
