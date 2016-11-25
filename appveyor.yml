@@ -47,4 +47,4 @@ notifications:
   - provider: Slack
     auth_token:
       secure: NAeYrmEeVDh5XkM+mloGFWSz3nLL02UTfaDmcytAZH0xytVxI8XHXilaNuGsG1SRIvCTrg+Qc81GuAo/LJH4hefsyNteOMlc4UWxnk99jTE=
-    channel: '#appveyor'
+    channel: appveyor
