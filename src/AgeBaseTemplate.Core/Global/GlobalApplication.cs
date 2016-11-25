@@ -28,7 +28,7 @@ namespace AgeBaseTemplate.Core.Global
             container.Register<ILogService, LogService>(Lifestyle.Scoped);
             container.Register<IMasterPageService, MasterPageService>(Lifestyle.Scoped);
 
-            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+            container.RegisterMvcControllers(Assembly.GetAssembly(typeof(GlobalApplication)));
             container.RegisterMvcIntegratedFilterProvider();
             container.Verify();
 
