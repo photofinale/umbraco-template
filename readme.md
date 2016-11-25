@@ -53,9 +53,8 @@ The project is a work in progress. We have a desired feature list which shows wh
  - [ ] Send Grid
  - [ ] Unit Tests
 - Deployment
- - [ ] Build Server
- - [ ] Deployment Server
- - [ ] Automatic Versioning
+ - [x] Appveyor
+ - [x] Automatic Versioning
 - Azure
  - [ ] Resource Template
  - [ ] Dedicated Back Office
