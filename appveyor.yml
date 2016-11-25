@@ -43,6 +43,7 @@ build:
   # Build solution
   project: src\%app_solutionname%.sln
   publish_wap: true
+  verbosity: quiet
 
 deploy:
   # Deploy to Azure App Service
