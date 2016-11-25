@@ -4,13 +4,6 @@ pull_requests:
   do_not_increment_build_number: true
   
 configuration: Release
-  
-environment:
-  # Merged with project settings on ci.appveyor.com
-  app_solutionname: 
-  as_name:
-  as_username:
-  as_password:
 
 assembly_info:
   # Version our assemblies
@@ -22,37 +15,25 @@ assembly_info:
   
 install:
   # Restore nuget packages
-  - cmd: tools\NuGet\nuget.exe restore src\%app_solutionname%.sln
+  - cmd: tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
   
   # Install latest version of NodeJS
   - ps: Install-Product node Stable
   
   # Install NodeJS and Bower packages
-  - cmd: cd src\%app_solutionname%.UI
+  - cmd: cd src\AgeBaseTemplate.UI
   - cmd: npm install
   - cmd: node_modules\.bin\bower -s install
   - cmd: cd ..\..
   
 before_build:
   # Run default gulp task to compile sass and js files
-  - cmd: cd src\%app_solutionname%.UI
+  - cmd: cd src\AgeBaseTemplate.UI
   - cmd: node_modules\.bin\gulp
   - cmd: cd ..\..
   
 build:
   # Build solution
-  project: src\%app_solutionname%.sln
+  project: src\AgeBaseTemplate.sln
   publish_wap: true
   verbosity: quiet
-
-deploy:
-  # Deploy to Azure App Service
-  provider: WebDeploy
-  server: https://%as_name%.scm.azurewebsites.net:443/msdeploy.axd?site=%as_name%
-  website: '%as_name%'
-  username: '%as_username%'
-  password: '%as_password%'
-  ntlm: false
-  remove_files: true
-  on:
-    branch: master
