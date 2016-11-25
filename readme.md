@@ -54,6 +54,7 @@ The project is a work in progress. We have a desired feature list which shows wh
  - [ ] Unit Tests
 - Deployment
  - [x] Appveyor
+ - [x] Slack Notifications
  - [x] Continuous Deployment
  - [ ] Database Restore
  - [ ] Media Restore
