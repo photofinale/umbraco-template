@@ -2,7 +2,7 @@
 
 **AgeBase Umbraco Template** is a hopefully handy template for creating Umbraco web applications. It includes your usual Umbraco features and also some nice extra features. Things like automated deployments, strongly typed models, donut caching, gulp scripts and Azure hosting. We've also added some handy scripts to managed Umbraco databases and setting up a development machine to run the template.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/dlobf6uriobpafk7/branch/master?svg=true)](https://ci.appveyor.com/project/AgeBase/umbraco-template/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/xu7qpbvmvlimlaew/branch/master?svg=true)](https://ci.appveyor.com/project/AgeBase/umbraco-template/branch/master)
 
 ### Features
 
@@ -56,7 +56,7 @@ The project is a work in progress. We have a desired feature list which shows wh
  - [x] Appveyor
  - [x] Slack Notifications
  - [x] Continuous Deployment
- - [ ] Database Restore
+ - [x] Database Restore
  - [ ] Media Restore
  - [x] Automatic Versioning
 - Azure
