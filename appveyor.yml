@@ -5,6 +5,10 @@ pull_requests:
   
 configuration: Release
 
+environment:
+  db_connection_string:
+    secure: +DIDH52aBG6Li/i6YUqG7jhVsSq3KsmF/svHHVz0CxgtB1Olp/hSdB60DK97hHoi112vZN/AJ8zQz8YHh2gCnxmnqcH21CproZdR8IjazdS0oESQhGcrpVwmSie9NeEMaey4iiETwtYW28Xwe4g12VNz73VC1m3tOvj/LziZe/8tfvN6/FTJ1GIsVmKIiC2dSQn3tWqlGYEvsyv7C96QhbJjGeg9kxICWFHer0TwoLAR1aqP4i7YLJC9zzlq56e5gFrvxPL5nZb5B+gtJ/97PT2ulG37VZb56JJQoomZu/AwhVoLexkTrN/wlyZEMpn9Yauqdy69xnhpz8XxnPo/sQ==
+
 assembly_info:
   # Version our assemblies
   patch: true
@@ -38,16 +42,21 @@ build:
   publish_wap: true
   verbosity: quiet
   
+before_deploy:
+  # Restore database back to template
+  - cmd: tools\RestoreScript\RestoreScript "%db_connection_string%" "src\AgeBaseTemplate.Database\Database.sql"
+  
 deploy:
   # Use this for continuous deployment
-- provider: Environment
-  name: as-agebasetemplate
+  - provider: Environment
+    name: as-agebasetemplate
   
 notifications:
-- provider: Slack
-  incoming_webhook: 
-    secure: NAeYrmEeVDh5XkM+mloGFWSz3nLL02UTfaDmcytAZH0xytVxI8XHXilaNuGsG1SRAcR5J54LCp8K3twYWyyl6y2nxK5y0Q63zdux+tBBBls=
-  channel: '#appveyor'
-  on_build_success: true
-  on_build_failure: true
-  on_build_status_changed: false
+  # Notify channel of build
+  - provider: Slack
+    incoming_webhook: 
+      secure: NAeYrmEeVDh5XkM+mloGFWSz3nLL02UTfaDmcytAZH0xytVxI8XHXilaNuGsG1SRAcR5J54LCp8K3twYWyyl6y2nxK5y0Q63zdux+tBBBls=
+    channel: '#appveyor'
+    on_build_success: true
+    on_build_failure: true
+    on_build_status_changed: false
