@@ -27,38 +27,38 @@ The project is a work in progress. We have a desired feature list which shows wh
  - [ ] Site Messages
  - [ ] Multiple Sites
 - Web
- - [x] Domain Manager
- - [x] Robots.txt
+ - [x] [Domain Manager](src/AgeBaseTemplate/app_plugins/AgeBase.DomainManager)
+ - [x] [Robots.txt](src/AgeBaseTemplate/robots.txt)
  - [ ] Sitemap.xml
  - [ ] Favicon
  - [ ] Donut Caching
- - [x] Http Compression
- - [x] Force Https
- - [x] Force Remove Www
- - [x] Force Trailing Slash
- - [x] Mime Types
+ - [x] [Http Compression](src/AgeBaseTemplate/web.config#L347)
+ - [x] [Force Https](src/AgeBaseTemplate/web.config#L358)
+ - [x] [Force Remove WWW](src/AgeBaseTemplate/web.config#L365)
+ - [x] [Force Trailing Slash](src/AgeBaseTemplate/web.config#L372)
+ - [x] [Mime Types](src/AgeBaseTemplate/web.config#L298)
 - UI
- - [x] Gulp
- - [x] Bower
+ - [x] [Gulp](src/AgeBaseTemplate.UI/gulpfile.js)
+ - [x] [Bower](src/AgeBaseTemplate.UI/bower.json)
  - [ ] Sass
  - [ ] JavaScript
  - [ ] Compression
  - [ ] Minification
  - [ ] Unit Tests
 - Core
- - [x] uSync
- - [x] Models Builder
- - [x] Core Value Converters
- - [x] Simple Injector
+ - [x] [uSync](src/AgeBaseTemplate/usync/data)
+ - [x] [Models Builder](src/AgeBaseTemplate.Core/ContentTypes)
+ - [x] [Core Value Converters](src/AgeBaseTemplate.Core/packages.config#L33)
+ - [x] [Simple Injector](src/AgeBaseTemplate.Core/Global/GlobalApplication.cs#L24)
  - [ ] Send Grid
  - [ ] Unit Tests
 - Deployment
- - [x] Appveyor
- - [x] Slack Notifications
- - [x] Continuous Deployment
- - [x] Database Restore
+ - [x] [Appveyor](appveyor.yml)
+ - [x] [Slack Notifications](appveyor.yml#L56)
+ - [x] [Continuous Deployment](appveyor.yml#L51)
+ - [x] [Database Restore](appveyor.yml#L47)
  - [ ] Media Restore
- - [x] Automatic Versioning
+ - [x] [Automatic Versioning](appveyor.yml#L12)
 - Azure
  - [ ] Resource Template
  - [ ] Dedicated Back Office
@@ -70,9 +70,9 @@ The project is a work in progress. We have a desired feature list which shows wh
  - [ ] Alerts
  - [ ] Backups
 - Misc
- - [x] Clean Script
- - [x] Database Backup Script
- - [x] Database Clean Script
- - [x] Database Drop Script
- - [x] Database Restore Script
+ - [x] [Clean Script](scripts/Repo.Clean.bat)
+ - [x] [Database Backup Script](scripts/Database.Backup.bat)
+ - [x] [Database Clean Script](scripts/Database.Clean.bat)
+ - [x] [Database Drop Script](scripts/Database.Drop.bat)
+ - [x] [Database Restore Script](scripts/Database.Restore.bat)
  - [ ] Setup Script
