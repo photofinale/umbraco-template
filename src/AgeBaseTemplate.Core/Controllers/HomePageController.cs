@@ -2,6 +2,7 @@
 using AgeBaseTemplate.Core.ContentTypes;
 using AgeBaseTemplate.Core.Models.Implementations;
 using AgeBaseTemplate.Core.Services;
+using DevTrends.MvcDonutCaching;
 
 namespace AgeBaseTemplate.Core.Controllers
 {
@@ -15,7 +16,8 @@ namespace AgeBaseTemplate.Core.Controllers
             _logService = logService;
             _masterPageService = masterPageService;
         }
-        
+
+        [DonutOutputCache(CacheProfile = "OneDay")]
         public ActionResult HomePage()
         {
             _logService.Debug<HomePageController>("HomePage");

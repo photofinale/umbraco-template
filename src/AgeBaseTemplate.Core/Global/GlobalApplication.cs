@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Web;
 using System.Web.Mvc;
 using AgeBaseTemplate.Core.Controllers;
 using AgeBaseTemplate.Core.Services;
@@ -32,6 +33,14 @@ namespace AgeBaseTemplate.Core.Global
             container.Verify();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+        }
+
+        public override string GetVaryByCustomString(HttpContext context, string custom)
+        {
+            if (!custom.ToLower().Equals("url"))
+                return base.GetVaryByCustomString(context, custom);
+
+            return "url=" + context.Request.Url.AbsoluteUri;
         }
     }
 }
