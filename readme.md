@@ -62,7 +62,7 @@ The project is a work in progress. We have a desired feature list which shows wh
 - Azure
  - [ ] Resource Template
  - [ ] Dedicated Back Office
- - [ ] Load Balancing
+ - [x] [Load Balancing]()
  - [ ] Media CDN
  - [ ] Assets CDN
  - [ ] Examine CDN
