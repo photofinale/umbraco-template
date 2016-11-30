@@ -32,12 +32,12 @@ The project is a work in progress. We have a desired feature list which shows wh
  - [x] [Robots.txt](src/AgeBaseTemplate/robots.txt)
  - [ ] Sitemap.xml
  - [ ] Favicon
- - [x] [Output Caching](src/AgeBaseTemplate/web.config#L77)
- - [x] [Http Compression](src/AgeBaseTemplate/web.config#L355)
- - [x] [Force Https](src/AgeBaseTemplate/web.config#L382)
- - [x] [Force Remove WWW](src/AgeBaseTemplate/web.config#L389)
- - [x] [Force Trailing Slash](src/AgeBaseTemplate/web.config#L396)
- - [x] [Mime Types](src/AgeBaseTemplate/web.config#L306)
+ - [x] [Output Caching](src/AgeBaseTemplate/web.config#L78)
+ - [x] [Http Compression](src/AgeBaseTemplate/web.config#L356)
+ - [x] [Force Https](src/AgeBaseTemplate/web.config#L383)
+ - [x] [Force Remove WWW](src/AgeBaseTemplate/web.config#L390)
+ - [x] [Force Trailing Slash](src/AgeBaseTemplate/web.config#L397)
+ - [x] [Mime Types](src/AgeBaseTemplate/web.config#L307)
 - UI
  - [x] [Gulp](src/AgeBaseTemplate.UI/gulpfile.js)
  - [x] [Bower](src/AgeBaseTemplate.UI/bower.json)
