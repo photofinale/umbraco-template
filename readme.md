@@ -26,6 +26,7 @@ The project is a work in progress. We have a desired feature list which shows wh
  - [ ] Site Redirects
  - [ ] Site Messages
  - [ ] Multiple Sites
+ - [ ] Multiple Languages
 - Web
  - [x] [Domain Manager](src/AgeBaseTemplate/app_plugins/AgeBase.DomainManager)
  - [x] [Robots.txt](src/AgeBaseTemplate/robots.txt)
