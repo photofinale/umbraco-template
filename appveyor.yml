@@ -16,14 +16,14 @@ assembly_info:
   
 install:
   # Restore nuget packages
-  - cmd: tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
+  - cmd: tools\NuGet\nuget.exe restore -verbosity quiet src\AgeBaseTemplate.sln
   
   # Install latest version of NodeJS
   - ps: Install-Product node Stable
   
   # Install NodeJS and Bower packages
   - cmd: cd src\AgeBaseTemplate.UI
-  - cmd: npm install
+  - cmd: npm install -s
   - cmd: node_modules\.bin\bower -s install
   - cmd: cd ..\..
   
