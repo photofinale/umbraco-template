@@ -6,4 +6,4 @@
 
 ### Features
 
-This project is a work in progress. We have a desired feature list which shows what we've completed so far. If you'd like to add a feature suggestion, please create an issue or even better, send the repository a pull request. To view what has been completed so far, please visit our [projects page](../../projects/1).
+This project is a work in progress. We have a desired feature list which shows what we've completed so far. If you'd like to add a feature suggestion, please create an issue or even better, send the repository a pull request. To view what has been completed so far, please visit our [project page](../../projects/1).
