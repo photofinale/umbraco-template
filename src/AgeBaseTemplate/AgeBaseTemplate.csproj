@@ -137,6 +137,10 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeAnalysis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.CodeAnalysis.Common.1.0.0\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
@@ -152,6 +156,18 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
       <Private>True</Private>
@@ -176,6 +192,10 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=6.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.6.2.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MiniProfiler, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
       <HintPath>..\packages\MiniProfiler.2.1.0\lib\net40\MiniProfiler.dll</HintPath>
       <Private>True</Private>
@@ -186,6 +206,10 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Our.Umbraco.AzureLogger.Core, Version=0.2.0.144, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Our.Umbraco.AzureLogger.0.2.0-beta\lib\net45\Our.Umbraco.AzureLogger.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -221,6 +245,10 @@
     <Reference Include="System.Reflection.Metadata, Version=1.0.21.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Reflection.Metadata.1.0.21\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
@@ -326,6 +354,23 @@
     <Content Include="app_plugins\AgeBase.DomainManager\Index.Controller.js" />
     <Content Include="app_plugins\AgeBase.DomainManager\Index.css" />
     <Content Include="app_plugins\AgeBase.DomainManager\Index.html" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\AzureLoggerResource.js" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\AzureLoggerTree\ViewLog.css" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\AzureLoggerTree\ViewLog.html" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\AzureLoggerTree\WipeLog.html" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\Controllers\ViewLogController.js" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\Controllers\WipeLogController.js" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\AutoCompleteDirective.css" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\AutoCompleteDirective.js" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\EnterKeyDirective.js" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\LazyLoadDirective.js" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\MonitorWidthDirective.js" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\SelectPlaceholderDirective.js" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\Filters\HighlightFilter.css" />
+    <Content Include="app_plugins\AzureLogger\BackOffice\Filters\HighlightFilter.js" />
+    <Content Include="app_plugins\AzureLogger\Install\Configurator\Controllers\Configure.js" />
+    <Content Include="app_plugins\AzureLogger\Install\Configurator\Views\Configure.ascx" />
+    <Content Include="app_plugins\AzureLogger\Install\umbraco-azure-logger-32.png" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -383,12 +428,6 @@
     <Content Include="config\404handlers.config" />
     <Content Include="app_plugins\ModelsBuilder\package.manifest" />
     <Content Include="app_plugins\AgeBase.DomainManager\Package.manifest" />
-    <None Include="config\log4net.Debug.config">
-      <DependentUpon>log4net.config</DependentUpon>
-    </None>
-    <None Include="config\log4net.Release.config">
-      <DependentUpon>log4net.config</DependentUpon>
-    </None>
     <Content Include="views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="views\Partials\Grid\Editors\Rte.cshtml" />
     <Content Include="views\Partials\Grid\Editors\Media.cshtml" />
@@ -404,6 +443,9 @@
     <Content Include="config\tinyMceConfig.config" />
     <Content Include="config\scripting.config" />
     <Content Include="config\metablogConfig.config" />
+    <Content Include="app_plugins\AzureLogger\Install\log4net.config.install.xdt" />
+    <Content Include="app_plugins\AzureLogger\Install\web.config.install.xdt" />
+    <Content Include="app_plugins\AzureLogger\package.manifest" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -471,7 +513,6 @@
   </Target>
   <Import Project="..\packages\uSync.3.2.2.740\build\uSync.targets" Condition="Exists('..\packages\uSync.3.2.2.740\build\uSync.targets')" />
   <Target Name="BeforeBuild">
-    <TransformXml Source="config\log4net.config" Transform="config\log4net.$(Configuration).config" Destination="config\log4net.config" />
     <Copy SourceFiles="robots.$(Configuration).txt" DestinationFiles="robots.txt" />
     <TransformXml Source="web.config" Transform="web.$(Configuration).config" Destination="web.config" />
   </Target>
