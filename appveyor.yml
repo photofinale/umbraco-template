@@ -23,7 +23,7 @@ install:
   
   # Install NodeJS and Bower packages
   - cmd: cd src\AgeBaseTemplate.UI
-  - cmd: npm -s install
+  - cmd: npm --silent install
   - cmd: node_modules\.bin\bower -s install
   - cmd: cd ..\..
   
