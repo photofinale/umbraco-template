@@ -16,7 +16,7 @@ assembly_info:
   
 install:
   # Restore nuget packages
-  - cmd: tools\NuGet\nuget.exe restore -verbosity quiet src\AgeBaseTemplate.sln
+  - cmd: nuget restore -verbosity quiet src\AgeBaseTemplate.sln
   
   # Install latest version of NodeJS
   - ps: Install-Product node Stable
