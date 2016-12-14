@@ -818,9 +818,9 @@ INSERT [dbo].[cmsContentType] ([pk], [nodeId], [alias], [icon], [thumbnail], [de
 GO
 INSERT [dbo].[cmsContentType] ([pk], [nodeId], [alias], [icon], [thumbnail], [description], [isContainer], [allowAtRoot]) VALUES (532, 1031, N'Folder', N'icon-folder', N'icon-folder', NULL, 0, 1)
 GO
-INSERT [dbo].[cmsContentType] ([pk], [nodeId], [alias], [icon], [thumbnail], [description], [isContainer], [allowAtRoot]) VALUES (533, 1032, N'Image', N'icon-picture', N'icon-picture', NULL, 0, 0)
+INSERT [dbo].[cmsContentType] ([pk], [nodeId], [alias], [icon], [thumbnail], [description], [isContainer], [allowAtRoot]) VALUES (533, 1032, N'Image', N'icon-picture', N'icon-picture', N'', 0, 0)
 GO
-INSERT [dbo].[cmsContentType] ([pk], [nodeId], [alias], [icon], [thumbnail], [description], [isContainer], [allowAtRoot]) VALUES (534, 1033, N'File', N'icon-document', N'icon-document', NULL, 0, 0)
+INSERT [dbo].[cmsContentType] ([pk], [nodeId], [alias], [icon], [thumbnail], [description], [isContainer], [allowAtRoot]) VALUES (534, 1033, N'File', N'icon-document', N'icon-document', N'', 0, 0)
 GO
 INSERT [dbo].[cmsContentType] ([pk], [nodeId], [alias], [icon], [thumbnail], [description], [isContainer], [allowAtRoot]) VALUES (535, 1047, N'homePage', N'icon-home', N'folder.png', NULL, 0, 1)
 GO
@@ -835,11 +835,11 @@ GO
 SET IDENTITY_INSERT [dbo].[cmsContentVersion] ON 
 
 GO
-INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (1, 1048, N'db12570f-1428-4264-803b-f1edd6697f8e', CAST(N'2016-09-28 14:44:53.180' AS DateTime))
+INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (1, 1048, N'db12570f-1428-4264-803b-f1edd6697f8e', CAST(N'2016-11-29 21:09:57.527' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[cmsContentVersion] OFF
 GO
-INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1048, N'<homePage id="1048" key="4d4630a5-185c-4cbc-8dbf-2505122da3a2" parentID="-1" level="1" creatorID="0" sortOrder="0" createDate="2016-09-28T14:44:53" updateDate="2016-09-28T14:44:53" nodeName="Home" urlName="home" path="-1,1048" isDoc="" nodeType="1047" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="1046" nodeTypeAlias="homePage" />')
+INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1048, N'<homePage id="1048" key="4d4630a5-185c-4cbc-8dbf-2505122da3a2" parentID="-1" level="1" creatorID="0" sortOrder="0" createDate="2016-09-28T14:44:53" updateDate="2016-11-29T21:09:57" nodeName="Home" urlName="home" path="-1,1048" isDoc="" nodeType="1047" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="1046" nodeTypeAlias="homePage" />')
 GO
 SET IDENTITY_INSERT [dbo].[cmsDataType] ON 
 
@@ -923,30 +923,30 @@ INSERT [dbo].[cmsDataTypePreValues] ([id], [datatypeNodeId], [value], [sortorder
 GO
 SET IDENTITY_INSERT [dbo].[cmsDataTypePreValues] OFF
 GO
-INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1048, 1, 0, N'db12570f-1428-4264-803b-f1edd6697f8e', N'Home', NULL, NULL, CAST(N'2016-09-28 14:44:53.180' AS DateTime), 1046, 1)
+INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1048, 1, 0, N'db12570f-1428-4264-803b-f1edd6697f8e', N'Home', NULL, NULL, CAST(N'2016-11-29 21:09:57.527' AS DateTime), 1046, 1)
 GO
 INSERT [dbo].[cmsDocumentType] ([contentTypeNodeId], [templateNodeId], [IsDefault]) VALUES (1047, 1046, 1)
 GO
-INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1048, N'db12570f-1428-4264-803b-f1edd6697f8e', CAST(N'2016-09-28 14:44:53.243' AS DateTime), N'<homePage id="1048" key="4d4630a5-185c-4cbc-8dbf-2505122da3a2" parentID="-1" level="1" creatorID="0" sortOrder="0" createDate="2016-09-28T14:44:53" updateDate="2016-09-28T14:44:53" nodeName="Home" urlName="home" path="-1,1048" isDoc="" nodeType="1047" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="1046" nodeTypeAlias="homePage" />')
+INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1048, N'db12570f-1428-4264-803b-f1edd6697f8e', CAST(N'2016-11-29 21:09:57.550' AS DateTime), N'<homePage id="1048" key="4d4630a5-185c-4cbc-8dbf-2505122da3a2" parentID="-1" level="1" creatorID="0" sortOrder="0" createDate="2016-09-28T14:44:53" updateDate="2016-11-29T21:09:57" nodeName="Home" urlName="home" path="-1,1048" isDoc="" nodeType="1047" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="1046" nodeTypeAlias="homePage" />')
 GO
 SET IDENTITY_INSERT [dbo].[cmsPropertyType] ON 
 
 GO
-INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (6, 1043, 1032, 3, N'umbracoFile', N'Upload image', 0, 0, NULL, NULL, N'00000006-0000-0000-0000-000000000000')
+INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (6, 1043, 1032, 3, N'umbracoFile', N'Upload image', 0, 0, N'', N'', N'00000006-0000-0000-0000-000000000000')
 GO
-INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (7, -92, 1032, 3, N'umbracoWidth', N'Width', 0, 0, NULL, NULL, N'00000007-0000-0000-0000-000000000000')
+INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (7, -92, 1032, 3, N'umbracoWidth', N'Width', 1, 0, N'', N'', N'00000007-0000-0000-0000-000000000000')
 GO
-INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (8, -92, 1032, 3, N'umbracoHeight', N'Height', 0, 0, NULL, NULL, N'00000008-0000-0000-0000-000000000000')
+INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (8, -92, 1032, 3, N'umbracoHeight', N'Height', 2, 0, N'', N'', N'00000008-0000-0000-0000-000000000000')
 GO
-INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (9, -92, 1032, 3, N'umbracoBytes', N'Size', 0, 0, NULL, NULL, N'00000009-0000-0000-0000-000000000000')
+INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (9, -92, 1032, 3, N'umbracoBytes', N'Size', 3, 0, N'', N'', N'00000009-0000-0000-0000-000000000000')
 GO
-INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (10, -92, 1032, 3, N'umbracoExtension', N'Type', 0, 0, NULL, NULL, N'0000000a-0000-0000-0000-000000000000')
+INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (10, -92, 1032, 3, N'umbracoExtension', N'Type', 4, 0, N'', N'', N'0000000a-0000-0000-0000-000000000000')
 GO
-INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (24, -90, 1033, 4, N'umbracoFile', N'Upload file', 0, 0, NULL, NULL, N'00000018-0000-0000-0000-000000000000')
+INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (24, -90, 1033, 4, N'umbracoFile', N'Upload file', 0, 0, N'', N'', N'00000018-0000-0000-0000-000000000000')
 GO
-INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (25, -92, 1033, 4, N'umbracoExtension', N'Type', 0, 0, NULL, NULL, N'00000019-0000-0000-0000-000000000000')
+INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (25, -92, 1033, 4, N'umbracoExtension', N'Type', 1, 0, N'', N'', N'00000019-0000-0000-0000-000000000000')
 GO
-INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (26, -92, 1033, 4, N'umbracoBytes', N'Size', 0, 0, NULL, NULL, N'0000001a-0000-0000-0000-000000000000')
+INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (26, -92, 1033, 4, N'umbracoBytes', N'Size', 2, 0, N'', N'', N'0000001a-0000-0000-0000-000000000000')
 GO
 INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (27, -96, 1031, 5, N'contents', N'Contents:', 0, 0, NULL, NULL, N'0000001b-0000-0000-0000-000000000000')
 GO
@@ -994,10 +994,19 @@ INSERT [dbo].[cmsTemplate] ([pk], [nodeId], [alias], [design]) VALUES (1, 1046, 
 }
 @inherits UmbracoViewPage<MasterPage<HomePage>>')
 GO
-INSERT [dbo].[cmsTemplate] ([pk], [nodeId], [alias], [design]) VALUES (2, 1049, N'BasePage', N'@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-@{
-	Layout = null;
-}')
+INSERT [dbo].[cmsTemplate] ([pk], [nodeId], [alias], [design]) VALUES (2, 1049, N'BasePage', N'@inherits UmbracoViewPage<IMasterPage>
+<!doctype html>
+<html lang="@Culture">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>
+<!-- @DateTime.Now.ToUniversalTime() -->')
 GO
 SET IDENTITY_INSERT [dbo].[cmsTemplate] OFF
 GO
@@ -1014,6 +1023,8 @@ GO
 INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (1, N'Umbraco', CAST(N'2016-09-20 10:32:05.103' AS DateTime), N'7.5.3')
 GO
 INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (2, N'Umbraco', CAST(N'2016-10-21 17:40:56.470' AS DateTime), N'7.5.4')
+GO
+INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (3, N'Umbraco', CAST(N'2016-12-07 15:05:09.803' AS DateTime), N'7.5.6')
 GO
 SET IDENTITY_INSERT [dbo].[umbracoMigration] OFF
 GO
@@ -1106,7 +1117,7 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] ON 
 
 GO
-INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userType], [startStructureID], [startMediaID], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate]) VALUES (0, 0, 0, 1, -1, -1, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2016-10-21 17:45:59.293' AS DateTime))
+INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userType], [startStructureID], [startMediaID], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate]) VALUES (0, 0, 0, 1, -1, -1, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2016-12-07 15:05:00.043' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] OFF
 GO

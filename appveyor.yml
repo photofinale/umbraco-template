@@ -1,11 +1,13 @@
 version: 0.0.{build}
-
-pull_requests:
-  do_not_increment_build_number: true
   
 configuration: Release
 
+environment:
+  db_connection_string:
+    secure: G5XvTcAaSK4Ekd1tofzVwUQhr/n7DF1qtaAhbcjKm2NEU4EBgM/cqNdgz0fwMMdhIho0WRhBaw5VPMSVVRcIKghLgWCU9Aj/Wtpz2dgXqIqFzCy4jrOxMtSv2zVfJfbqqWs1DDbPK6Qc4qhlExUUYIM2TM9CDvs8hX++7+68j08BNGB9bGdivQssT6Plj7cL/waGMkxKCJ0FSF+qy72yu/bUcoEDA2YiJR39Ko/2zzynw81TpKVH71NxCR68Pd2I6zBc6nGvYCmy/T5nXchp+sOqJsxhwJ7DOYGgaKSeVgvFx5hOKu7fpJFgseNJb8w96OeHVDBZXQe5JvloPR1tmg==
+
 assembly_info:
+  # Version our assemblies
   patch: true
   file: '**\AssemblyInfo.*'
   assembly_version: '{version}'
@@ -14,14 +16,14 @@ assembly_info:
   
 install:
   # Restore nuget packages
-  - cmd: tools\NuGet\nuget.exe restore src\AgeBaseTemplate.sln
+  - cmd: nuget restore -verbosity quiet src\AgeBaseTemplate.sln
   
   # Install latest version of NodeJS
   - ps: Install-Product node Stable
   
   # Install NodeJS and Bower packages
   - cmd: cd src\AgeBaseTemplate.UI
-  - cmd: npm install
+  - cmd: npm --silent install
   - cmd: node_modules\.bin\bower -s install
   - cmd: cd ..\..
   
@@ -36,16 +38,22 @@ build:
   project: src\AgeBaseTemplate.sln
   publish_wap: true
   verbosity: quiet
-
+  
+before_deploy:
+  # Restore database back to template
+  - cmd: tools\RestoreScript\RestoreScript "%db_connection_string%" "src\AgeBaseTemplate.Database\Database.sql"
+  
 deploy:
-  # Deploy to Azure App Service
-  provider: WebDeploy
-  server: https://as-agebasetemplate.scm.azurewebsites.net:443/msdeploy.axd?site=as-agebasetemplate
-  website: as-agebasetemplate
-  username: $as-agebasetemplate
-  password:
-    secure: 39Pr/uaKTmwVaWsGVe4tiFN8vp9RF0nDVm84iu3tv/zXIW0ZL8yoQLk5RjYKLAxbscEiS6GKq73OaJBkw877aA==
-  ntlm: false
-  remove_files: true
-  on:
-    branch: master
+  # Use this for continuous deployment
+  - provider: Environment
+    name: as-agebasetemplate
+  
+notifications:
+  # Notify channel of build
+  - provider: Slack
+    incoming_webhook: 
+      secure: NAeYrmEeVDh5XkM+mloGFWSz3nLL02UTfaDmcytAZH0xytVxI8XHXilaNuGsG1SRAcR5J54LCp8K3twYWyyl6y2nxK5y0Q63zdux+tBBBls=
+    channel: '#appveyor'
+    on_build_success: true
+    on_build_failure: true
+    on_build_status_changed: false
