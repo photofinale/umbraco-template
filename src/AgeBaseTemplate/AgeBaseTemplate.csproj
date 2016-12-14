@@ -525,6 +525,9 @@
   <Target Name="BeforeBuild">
     <Copy SourceFiles="robots.$(Configuration).txt" DestinationFiles="robots.txt" />
     <TransformXml Source="web.config" Transform="web.$(Configuration).config" Destination="web.config" />
+	<ItemGroup>
+	  <Content Include="css\*.*" />
+	</ItemGroup>
   </Target>
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <Import Project="..\packages\UmbracoCms.7.5.6\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.5.6\build\UmbracoCms.targets')" />
