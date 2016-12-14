@@ -47,6 +47,8 @@ deploy:
   # Use this for continuous deployment
   - provider: Environment
     name: as-agebasetemplate
+    on:
+      branch: master
   
 notifications:
   # Notify channel of build
