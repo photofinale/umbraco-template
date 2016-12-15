@@ -29,7 +29,7 @@ install:
 before_build:
   # Run default gulp task to compile sass and js files
   - cmd: cd src\AgeBaseTemplate.UI
-  - cmd: node_modules\.bin\gulp
+  - cmd: node_modules\.bin\gulp release
   - cmd: cd ..\..
   
 build:
