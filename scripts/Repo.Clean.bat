@@ -36,14 +36,9 @@ IF "%isAdmin%" == "1" (
 		rmdir /s /q "src\AgeBaseTemplate.UI\bower_components" > NUL
 	)
 
-	ECHO Installing node modules... 
+	ECHO Installing node and bower packages... 
 	cd src\AgeBaseTemplate.UI > NUL
 	call npm -s install > NUL
-	cd ..\..\ > NUL
-
-	ECHO Installing bower components... 
-	cd src\AgeBaseTemplate.UI > NUL
-	call node_modules\.bin\bower -s install > NUL
 	cd ..\..\ > NUL
 
 	ECHO Running gulp... 

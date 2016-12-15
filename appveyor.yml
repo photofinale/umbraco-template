@@ -21,10 +21,9 @@ install:
   # Install latest version of NodeJS
   - ps: Install-Product node Stable
   
-  # Install NodeJS and Bower packages
+  # Install Node and Bower packages
   - cmd: cd src\AgeBaseTemplate.UI
-  - cmd: npm --silent install
-  - cmd: node_modules\.bin\bower -s install
+  - cmd: npm install
   - cmd: cd ..\..
   
 before_build:
@@ -37,7 +36,6 @@ build:
   # Build solution
   project: src\AgeBaseTemplate.sln
   publish_wap: true
-  verbosity: quiet
   
 before_deploy:
   # Restore database back to template
