@@ -11,6 +11,8 @@ namespace AgeBaseTemplate.Core.Services.Implementations
                 ? $"{method}: {message}" 
                 : method;
 
+            output = output.Replace("{", "{{").Replace("}", "}}");
+
             LogHelper.Debug<T>(output);
         }
 
@@ -19,6 +21,8 @@ namespace AgeBaseTemplate.Core.Services.Implementations
             var output = !string.IsNullOrWhiteSpace(message) 
                 ? $"{method}: {message}"
                 : method;
+
+            output = output.Replace("{", "{{").Replace("}", "}}");
 
             LogHelper.Error<T>(output, ex);
         }
