@@ -14,7 +14,7 @@ This project is a work in progress. We have a desired feature list which shows w
  - [x] [Output Caching](src/AgeBaseTemplate/web.config#L82)
  - [x] [Http Compression](src/AgeBaseTemplate/web.config#L358)
  - [x] [Force Https](src/AgeBaseTemplate/web.config#L385)
- - [x] [Force Remove WWW](src/AgeBaseTemplate/web.config#L382)
+ - [x] [Force Remove WWW](src/AgeBaseTemplate/web.config#L392)
  - [x] [Force Trailing Slash](src/AgeBaseTemplate/web.config#L399)
  - [x] [Mime Types](src/AgeBaseTemplate/web.config#L309)
 - UI
