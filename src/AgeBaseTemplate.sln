@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgeBaseTemplate", "AgeBaseTemplate\AgeBaseTemplate.csproj", "{8C77EE90-1D86-49D3-A2C0-C6A6663374D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgeBaseTemplate.Tests", "..\tests\AgeBaseTemplate.Core.Tests\AgeBaseTemplate.Core.Tests.csproj", "{32C081EC-0362-4B95-8A0D-08E5DEB373B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgeBaseTemplate.Core.Tests", "..\tests\AgeBaseTemplate.Core.Tests\AgeBaseTemplate.Core.Tests.csproj", "{32C081EC-0362-4B95-8A0D-08E5DEB373B5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E279A4E9-CF0B-4E22-BDD8-3B87504015BE}"
 EndProject
