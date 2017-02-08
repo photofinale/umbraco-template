@@ -537,6 +537,7 @@
     <TransformXml Source="web.config" Transform="web.$(Configuration).config" Destination="web.config" />
     <ItemGroup>
       <Content Include="css\*.*" />
+      <Content Include="js\*.*" />
     </ItemGroup>
   </Target>
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
