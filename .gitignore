@@ -298,3 +298,4 @@ __pycache__/
 bower_components
 node_modules
 src/AgeBaseTemplate/css/
+src/AgeBaseTemplate/js/

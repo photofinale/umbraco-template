@@ -21,6 +21,10 @@ This project is a work in progress. We have a desired feature list which shows w
  - [x] [Gulp](src/AgeBaseTemplate.UI/gulpfile.js)
  - [x] [Bower](src/AgeBaseTemplate.UI/bower.json)
  - [x] [Sass](src/AgeBaseTemplate.UI/sass)
+ - [x] [Js](src/AgeBaseTemplate.UI/js)
+ - [x] [Source Maps](src/AgeBaseTemplate.UI/gulpfile.js#L21)
+ - [x] [Minification](src/AgeBaseTemplate.UI/gulpfile.js#L37)
+ - [x] [Compression](src/AgeBaseTemplate.UI/gulpfile.js#L42)
 - Core
  - [x] [uSync](src/AgeBaseTemplate/usync/data)
  - [x] [Models Builder](src/AgeBaseTemplate.Core/ContentTypes)
