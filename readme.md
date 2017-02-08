@@ -20,6 +20,7 @@ This project is a work in progress. We have a desired feature list which shows w
 - UI
  - [x] [Gulp](src/AgeBaseTemplate.UI/gulpfile.js)
  - [x] [Bower](src/AgeBaseTemplate.UI/bower.json)
+ - [x] [Sass](src/AgeBaseTemplate.UI/sass)
 - Core
  - [x] [uSync](src/AgeBaseTemplate/usync/data)
  - [x] [Models Builder](src/AgeBaseTemplate.Core/ContentTypes)
