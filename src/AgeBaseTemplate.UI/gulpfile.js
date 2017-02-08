@@ -14,5 +14,12 @@ gulp.task('debug', function() {
 gulp.task('release', function() {
     return gulp.src('sass/**/*.scss')
         .pipe($.sass().on('error', $.sass.logError))
+        .pipe($.cleanCss({
+            level: {
+                1: {
+                    specialComments: 'remove'
+                }
+            }
+        }))
         .pipe(gulp.dest('../AgeBaseTemplate/css'));
 });
