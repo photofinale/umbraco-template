@@ -4,7 +4,7 @@
 @import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
 
 // 2. Vendors
-@import 'vendor/normalize', '../bower_components/bootstrap/dist/css/bootstrap';
+@import '../bower_components/responsive/src/sass/responsive';
 
 // 3. Base stuff
 @import 'base/base', 'base/fonts', 'base/typography', 'base/helpers';
