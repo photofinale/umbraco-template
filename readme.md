@@ -30,6 +30,7 @@ This project is a work in progress. We have a desired feature list which shows w
  - [x] [Models Builder](src/AgeBaseTemplate.Core/ContentTypes)
  - [x] [Core Value Converters](src/AgeBaseTemplate.Core/packages.config#L35)
  - [x] [Simple Injector](src/AgeBaseTemplate.Core/Global/GlobalApplication.cs#L25)
+ - [x] [Unit Tests](tests/AgeBaseTemplate.Core.Tests)
 - Deployment
  - [x] [Appveyor](appveyor.yml)
  - [x] [Slack Notifications](appveyor.yml#L53)

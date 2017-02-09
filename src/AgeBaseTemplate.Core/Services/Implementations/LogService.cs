@@ -1,10 +1,17 @@
 ﻿using System;
-using Umbraco.Core.Logging;
+using AgeBaseTemplate.Core.Wrappers;
 
 namespace AgeBaseTemplate.Core.Services.Implementations
 {
     public class LogService : ILogService
     {
+        private readonly ILogHelper _logHelper;
+
+        public LogService(ILogHelper logHelper)
+        {
+            _logHelper = logHelper;
+        }
+
         public virtual void Debug<T>(string method, string message = null)
         {
             var output = !string.IsNullOrWhiteSpace(message) 
@@ -13,7 +20,7 @@ namespace AgeBaseTemplate.Core.Services.Implementations
 
             output = output.Replace("{", "{{").Replace("}", "}}");
 
-            LogHelper.Debug<T>(output);
+            _logHelper.Debug<T>(output);
         }
 
         public virtual void Error<T>(string method, Exception ex, string message = null)
@@ -24,7 +31,7 @@ namespace AgeBaseTemplate.Core.Services.Implementations
 
             output = output.Replace("{", "{{").Replace("}", "}}");
 
-            LogHelper.Error<T>(output, ex);
+            _logHelper.Error<T>(output, ex);
         }
     }
 }

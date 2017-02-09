@@ -322,6 +322,8 @@
     <Compile Include="Services\IMasterPageService.cs" />
     <Compile Include="Services\Implementations\LogService.cs" />
     <Compile Include="Services\Implementations\MasterPageService.cs" />
+    <Compile Include="Wrappers\ILogHelper.cs" />
+    <Compile Include="Wrappers\Implementations\LogHelperWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

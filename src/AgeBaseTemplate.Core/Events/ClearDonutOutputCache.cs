@@ -1,6 +1,7 @@
 ﻿using System;
 using AgeBaseTemplate.Core.Services;
 using AgeBaseTemplate.Core.Services.Implementations;
+using AgeBaseTemplate.Core.Wrappers.Implementations;
 using DevTrends.MvcDonutCaching;
 using Umbraco.Core;
 using Umbraco.Core.Cache;
@@ -27,7 +28,7 @@ namespace AgeBaseTemplate.Core.Events
                     return;
 
                 if (_logService == null)
-                    _logService = new LogService();
+                    _logService = new LogService(new LogHelperWrapper());
 
                 if (_outputCacheManager == null)
                     _outputCacheManager = new OutputCacheManager();

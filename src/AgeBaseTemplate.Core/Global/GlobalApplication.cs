@@ -5,6 +5,8 @@ using System.Web.Mvc;
 using AgeBaseTemplate.Core.Controllers;
 using AgeBaseTemplate.Core.Services;
 using AgeBaseTemplate.Core.Services.Implementations;
+using AgeBaseTemplate.Core.Wrappers;
+using AgeBaseTemplate.Core.Wrappers.Implementations;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
@@ -25,6 +27,7 @@ namespace AgeBaseTemplate.Core.Global
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 
+            container.Register<ILogHelper, LogHelperWrapper>(Lifestyle.Scoped);
             container.Register<ILogService, LogService>(Lifestyle.Scoped);
             container.Register<IMasterPageService, MasterPageService>(Lifestyle.Scoped);
 
