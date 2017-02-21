@@ -1033,6 +1033,8 @@ INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (
 GO
 INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (6, N'Umbraco', CAST(N'2017-02-07 13:14:56.613' AS DateTime), N'7.5.9')
 GO
+INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (7, N'Umbraco', CAST(N'2017-02-21 13:24:33.254' AS DateTime), N'7.5.10')
+GO
 SET IDENTITY_INSERT [dbo].[umbracoMigration] OFF
 GO
 SET IDENTITY_INSERT [dbo].[umbracoNode] ON 
