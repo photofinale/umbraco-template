@@ -8,20 +8,16 @@ namespace AgeBaseTemplate.Core.Controllers
 {
     public class HomePageController : BasePageController
     {
-        private readonly ILogService _logService;
         private readonly IMasterPageService _masterPageService;
 
-        public HomePageController(ILogService logService, IMasterPageService masterPageService)
+        public HomePageController(IMasterPageService masterPageService)
         {
-            _logService = logService;
             _masterPageService = masterPageService;
         }
 
         [DonutOutputCache(CacheProfile = "OneDay")]
         public ActionResult HomePage()
         {
-            _logService.Debug<HomePageController>("HomePage");
-
             var model = _masterPageService.CreateModel<MasterPage<HomePage>>(CurrentPage);
             return CurrentTemplate(model);
         }

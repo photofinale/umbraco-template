@@ -465,6 +465,8 @@
     <Content Include="config\BaseRestExtensions.config" />
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
+    <Content Include="views\Shared\CountrySelector.cshtml" />
+    <Content Include="views\Shared\LanguageSelector.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -476,6 +478,12 @@
     </None>
     <None Include="robots.Release.txt">
       <DependentUpon>robots.txt</DependentUpon>
+    </None>
+    <None Include="config\log4net.Debug.config">
+      <DependentUpon>log4net.config</DependentUpon>
+    </None>
+    <None Include="config\log4net.Release.config">
+      <DependentUpon>log4net.config</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -535,6 +543,7 @@
   <Target Name="BeforeBuild">
     <Copy SourceFiles="robots.$(Configuration).txt" DestinationFiles="robots.txt" />
     <TransformXml Source="web.config" Transform="web.$(Configuration).config" Destination="web.config" />
+    <TransformXml Source="config\log4net.config" Transform="config\log4net.$(Configuration).config" Destination="config\log4net.config" />
     <ItemGroup>
       <Content Include="css\*.*" />
       <Content Include="js\*.*" />

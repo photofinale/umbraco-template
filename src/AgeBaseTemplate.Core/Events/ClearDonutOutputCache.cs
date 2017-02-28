@@ -1,8 +1,7 @@
 ﻿using System;
-using AgeBaseTemplate.Core.Services;
-using AgeBaseTemplate.Core.Services.Implementations;
-using AgeBaseTemplate.Core.Wrappers.Implementations;
+using System.Reflection;
 using DevTrends.MvcDonutCaching;
+using log4net;
 using Umbraco.Core;
 using Umbraco.Core.Cache;
 using Umbraco.Web.Cache;
@@ -11,7 +10,8 @@ namespace AgeBaseTemplate.Core.Events
 {
     public class ClearDonutOutputCache : ApplicationEventHandler
     {
-        private ILogService _logService;
+        private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         private IOutputCacheManager _outputCacheManager;
 
         private static readonly object LockObj = new object();
@@ -26,9 +26,6 @@ namespace AgeBaseTemplate.Core.Events
             {
                 if (_ran)
                     return;
-
-                if (_logService == null)
-                    _logService = new LogService(new LogHelperWrapper());
 
                 if (_outputCacheManager == null)
                     _outputCacheManager = new OutputCacheManager();
@@ -49,55 +46,55 @@ namespace AgeBaseTemplate.Core.Events
 
         private void DataTypeCacheRefresherOnCacheUpdated(DataTypeCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
         {
-            _logService.Debug<ClearDonutOutputCache>("DataTypeCacheRefresherOnCacheUpdated");
+            Log.Debug("Clearing output cache");
             ClearCache();
         }
 
         private void DictionaryCacheRefresherOnCacheUpdated(DictionaryCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
         {
-            _logService.Debug<ClearDonutOutputCache>("DictionaryCacheRefresherOnCacheUpdated");
+            Log.Debug("Clearing output cache");
             ClearCache();
         }
 
         private void DomainCacheRefresherOnCacheUpdated(DomainCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
         {
-            _logService.Debug<ClearDonutOutputCache>("DomainCacheRefresherOnCacheUpdated");
+            Log.Debug("Clearing output cache");
             ClearCache();
         }
 
         private void LanguageCacheRefresherOnCacheUpdated(LanguageCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
         {
-            _logService.Debug<ClearDonutOutputCache>("LanguageCacheRefresherOnCacheUpdated");
+            Log.Debug("Clearing output cache");
             ClearCache();
         }
 
         private void MediaCacheRefresherOnCacheUpdated(MediaCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
         {
-            _logService.Debug<ClearDonutOutputCache>("MediaCacheRefresherOnCacheUpdated");
+            Log.Debug("Clearing output cache");
             ClearCache();
         }
 
         private void MemberCacheRefresherOnCacheUpdated(MemberCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
         {
-            _logService.Debug<ClearDonutOutputCache>("MemberCacheRefresherOnCacheUpdated");
+            Log.Debug("Clearing output cache");
             ClearCache();
         }
 
         private void PageCacheRefresherOnCacheUpdated(PageCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
         {
-            _logService.Debug<ClearDonutOutputCache>("PageCacheRefresherOnCacheUpdated");
+            Log.Debug("Clearing output cache");
             ClearCache();
         }
 
         private void PublicAccessCacheRefresherOnCacheUpdated(PublicAccessCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
         {
-            _logService.Debug<ClearDonutOutputCache>("PublicAccessCacheRefresherOnCacheUpdated");
+            Log.Debug("Clearing output cache");
             ClearCache();
         }
 
         private void UnpublishedPageCacheRefresherOnCacheUpdated(UnpublishedPageCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
         {
-            _logService.Debug<ClearDonutOutputCache>("UnpublishedPageCacheRefresherOnCacheUpdated");
+            Log.Debug("Clearing output cache");
             ClearCache();
         }
 
@@ -105,12 +102,11 @@ namespace AgeBaseTemplate.Core.Events
         {
             try
             {
-                _logService.Debug<ClearDonutOutputCache>("ClearCache");
                 _outputCacheManager.RemoveItems();
             }
             catch (Exception ex)
             {
-                _logService.Error<ClearDonutOutputCache>("ClearCache", ex, "Unable to clear output cache");
+                Log.Error("Unable to clear output cache", ex);
             }
         }
     }

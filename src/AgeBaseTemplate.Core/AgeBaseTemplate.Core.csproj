@@ -303,27 +303,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\DictionaryItems.cs" />
     <Compile Include="ContentTypes\Builder.cs">
       <Generator>UmbracoModelsBuilder</Generator>
       <CustomToolNamespace>AgeBaseTemplate.Core.ContentTypes</CustomToolNamespace>
       <LastGenOutput>Builder.generated.cs</LastGenOutput>
     </Compile>
+    <Compile Include="ContentTypes\LanguagePage.cs" />
+    <Compile Include="ContentTypes\CountryPage.cs" />
+    <Compile Include="ContentTypes\CountryPage.generated.cs">
+      <DependentUpon>Builder.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContentTypes\HomePage.generated.cs">
       <DependentUpon>Builder.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContentTypes\LanguagePage.generated.cs">
+      <DependentUpon>Builder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\BasePageController.cs" />
+    <Compile Include="Controllers\LanguagePageController.cs" />
+    <Compile Include="Controllers\CountryPageController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
+    <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Events\ClearDonutOutputCache.cs" />
     <Compile Include="Global\GlobalApplication.cs" />
     <Compile Include="Models\IMasterPage.cs" />
     <Compile Include="Models\Implementations\MasterPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ILogService.cs" />
     <Compile Include="Services\IMasterPageService.cs" />
-    <Compile Include="Services\Implementations\LogService.cs" />
     <Compile Include="Services\Implementations\MasterPageService.cs" />
-    <Compile Include="Wrappers\ILogHelper.cs" />
-    <Compile Include="Wrappers\Implementations\LogHelperWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

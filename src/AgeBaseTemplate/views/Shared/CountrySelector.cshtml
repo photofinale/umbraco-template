@@ -1,0 +1,27 @@
+﻿@inherits UmbracoViewPage<IEnumerable<CountryPage>>
+
+@if (Model != null && Model.Any())
+{
+    <div class="country-selector">
+        <p>
+            @Umbraco.GetDictionaryValue(DictionaryItems.Country):
+        </p>
+        <ul>
+            @foreach (var country in Model)
+            {
+                if (country.Selected)
+                {
+                    <li>
+                        <a href="@country.Url"><strong>@country.CountryName</strong></a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="@country.Url">@country.CountryName</a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+}

@@ -1,0 +1,27 @@
+﻿@inherits UmbracoViewPage<IEnumerable<LanguagePage>>
+
+@if (Model != null && Model.Any())
+{
+    <div class="language-selector">
+        <p>
+            @Umbraco.GetDictionaryValue(DictionaryItems.Language):
+        </p>
+        <ul>
+            @foreach (var language in Model)
+            {
+                if (language.Selected)
+                {
+                    <li>
+                        <a href="@language.Url"><strong>@language.LanguageName</strong></a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a href="@language.Url">@language.LanguageName</a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+}

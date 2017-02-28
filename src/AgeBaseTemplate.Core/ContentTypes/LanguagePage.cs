@@ -1,0 +1,7 @@
+﻿namespace AgeBaseTemplate.Core.ContentTypes
+{
+    public partial class LanguagePage
+    {
+        public bool Selected { get; set; }
+    }
+}
