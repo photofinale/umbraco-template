@@ -298,5 +298,6 @@ __pycache__/
 bower_components
 node_modules
 src/AgeBaseTemplate/css
-src/AgeBaseTemplate/fonts/
-src/AgeBaseTemplate/js/
+src/AgeBaseTemplate/fonts
+src/AgeBaseTemplate/images
+src/AgeBaseTemplate/js

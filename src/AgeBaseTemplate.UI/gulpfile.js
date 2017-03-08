@@ -3,6 +3,7 @@ var $ = require('gulp-load-plugins')({ lazy: true });
 
 var cssDestination = '../AgeBaseTemplate/css';
 var fontsDestination = '../AgeBaseTemplate/fonts';
+var imagesDestination = '../AgeBaseTemplate/images';
 var jsDestination = '../AgeBaseTemplate/js';
 
 var cssSources = ['sass/**/*.scss'];
@@ -13,10 +14,14 @@ var jsSources = ['js/**/*.js'];
 gulp.task('vendor', function() {
 
     var fontsVendors = ['bower_components/bootstrap/dist/fonts/**/*'];
+    var imagesVendors = ['bower_components/country-flags/images/**/*'];
     var jsVendors = ['bower_components/bootstrap/dist/js/bootstrap.min.js'];
 
     gulp.src(fontsVendors)
         .pipe(gulp.dest(fontsDestination));
+
+    gulp.src(imagesVendors)
+        .pipe(gulp.dest(imagesDestination));
 
     gulp.src(jsVendors)
         .pipe(gulp.dest(jsDestination));

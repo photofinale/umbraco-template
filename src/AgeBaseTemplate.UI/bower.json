@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "bootstrap": "3.3.7",
-    "bootstrap-sass": "3.3.7"
+    "bootstrap-sass": "3.3.7",
+    "country-flags": "1.1.0"
   }
 }

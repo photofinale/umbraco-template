@@ -13,13 +13,19 @@
                 if (country.Selected)
                 {
                     <li>
-                        <a href="@country.Url"><strong>@country.CountryName</strong></a>
+                        <a href="@country.Url">
+                            <i class="flag @country.Name.ToLower()"></i>
+                            <strong>@country.CountryName</strong>
+                        </a>
                     </li>
                 }
                 else
                 {
                     <li>
-                        <a href="@country.Url">@country.CountryName</a>
+                        <a href="@country.Url">
+                            <i class="flag @country.Name.ToLower()"></i>
+                            @country.CountryName
+                        </a>
                     </li>
                 }
             }

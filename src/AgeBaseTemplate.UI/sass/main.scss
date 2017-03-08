@@ -1,8 +1,12 @@
 ﻿@charset "UTF-8";
 
-@import '../bower_components/bootstrap-sass/assets/stylesheets/bootstrap.scss';
+// Vendor
+@import '../bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+@import '../bower_components/country-flags/scss/flags';
 
+// Layout
 @import 'layout/header';
 
+// Components
 @import 'components/country-selector';
 @import 'components/language-selector';

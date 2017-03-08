@@ -529,6 +529,7 @@
     <ItemGroup>
       <Content Include="css\*.*" />
       <Content Include="fonts\*.*" />
+      <Content Include="images\*.*" />
       <Content Include="js\*.*" />
     </ItemGroup>
   </Target>
