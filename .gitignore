@@ -297,5 +297,6 @@ __pycache__/
 **/umbraco_client/
 bower_components
 node_modules
-src/AgeBaseTemplate/css/
+src/AgeBaseTemplate/css
+src/AgeBaseTemplate/fonts/
 src/AgeBaseTemplate/js/

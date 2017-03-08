@@ -515,7 +515,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56731</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
@@ -546,6 +546,7 @@
     <TransformXml Source="config\log4net.config" Transform="config\log4net.$(Configuration).config" Destination="config\log4net.config" />
     <ItemGroup>
       <Content Include="css\*.*" />
+      <Content Include="fonts\*.*" />
       <Content Include="js\*.*" />
     </ItemGroup>
   </Target>

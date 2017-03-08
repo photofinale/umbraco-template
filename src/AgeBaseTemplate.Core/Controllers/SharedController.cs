@@ -15,7 +15,9 @@ namespace AgeBaseTemplate.Core.Controllers
                 .Where(c => c != null)
                 .OrderBy(c => c.CountryName);
 
-            countryPages.Single(c => c.Equals(CurrentPage.AncestorOrSelf<CountryPage>())).Selected = true;
+            var currentCountryPage = CurrentPage.AncestorOrSelf<CountryPage>();
+
+            countryPages.Single(c => c.Equals(currentCountryPage)).Selected = true;
 
             return PartialView("CountrySelector", countryPages);
         }
@@ -31,7 +33,9 @@ namespace AgeBaseTemplate.Core.Controllers
             if (languagePages.Count() < 2)
                 return Content(string.Empty);
 
-            languagePages.Single(l => l.Equals(CurrentPage.AncestorOrSelf<LanguagePage>())).Selected = true;
+            var currentLanguagePage = CurrentPage.AncestorOrSelf<LanguagePage>();
+
+            languagePages.Single(l => l.Equals(currentLanguagePage)).Selected = true;
 
             return PartialView("LanguageSelector", languagePages);
         }

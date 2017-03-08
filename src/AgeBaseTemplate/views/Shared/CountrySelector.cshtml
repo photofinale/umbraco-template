@@ -3,10 +3,11 @@
 @if (Model != null && Model.Any())
 {
     <div class="country-selector">
-        <p>
-            @Umbraco.GetDictionaryValue(DictionaryItems.Country):
-        </p>
-        <ul>
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            @Umbraco.GetDictionaryValue(DictionaryItems.Country)
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
             @foreach (var country in Model)
             {
                 if (country.Selected)

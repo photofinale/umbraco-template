@@ -1,22 +1,8 @@
 ﻿@charset "UTF-8";
 
-// 1. Configuration and helpers
-@import 'abstracts/variables', 'abstracts/functions', 'abstracts/mixins';
+@import '../bower_components/bootstrap-sass/assets/stylesheets/bootstrap.scss';
 
-// 2. Vendors
-@import '../bower_components/responsive/src/sass/responsive';
+@import 'layout/header';
 
-// 3. Base stuff
-@import 'base/base', 'base/fonts', 'base/typography', 'base/helpers';
-
-// 4. Layout-related sections
-@import 'layout/header', 'layout/footer';
-
-// 5. Components
-@import 'components/button';
-
-// 6. Page-specific styles
-@import 'pages/home';
-
-// 7. Themes
-@import 'themes/default';
+@import 'components/country-selector';
+@import 'components/language-selector';

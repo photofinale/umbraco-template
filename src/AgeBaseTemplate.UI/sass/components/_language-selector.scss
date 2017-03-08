@@ -1,0 +1,10 @@
+.language-selector {
+    @extend .dropdown;
+    
+    float: right;
+    padding-left: $padding-base-horizontal;
+
+    .dropdown-menu {
+        @extend .dropdown-menu-right;
+    }
+}

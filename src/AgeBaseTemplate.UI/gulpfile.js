@@ -1,44 +1,53 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')({ lazy: true });
 
-gulp.task('default', ['debug'], function() { });
-
-var cssFiles = [
-    'sass/**/*.scss'
-];
-
-var jsFiles = [
-    'bower_components/jquery/dist/jquery.js',
-    'js/**/*.js'
-];
-
 var cssDestination = '../AgeBaseTemplate/css';
+var fontsDestination = '../AgeBaseTemplate/fonts';
 var jsDestination = '../AgeBaseTemplate/js';
 
-gulp.task('debug', function() {
+var cssSources = ['sass/**/*.scss'];
+var jsSources = ['js/**/*.js'];
 
-    gulp.src(jsFiles)
-        .pipe($.sourcemaps.init())
-        .pipe($.concat('main.js'))
-        .pipe($.sourcemaps.write('.'))
+// Tasks
+
+gulp.task('vendor', function() {
+
+    var fontsVendors = ['bower_components/bootstrap/dist/fonts/**/*'];
+    var jsVendors = ['bower_components/bootstrap/dist/js/bootstrap.min.js'];
+
+    gulp.src(fontsVendors)
+        .pipe(gulp.dest(fontsDestination));
+
+    gulp.src(jsVendors)
         .pipe(gulp.dest(jsDestination));
+});
 
-    gulp.src(cssFiles)
+gulp.task('debug', ['vendor'], function() {
+
+    gulp.src(cssSources)
         .pipe($.sourcemaps.init())
         .pipe($.sass().on('error', $.sass.logError))
         .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(cssDestination));
+
+    gulp.src(jsSources)
+        .pipe($.sourcemaps.init())
+        .pipe($.concat('main.js'))
+        .pipe($.sourcemaps.write('.'))
+        .pipe(gulp.dest(jsDestination));
 });
 
-gulp.task('release', function() {
+gulp.task('release', ['vendor'], function() {
 
-    gulp.src(jsFiles)
-        .pipe($.concat('main.js'))
-        .pipe($.uglify())
-        .pipe(gulp.dest(jsDestination));
-
-    gulp.src(cssFiles)
+    gulp.src(cssSources)
         .pipe($.sass().on('error', $.sass.logError))
         .pipe($.cleanCss({ level:{ 1:{ specialComments:'remove' }}}))
         .pipe(gulp.dest(cssDestination));
+
+    gulp.src(jsSources)
+        .pipe($.concat('main.js'))
+        .pipe($.uglify())
+        .pipe(gulp.dest(jsDestination));
 });
+
+gulp.task('default', ['debug'], function() { });
