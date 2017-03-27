@@ -1,25 +1,35 @@
-﻿@inherits UmbracoViewPage<IEnumerable<LanguagePage>>
+﻿@inherits UmbracoViewPage<LanguageSelectorViewModel>
 
-@if (Model != null && Model.Any())
+@if (Model != null && Model.Languages != null && Model.Languages.Any() && Model.Current != null)
 {
     <div class="language-selector">
+        <span>
+            @Umbraco.GetDictionaryValue(DictionaryItems.Language):
+        </span>
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            @Umbraco.GetDictionaryValue(DictionaryItems.Language)
+            <i class="flag @Model.Current.Name.ToLower()"></i>
+            @Model.Current.LanguageName
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-            @foreach (var language in Model)
+            @foreach (var lanuage in Model.Languages)
             {
-                if (language.Selected)
+                if (lanuage.Id.Equals(Model.Current.Id))
                 {
                     <li>
-                        <a href="@language.Url"><strong>@language.LanguageName</strong></a>
+                        <a href="@lanuage.Url">
+                            <i class="flag @lanuage.Name.ToLower()"></i>
+                            <strong>@lanuage.LanguageName</strong>
+                        </a>
                     </li>
                 }
                 else
                 {
                     <li>
-                        <a href="@language.Url">@language.LanguageName</a>
+                        <a href="@lanuage.Url">
+                            <i class="flag @lanuage.Name.ToLower()"></i>
+                            @lanuage.LanguageName
+                        </a>
                     </li>
                 }
             }

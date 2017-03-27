@@ -1,16 +1,20 @@
-﻿@inherits UmbracoViewPage<IEnumerable<CountryPage>>
+﻿@inherits UmbracoViewPage<CountrySelectorViewModel>
 
-@if (Model != null && Model.Any())
+@if (Model != null && Model.Countries != null && Model.Countries.Any() && Model.Current != null)
 {
     <div class="country-selector">
+        <span>
+            @Umbraco.GetDictionaryValue(DictionaryItems.Country):
+        </span>
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            @Umbraco.GetDictionaryValue(DictionaryItems.Country)
+            <i class="flag @Model.Current.Name.ToLower()"></i>
+            @Model.Current.CountryName
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-            @foreach (var country in Model)
+            @foreach (var country in Model.Countries)
             {
-                if (country.Selected)
+                if (country.Id.Equals(Model.Current.Id))
                 {
                     <li>
                         <a href="@country.Url">

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using AgeBaseTemplate.Core.ContentTypes;
+using AgeBaseTemplate.Core.ViewModels;
 using Umbraco.Web;
 
 namespace AgeBaseTemplate.Core.Controllers
@@ -10,34 +11,37 @@ namespace AgeBaseTemplate.Core.Controllers
         [ChildActionOnly]
         public ActionResult CountrySelector()
         {
-            var countryPages = Umbraco.TypedContentAtRoot()
-                .Select(c => c as CountryPage)
-                .Where(c => c != null)
-                .OrderBy(c => c.CountryName);
+            var model = new CountrySelectorViewModel
+            {
+                Countries = Umbraco.TypedContentAtRoot()
+                    .Select(c => c as CountryPage)
+                    .Where(c => c != null)
+                    .OrderBy(c => c.CountryName),
 
-            var currentCountryPage = CurrentPage.AncestorOrSelf<CountryPage>();
+                Current = CurrentPage.AncestorOrSelf<CountryPage>()
+            };
 
-            countryPages.Single(c => c.Equals(currentCountryPage)).Selected = true;
-
-            return PartialView("CountrySelector", countryPages);
+            return PartialView("CountrySelector", model);
         }
 
         [ChildActionOnly]
         public ActionResult LanguageSelector()
         {
             var countryPage = CurrentPage.AncestorOrSelf<CountryPage>();
-
-            var languagePages = countryPage.DescendantsOrSelf<LanguagePage>()
-                .OrderBy(l => l.LanguageName);
             
-            if (languagePages.Count() < 2)
+            var model = new LanguageSelectorViewModel
+            {
+                Languages = countryPage
+                    .DescendantsOrSelf<LanguagePage>()
+                    .OrderBy(l => l.LanguageName),
+
+                Current = CurrentPage.AncestorOrSelf<LanguagePage>()
+            };
+
+            if (model.Languages.Count() < 2)
                 return Content(string.Empty);
 
-            var currentLanguagePage = CurrentPage.AncestorOrSelf<LanguagePage>();
-
-            languagePages.Single(l => l.Equals(currentLanguagePage)).Selected = true;
-
-            return PartialView("LanguageSelector", languagePages);
+            return PartialView("LanguageSelector", model);
         }
     }
 }
