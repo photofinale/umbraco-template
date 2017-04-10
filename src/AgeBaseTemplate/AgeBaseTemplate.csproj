@@ -438,7 +438,7 @@
     <Content Include="views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
-    <Content Include="media\Web.config" />
+    <Content Include="media\web.config" />
     <Content Include="config\UrlRewriting.config" />
     <Content Include="config\tinyMceConfig.config" />
     <Content Include="config\scripting.config" />

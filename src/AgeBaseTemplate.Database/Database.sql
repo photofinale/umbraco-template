@@ -1131,11 +1131,19 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoDomains] ON 
 
 GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (4, 3, 1067, N'agebasetemplate.local/fr-be')
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (1, 2, 1066, N'as-agebasetemplate.azurewebsites.net')
 GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (6, 4, 1068, N'agebasetemplate.local/nl-be')
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (2, 3, 1067, N'as-agebasetemplate.azurewebsites.net/fr-be')
 GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (7, 2, 1066, N'agebasetemplate.local')
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (3, 4, 1068, N'as-agebasetemplate.azurewebsites.net/nl-be')
+GO
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (4, 3, 1053, N'as-agebasetemplate.azurewebsites.net/be')
+GO
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (5, 2, 1066, N'agebasetemplate.local')
+GO
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (6, 3, 1067, N'agebasetemplate.local/fr-be')
+GO
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (7, 4, 1068, N'agebasetemplate.local/nl-be')
 GO
 INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (8, 3, 1053, N'agebasetemplate.local/be')
 GO
@@ -1178,7 +1186,7 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoNode] ON 
 
 GO
-INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (-331, 0, -1, 0, 1, N'-1,-331', 1, N'0af5e610-a310-4b6f-925f-e928d5416af7', N'LOCK: Servers', N'87a9f1ff-b1e4-4a25-babb-465a4a47ec41', CAST(N'2016-09-20 10:32:04.490' AS DateTime))
+INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (-331, 0, -1, 0, 1, N'-1,-331', -1, N'0af5e610-a310-4b6f-925f-e928d5416af7', N'LOCK: Servers', N'87a9f1ff-b1e4-4a25-babb-465a4a47ec41', CAST(N'2016-09-20 10:32:04.490' AS DateTime))
 GO
 INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (-97, 0, -1, 0, 1, N'-1,-97', 2, N'aa2c52a0-ce87-4e65-a47c-7df09358585d', N'List View - Members', N'30a2a501-1978-4ddb-a57b-f7efed43ba3c', CAST(N'2016-09-20 10:32:04.480' AS DateTime))
 GO
