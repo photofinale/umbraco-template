@@ -997,17 +997,17 @@ GO
 SET IDENTITY_INSERT [dbo].[cmsLanguageText] ON 
 
 GO
-INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (1, 2, N'84ea20ac-ea7f-4ab2-ac1a-80a00fa5721f', N'Country')
+INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (1, 1, N'84ea20ac-ea7f-4ab2-ac1a-80a00fa5721f', N'Country')
 GO
-INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (2, 3, N'84ea20ac-ea7f-4ab2-ac1a-80a00fa5721f', N'Pays')
+INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (2, 2, N'84ea20ac-ea7f-4ab2-ac1a-80a00fa5721f', N'Pays')
 GO
-INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (3, 4, N'84ea20ac-ea7f-4ab2-ac1a-80a00fa5721f', N'Platteland')
+INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (3, 3, N'84ea20ac-ea7f-4ab2-ac1a-80a00fa5721f', N'Platteland')
 GO
-INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (4, 2, N'9b32b3db-7f89-48f9-a8a0-633c0581b2d7', N'Language')
+INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (4, 1, N'9b32b3db-7f89-48f9-a8a0-633c0581b2d7', N'Language')
 GO
-INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (5, 3, N'9b32b3db-7f89-48f9-a8a0-633c0581b2d7', N'La Langue')
+INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (5, 2, N'9b32b3db-7f89-48f9-a8a0-633c0581b2d7', N'La Langue')
 GO
-INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (6, 4, N'9b32b3db-7f89-48f9-a8a0-633c0581b2d7', N'Taal')
+INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES (6, 3, N'9b32b3db-7f89-48f9-a8a0-633c0581b2d7', N'Taal')
 GO
 SET IDENTITY_INSERT [dbo].[cmsLanguageText] OFF
 GO
@@ -1131,55 +1131,29 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoDomains] ON 
 
 GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (1, 2, 1066, N'as-agebasetemplate.azurewebsites.net')
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (1, 1, 1066, N'agebasetemplate.local/')
 GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (2, 3, 1067, N'as-agebasetemplate.azurewebsites.net/fr-be')
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (2, 2, 1053, N'agebasetemplate.local/be')
 GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (3, 4, 1068, N'as-agebasetemplate.azurewebsites.net/nl-be')
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (3, 2, 1067, N'agebasetemplate.local/fr-be')
 GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (4, 3, 1053, N'as-agebasetemplate.azurewebsites.net/be')
-GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (5, 2, 1066, N'agebasetemplate.local')
-GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (6, 3, 1067, N'agebasetemplate.local/fr-be')
-GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (7, 4, 1068, N'agebasetemplate.local/nl-be')
-GO
-INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (8, 3, 1053, N'agebasetemplate.local/be')
+INSERT [dbo].[umbracoDomains] ([id], [domainDefaultLanguage], [domainRootStructureID], [domainName]) VALUES (4, 3, 1068, N'agebasetemplate.local/nl-be')
 GO
 SET IDENTITY_INSERT [dbo].[umbracoDomains] OFF
 GO
 SET IDENTITY_INSERT [dbo].[umbracoLanguage] ON 
 
 GO
-INSERT [dbo].[umbracoLanguage] ([id], [languageISOCode], [languageCultureName]) VALUES (2, N'en-GB', N'English (United Kingdom)')
+INSERT [dbo].[umbracoLanguage] ([id], [languageISOCode], [languageCultureName]) VALUES (1, N'en-GB', N'English (United Kingdom)')
 GO
-INSERT [dbo].[umbracoLanguage] ([id], [languageISOCode], [languageCultureName]) VALUES (3, N'fr-BE', N'French (Belgium)')
+INSERT [dbo].[umbracoLanguage] ([id], [languageISOCode], [languageCultureName]) VALUES (2, N'fr-BE', N'French (Belgium)')
 GO
-INSERT [dbo].[umbracoLanguage] ([id], [languageISOCode], [languageCultureName]) VALUES (4, N'nl-BE', N'Dutch (Belgium)')
+INSERT [dbo].[umbracoLanguage] ([id], [languageISOCode], [languageCultureName]) VALUES (3, N'nl-BE', N'Dutch (Belgium)')
 GO
 SET IDENTITY_INSERT [dbo].[umbracoLanguage] OFF
 GO
 SET IDENTITY_INSERT [dbo].[umbracoMigration] ON 
 
-GO
-INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (1, N'Umbraco', CAST(N'2016-09-20 10:32:05.103' AS DateTime), N'7.5.3')
-GO
-INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (2, N'Umbraco', CAST(N'2016-10-21 17:40:56.470' AS DateTime), N'7.5.4')
-GO
-INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (3, N'Umbraco', CAST(N'2016-12-07 15:05:09.803' AS DateTime), N'7.5.6')
-GO
-INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (4, N'Umbraco', CAST(N'2017-01-15 21:33:40.853' AS DateTime), N'7.5.7')
-GO
-INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (5, N'Umbraco', CAST(N'2017-01-30 21:53:34.723' AS DateTime), N'7.5.8')
-GO
-INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (6, N'Umbraco', CAST(N'2017-02-07 13:14:56.613' AS DateTime), N'7.5.9')
-GO
-INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (7, N'Umbraco', CAST(N'2017-02-21 13:24:33.253' AS DateTime), N'7.5.10')
-GO
-INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (8, N'Umbraco', CAST(N'2017-03-08 15:02:23.733' AS DateTime), N'7.5.11')
-GO
-INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (9, N'Umbraco', CAST(N'2017-04-10 11:33:53.707' AS DateTime), N'7.5.12')
 GO
 INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (10, N'Umbraco', CAST(N'2017-04-11 14:27:17.177' AS DateTime), N'7.5.13')
 GO
@@ -1290,7 +1264,7 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] ON 
 
 GO
-INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userType], [startStructureID], [startMediaID], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate]) VALUES (0, 0, 0, 1, -1, -1, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2017-04-11 14:27:03.473' AS DateTime))
+INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userType], [startStructureID], [startMediaID], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate]) VALUES (0, 0, 0, 1, -1, -1, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2017-04-20 11:17:45.530' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] OFF
 GO
