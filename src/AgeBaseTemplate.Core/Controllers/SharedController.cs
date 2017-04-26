@@ -32,7 +32,7 @@ namespace AgeBaseTemplate.Core.Controllers
             var model = new LanguageSelectorViewModel
             {
                 Languages = countryPage
-                    .DescendantsOrSelf<LanguagePage>()
+                    .Children<LanguagePage>()
                     .OrderBy(l => l.LanguageName),
 
                 Current = CurrentPage.AncestorOrSelf<LanguagePage>()
@@ -40,6 +40,14 @@ namespace AgeBaseTemplate.Core.Controllers
 
             if (model.Languages.Count() < 2)
                 return Content(string.Empty);
+
+            // Here we are using the home page url,
+            // not the language page url
+
+            foreach (var language in model.Languages)
+            {
+                language.HomePageUrl = language.FirstChild<HomePage>().Url;
+            }
 
             return PartialView("LanguageSelector", model);
         }

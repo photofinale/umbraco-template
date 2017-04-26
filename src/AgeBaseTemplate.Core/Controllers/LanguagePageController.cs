@@ -15,7 +15,7 @@ namespace AgeBaseTemplate.Core.Controllers
         [DonutOutputCache(CacheProfile = "OneDay")]
         public override ActionResult Index(RenderModel model)
         {
-            var homePage = model.Content.DescendantOrSelf<HomePage>();
+            var homePage = model.Content.FirstChild<HomePage>();
 
             Log.Debug($"Redirecting to {homePage.Id}");
 

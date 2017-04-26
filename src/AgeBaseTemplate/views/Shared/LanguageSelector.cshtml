@@ -17,7 +17,7 @@
                 if (lanuage.Id.Equals(Model.Current.Id))
                 {
                     <li>
-                        <a href="@lanuage.Url">
+                        <a href="@lanuage.HomePageUrl">
                             <i class="flag @lanuage.Name.ToLower()"></i>
                             <strong>@lanuage.LanguageName</strong>
                         </a>
@@ -26,7 +26,7 @@
                 else
                 {
                     <li>
-                        <a href="@lanuage.Url">
+                        <a href="@lanuage.HomePageUrl">
                             <i class="flag @lanuage.Name.ToLower()"></i>
                             @lanuage.LanguageName
                         </a>
