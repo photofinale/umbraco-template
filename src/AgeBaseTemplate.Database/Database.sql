@@ -214,6 +214,7 @@ CREATE TABLE [dbo].[cmsMacro](
 	[macroCachePersonalized] [bit] NOT NULL,
 	[macroDontRender] [bit] NOT NULL,
 	[macroPython] [nvarchar](255) COLLATE Latin1_General_CI_AS NULL,
+	[uniqueId] [uniqueidentifier] NOT NULL,
  CONSTRAINT [PK_cmsMacro] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -232,6 +233,7 @@ CREATE TABLE [dbo].[cmsMacroProperty](
 	[macroPropertySortOrder] [int] NOT NULL,
 	[macroPropertyAlias] [nvarchar](50) COLLATE Latin1_General_CI_AS NOT NULL,
 	[macroPropertyName] [nvarchar](255) COLLATE Latin1_General_CI_AS NOT NULL,
+	[uniquePropertyId] [uniqueidentifier] NOT NULL,
  CONSTRAINT [PK_cmsMacroProperty] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -504,40 +506,6 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[umbracoDeployChecksum](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[entityType] [nvarchar](32) COLLATE Latin1_General_CI_AS NOT NULL,
-	[entityGuid] [uniqueidentifier] NULL,
-	[entityPath] [nvarchar](256) COLLATE Latin1_General_CI_AS NULL,
-	[localChecksum] [nvarchar](32) COLLATE Latin1_General_CI_AS NOT NULL,
-	[compositeChecksum] [nvarchar](32) COLLATE Latin1_General_CI_AS NULL,
- CONSTRAINT [PK_umbracoDeployChecksum] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
-)
-
-GO
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[umbracoDeployDependency](
-	[sourceId] [int] NOT NULL,
-	[targetId] [int] NOT NULL,
-	[mode] [int] NOT NULL,
- CONSTRAINT [PK_umbracoDeployDependency] PRIMARY KEY CLUSTERED 
-(
-	[sourceId] ASC,
-	[targetId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
-)
-
-GO
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 CREATE TABLE [dbo].[umbracoDomains](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[domainDefaultLanguage] [int] NULL,
@@ -576,6 +544,21 @@ CREATE TABLE [dbo].[umbracoLanguage](
 	[languageISOCode] [nvarchar](10) COLLATE Latin1_General_CI_AS NULL,
 	[languageCultureName] [nvarchar](100) COLLATE Latin1_General_CI_AS NULL,
  CONSTRAINT [PK_umbracoLanguage] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[umbracoLock](
+	[id] [int] NOT NULL,
+	[value] [int] NOT NULL,
+	[name] [nvarchar](64) COLLATE Latin1_General_CI_AS NOT NULL,
+ CONSTRAINT [PK_umbracoLock] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -685,6 +668,7 @@ CREATE TABLE [dbo].[umbracoRelationType](
 	[childObjectType] [uniqueidentifier] NOT NULL,
 	[name] [nvarchar](255) COLLATE Latin1_General_CI_AS NOT NULL,
 	[alias] [nvarchar](100) COLLATE Latin1_General_CI_AS NULL,
+	[typeUniqueId] [uniqueidentifier] NOT NULL,
  CONSTRAINT [PK_umbracoRelationType] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -1011,6 +995,29 @@ INSERT [dbo].[cmsLanguageText] ([pk], [languageId], [UniqueId], [value]) VALUES 
 GO
 SET IDENTITY_INSERT [dbo].[cmsLanguageText] OFF
 GO
+SET IDENTITY_INSERT [dbo].[cmsMemberType] ON 
+
+GO
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (1, 1044, 37, 0, 0)
+GO
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (2, 1044, 38, 0, 0)
+GO
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (3, 1044, 28, 0, 0)
+GO
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (4, 1044, 29, 0, 0)
+GO
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (5, 1044, 30, 0, 0)
+GO
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (6, 1044, 31, 0, 0)
+GO
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (7, 1044, 32, 0, 0)
+GO
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (8, 1044, 33, 0, 0)
+GO
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (9, 1044, 34, 0, 0)
+GO
+SET IDENTITY_INSERT [dbo].[cmsMemberType] OFF
+GO
 INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1052, N'70157588-7ebc-48cf-bc9e-bf3702c2b01b', CAST(N'2017-02-24 14:57:49.847' AS DateTime), N'<countryPage id="1052" key="5aed9dd8-63fc-40cd-a2f5-3dfbaad52816" parentID="-1" level="1" creatorID="0" sortOrder="0" createDate="2017-02-23T13:55:51" updateDate="2017-02-24T14:57:49" nodeName="GB" urlName="gb" path="-1,1052" isDoc="" nodeType="1050" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="countryPage"><countryName><![CDATA[United Kingdom]]></countryName></countryPage>')
 GO
 INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1053, N'9b56920b-9225-4634-bad1-b529d8e934b2', CAST(N'2017-02-24 14:57:59.540' AS DateTime), N'<countryPage id="1053" key="4f749a3b-2187-4884-bddf-fd015ef50d55" parentID="-1" level="1" creatorID="0" sortOrder="1" createDate="2017-02-23T13:56:46" updateDate="2017-02-24T14:57:59" nodeName="BE" urlName="be" path="-1,1053" isDoc="" nodeType="1050" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="countryPage"><countryName><![CDATA[Belgium]]></countryName></countryPage>')
@@ -1077,6 +1084,10 @@ INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTy
 GO
 INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (36, -88, 1051, 13, N'languageName', N'Language Name', 0, 1, NULL, N'Give the language a nice name instead of the Language Code used as the Page Name', N'581ddf80-871e-4df3-b126-4f33a748870b')
 GO
+INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (37, -92, 1044, NULL, N'umbracoMemberPasswordRetrievalAnswer', N'Password Answer', 0, 0, NULL, NULL, N'4773ec09-fdf1-4269-82e7-1a0f19f68a86')
+GO
+INSERT [dbo].[cmsPropertyType] ([id], [dataTypeId], [contentTypeId], [propertyTypeGroupId], [Alias], [Name], [sortOrder], [mandatory], [validationRegExp], [Description], [UniqueID]) VALUES (38, -92, 1044, NULL, N'umbracoMemberPasswordRetrievalQuestion', N'Password Question', 1, 0, NULL, NULL, N'23b9524c-b6af-43e1-8f6b-ab37b67bc70f')
+GO
 SET IDENTITY_INSERT [dbo].[cmsPropertyType] OFF
 GO
 SET IDENTITY_INSERT [dbo].[cmsPropertyTypeGroup] ON 
@@ -1106,22 +1117,45 @@ GO
 SET IDENTITY_INSERT [dbo].[cmsTemplate] ON 
 
 GO
-INSERT [dbo].[cmsTemplate] ([pk], [nodeId], [alias], [design]) VALUES (1, 1046, N'HomePage', N'@{
-	Layout = "BasePage.cshtml";
-}
-@inherits UmbracoViewPage<MasterPage<HomePage>>')
+INSERT [dbo].[cmsTemplate] ([pk], [nodeId], [alias], [design]) VALUES (1, 1046, N'HomePage', N'@inherits UmbracoViewPage<MasterPage<HomePage>>
+@{
+    Layout = "BasePage.cshtml";
+}')
 GO
 INSERT [dbo].[cmsTemplate] ([pk], [nodeId], [alias], [design]) VALUES (2, 1049, N'BasePage', N'@inherits UmbracoViewPage<IMasterPage>
 <!doctype html>
 <html lang="@Culture">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
     <title></title>
-	<link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/main.css" />
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="" />
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.Action("CountrySelector", "Shared")
+                    @Html.Action("LanguageSelector", "Shared")
+                </div>
+            </div>
+        </div>
+    </header>
     @RenderBody()
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
 <!-- @DateTime.Now.ToUniversalTime() -->')
@@ -1155,14 +1189,12 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoMigration] ON 
 
 GO
-INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (10, N'Umbraco', CAST(N'2017-04-11 14:27:17.177' AS DateTime), N'7.5.13')
+INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (11, N'Umbraco', CAST(N'2017-05-03 10:29:14.770' AS DateTime), N'7.6.0')
 GO
 SET IDENTITY_INSERT [dbo].[umbracoMigration] OFF
 GO
 SET IDENTITY_INSERT [dbo].[umbracoNode] ON 
 
-GO
-INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (-331, 0, -1, 0, 1, N'-1,-331', -1, N'0af5e610-a310-4b6f-925f-e928d5416af7', N'LOCK: Servers', N'87a9f1ff-b1e4-4a25-babb-465a4a47ec41', CAST(N'2016-09-20 10:32:04.490' AS DateTime))
 GO
 INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (-97, 0, -1, 0, 1, N'-1,-97', 2, N'aa2c52a0-ce87-4e65-a47c-7df09358585d', N'List View - Members', N'30a2a501-1978-4ddb-a57b-f7efed43ba3c', CAST(N'2016-09-20 10:32:04.480' AS DateTime))
 GO
@@ -1255,16 +1287,16 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoRelationType] ON 
 
 GO
-INSERT [dbo].[umbracoRelationType] ([id], [dual], [parentObjectType], [childObjectType], [name], [alias]) VALUES (1, 1, N'c66ba18e-eaf3-4cff-8a22-41b16d66a972', N'c66ba18e-eaf3-4cff-8a22-41b16d66a972', N'Relate Document On Copy', N'relateDocumentOnCopy')
+INSERT [dbo].[umbracoRelationType] ([id], [dual], [parentObjectType], [childObjectType], [name], [alias], [typeUniqueId]) VALUES (1, 1, N'c66ba18e-eaf3-4cff-8a22-41b16d66a972', N'c66ba18e-eaf3-4cff-8a22-41b16d66a972', N'Relate Document On Copy', N'relateDocumentOnCopy', N'825557b3-3c71-ade7-c3c0-7b50a88ed2c0')
 GO
-INSERT [dbo].[umbracoRelationType] ([id], [dual], [parentObjectType], [childObjectType], [name], [alias]) VALUES (2, 0, N'c66ba18e-eaf3-4cff-8a22-41b16d66a972', N'c66ba18e-eaf3-4cff-8a22-41b16d66a972', N'Relate Parent Document On Delete', N'relateParentDocumentOnDelete')
+INSERT [dbo].[umbracoRelationType] ([id], [dual], [parentObjectType], [childObjectType], [name], [alias], [typeUniqueId]) VALUES (2, 0, N'c66ba18e-eaf3-4cff-8a22-41b16d66a972', N'c66ba18e-eaf3-4cff-8a22-41b16d66a972', N'Relate Parent Document On Delete', N'relateParentDocumentOnDelete', N'baad7594-dd81-3751-ce67-13e10c7778ba')
 GO
 SET IDENTITY_INSERT [dbo].[umbracoRelationType] OFF
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] ON 
 
 GO
-INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userType], [startStructureID], [startMediaID], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate]) VALUES (0, 0, 0, 1, -1, -1, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2017-04-20 11:17:45.530' AS DateTime))
+INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userType], [startStructureID], [startMediaID], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate]) VALUES (0, 0, 0, 1, -1, -1, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2017-05-03 10:40:56.497' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] OFF
 GO
@@ -1347,6 +1379,11 @@ CREATE NONCLUSTERED INDEX [IX_cmsDocument_published] ON [dbo].[cmsDocument]
 	[published] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 GO
+CREATE UNIQUE NONCLUSTERED INDEX [IX_cmsMacro_UniqueId] ON [dbo].[cmsMacro]
+(
+	[uniqueId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
 SET ANSI_PADDING ON
 
 GO
@@ -1364,9 +1401,17 @@ CREATE UNIQUE NONCLUSTERED INDEX [IX_cmsMacroProperty_Alias] ON [dbo].[cmsMacroP
 	[macroPropertyAlias] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 GO
-CREATE NONCLUSTERED INDEX [IX_cmsPropertyData] ON [dbo].[cmsPropertyData]
+CREATE UNIQUE NONCLUSTERED INDEX [IX_cmsMacroProperty_UniquePropertyId] ON [dbo].[cmsMacroProperty]
 (
-	[id] ASC
+	[uniquePropertyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
+SET ANSI_PADDING ON
+
+GO
+CREATE NONCLUSTERED INDEX [IX_cmsMember_LoginName] ON [dbo].[cmsMember]
+(
+	[LoginName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 GO
 CREATE UNIQUE NONCLUSTERED INDEX [IX_cmsPropertyData_1] ON [dbo].[cmsPropertyData]
@@ -1436,16 +1481,6 @@ GO
 SET ANSI_PADDING ON
 
 GO
-CREATE UNIQUE NONCLUSTERED INDEX [IX_umbracoDeployChecksum] ON [dbo].[umbracoDeployChecksum]
-(
-	[entityType] ASC,
-	[entityGuid] ASC,
-	[entityPath] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
-GO
-SET ANSI_PADDING ON
-
-GO
 CREATE UNIQUE NONCLUSTERED INDEX [IX_umbracoLanguage_languageISOCode] ON [dbo].[umbracoLanguage]
 (
 	[languageISOCode] ASC
@@ -1475,6 +1510,14 @@ CREATE NONCLUSTERED INDEX [IX_umbracoNodeParentId] ON [dbo].[umbracoNode]
 	[parentID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 GO
+SET ANSI_PADDING ON
+
+GO
+CREATE NONCLUSTERED INDEX [IX_umbracoNodePath] ON [dbo].[umbracoNode]
+(
+	[path] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
 CREATE NONCLUSTERED INDEX [IX_umbracoNodeTrashed] ON [dbo].[umbracoNode]
 (
 	[trashed] ASC
@@ -1493,6 +1536,34 @@ CREATE UNIQUE NONCLUSTERED INDEX [IX_umbracoRedirectUrl] ON [dbo].[umbracoRedire
 	[urlHash] ASC,
 	[contentKey] ASC,
 	[createDateUtc] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [IX_umbracoRelation_parentChildType] ON [dbo].[umbracoRelation]
+(
+	[parentId] ASC,
+	[childId] ASC,
+	[relType] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
+SET ANSI_PADDING ON
+
+GO
+CREATE NONCLUSTERED INDEX [IX_umbracoRelationType_alias] ON [dbo].[umbracoRelationType]
+(
+	[alias] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
+SET ANSI_PADDING ON
+
+GO
+CREATE NONCLUSTERED INDEX [IX_umbracoRelationType_name] ON [dbo].[umbracoRelationType]
+(
+	[name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [IX_umbracoRelationType_UniqueId] ON [dbo].[umbracoRelationType]
+(
+	[typeUniqueId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 GO
 SET ANSI_PADDING ON
@@ -1514,6 +1585,11 @@ GO
 CREATE NONCLUSTERED INDEX [IX_umbracoUser_userLogin] ON [dbo].[umbracoUser]
 (
 	[userLogin] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
+CREATE NONCLUSTERED INDEX [IX_umbracoUser2NodePermission_nodeId] ON [dbo].[umbracoUser2NodePermission]
+(
+	[nodeId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 GO
 ALTER TABLE [dbo].[cmsContent]  WITH CHECK ADD  CONSTRAINT [FK_cmsContent_cmsContentType_nodeId] FOREIGN KEY([contentType])
@@ -1755,16 +1831,6 @@ ALTER TABLE [dbo].[umbracoAccessRule]  WITH CHECK ADD  CONSTRAINT [FK_umbracoAcc
 REFERENCES [dbo].[umbracoAccess] ([id])
 GO
 ALTER TABLE [dbo].[umbracoAccessRule] CHECK CONSTRAINT [FK_umbracoAccessRule_umbracoAccess_id]
-GO
-ALTER TABLE [dbo].[umbracoDeployDependency]  WITH CHECK ADD  CONSTRAINT [FK_umbracoDeployDependency_umbracoDeployChecksum_id1] FOREIGN KEY([sourceId])
-REFERENCES [dbo].[umbracoDeployChecksum] ([id])
-GO
-ALTER TABLE [dbo].[umbracoDeployDependency] CHECK CONSTRAINT [FK_umbracoDeployDependency_umbracoDeployChecksum_id1]
-GO
-ALTER TABLE [dbo].[umbracoDeployDependency]  WITH CHECK ADD  CONSTRAINT [FK_umbracoDeployDependency_umbracoDeployChecksum_id2] FOREIGN KEY([targetId])
-REFERENCES [dbo].[umbracoDeployChecksum] ([id])
-GO
-ALTER TABLE [dbo].[umbracoDeployDependency] CHECK CONSTRAINT [FK_umbracoDeployDependency_umbracoDeployChecksum_id2]
 GO
 ALTER TABLE [dbo].[umbracoDomains]  WITH CHECK ADD  CONSTRAINT [FK_umbracoDomains_umbracoNode_id] FOREIGN KEY([domainRootStructureID])
 REFERENCES [dbo].[umbracoNode] ([id])
