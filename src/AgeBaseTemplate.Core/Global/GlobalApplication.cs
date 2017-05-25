@@ -20,14 +20,18 @@ namespace AgeBaseTemplate.Core.Global
 
         protected override void OnApplicationStarting(object sender, EventArgs e)
         {
-            Log.Debug("Starting");
+            Log.Debug("Application Starting");
+
+            base.OnApplicationStarting(sender, e);
 
             DefaultRenderMvcControllerResolver.Current.SetDefaultControllerType(typeof(BasePageController));
         }
 
         protected override void OnApplicationStarted(object sender, EventArgs e)
         {
-            Log.Debug("Started");
+            Log.Debug("Application Started");
+
+            base.OnApplicationStarted(sender, e);
 
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
@@ -37,6 +41,13 @@ namespace AgeBaseTemplate.Core.Global
             container.Verify();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+        }
+
+        protected override void OnApplicationEnd(object sender, EventArgs e)
+        {
+            Log.Debug("Application Ended");
+
+            base.OnApplicationEnd(sender, e);
         }
 
         public override string GetVaryByCustomString(HttpContext context, string custom)
