@@ -36,6 +36,7 @@ build:
   # Build solution
   project: src\AgeBaseTemplate.sln
   publish_wap: true
+  verbosity: minimal
   
 before_deploy:
   # Change domain in database restore script to match the Azure app service domain
