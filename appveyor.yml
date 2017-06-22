@@ -4,7 +4,7 @@ configuration: Release
 
 environment:
   appveyor_rdp_password:
-    secure: Kb9MuaG7JHspMsM15X4cZg==
+    secure: 1FH8E7dfMGPYLGfblNVDUg==
   db_connection_string:
     secure: G5XvTcAaSK4Ekd1tofzVwUQhr/n7DF1qtaAhbcjKm2NEU4EBgM/cqNdgz0fwMMdhIho0WRhBaw5VPMSVVRcIKghLgWCU9Aj/Wtpz2dgXqIqFzCy4jrOxMtSv2zVfJfbqqWs1DDbPK6Qc4qhlExUUYIM2TM9CDvs8hX++7+68j08BNGB9bGdivQssT6Plj7cL/waGMkxKCJ0FSF+qy72yu/bUcoEDA2YiJR39Ko/2zzynw81TpKVH71NxCR68Pd2I6zBc6nGvYCmy/T5nXchp+sOqJsxhwJ7DOYGgaKSeVgvFx5hOKu7fpJFgseNJb8w96OeHVDBZXQe5JvloPR1tmg==
 
