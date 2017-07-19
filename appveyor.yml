@@ -40,9 +40,9 @@ build:
   
 before_deploy:
   # Change domain in database restore script to match the Azure app service domain
-  - ps: (Get-Content "src\AgeBaseTemplate.Database\Database.sql") | ForEach-Object { $_ -replace "agebasetemplate.local", "as-agebasetemplate.azurewebsites.net" } | Set-Content "src\AgeBaseTemplate.Database\Database.sql"
+  # - ps: (Get-Content "src\AgeBaseTemplate.Database\Database.sql") | ForEach-Object { $_ -replace "agebasetemplate.local", "as-agebasetemplate.azurewebsites.net" } | Set-Content "src\AgeBaseTemplate.Database\Database.sql"
   # Restore database back to template
-  - cmd: tools\RestoreScript\RestoreScript "%db_connection_string%" "src\AgeBaseTemplate.Database\Database.sql"
+  # - cmd: tools\RestoreScript\RestoreScript "%db_connection_string%" "src\AgeBaseTemplate.Database\Database.sql"
   
 deploy:
   # Use this for continuous deployment
