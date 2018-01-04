@@ -1,1 +1,1 @@
-..\tools\RunScript\RunScript "server=.\SQL2016;database=db-agebasetemplate;user id=saAgeBaseTemplate;password=0agebasesa9" "..\src\AgeBaseTemplate.Database\DatabaseClean.sql"
+..\tools\RunScript\RunScript "server=.\SQL2017;database=db-agebasetemplate;user id=sa-agebasetemplate;password=S6H86T8TH688D9b" "..\src\AgeBaseTemplate.Database\DatabaseClean.sql"
