@@ -207,10 +207,6 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Our.Umbraco.AzureLogger.Core, Version=0.2.0.144, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Our.Umbraco.AzureLogger.0.2.0-beta\lib\net45\Our.Umbraco.AzureLogger.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
@@ -338,23 +334,6 @@
     <Content Include="app_plugins\AgeBase.DomainManager\Index.Controller.js" />
     <Content Include="app_plugins\AgeBase.DomainManager\Index.css" />
     <Content Include="app_plugins\AgeBase.DomainManager\Index.html" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\AzureLoggerResource.js" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\AzureLoggerTree\ViewLog.css" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\AzureLoggerTree\ViewLog.html" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\AzureLoggerTree\WipeLog.html" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\Controllers\ViewLogController.js" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\Controllers\WipeLogController.js" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\AutoCompleteDirective.css" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\AutoCompleteDirective.js" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\EnterKeyDirective.js" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\LazyLoadDirective.js" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\MonitorWidthDirective.js" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\Directives\SelectPlaceholderDirective.js" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\Filters\HighlightFilter.css" />
-    <Content Include="app_plugins\AzureLogger\BackOffice\Filters\HighlightFilter.js" />
-    <Content Include="app_plugins\AzureLogger\Install\Configurator\Controllers\Configure.js" />
-    <Content Include="app_plugins\AzureLogger\Install\Configurator\Views\Configure.ascx" />
-    <Content Include="app_plugins\AzureLogger\Install\umbraco-azure-logger-32.png" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -415,8 +394,6 @@
     <Content Include="config\ClientDependency.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="app_plugins\AzureLogger\Install\log4net.config.install.xdt" />
-    <Content Include="app_plugins\AzureLogger\Install\web.config.install.xdt" />
     <Content Include="config\imageprocessor\security.config" />
     <Content Include="config\imageprocessor\processing.config">
       <SubType>Designer</SubType>
@@ -428,7 +405,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="app_plugins\AgeBase.DomainManager\Package.manifest" />
-    <Content Include="app_plugins\AzureLogger\package.manifest" />
     <Content Include="app_plugins\ModelsBuilder\package.manifest" />
     <Content Include="views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="views\Partials\Grid\Editors\Rte.cshtml" />
