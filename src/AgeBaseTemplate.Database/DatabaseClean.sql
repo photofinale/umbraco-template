@@ -2,9 +2,9 @@ TRUNCATE TABLE umbracoLog
 GO
 TRUNCATE TABLE umbracoServer
 GO
-TRUNCATE TABLE umbracoUser2NodePermission
-GO
 TRUNCATE TABLE umbracoCacheInstruction
+GO
+TRUNCATE TABLE umbracoRelation
 GO
 TRUNCATE TABLE umbracoRedirectUrl
 GO
@@ -71,8 +71,6 @@ GO
 DBCC DBREINDEX (cmsContentXml)
 GO
 DBCC DBREINDEX (umbracoDomains)
-GO
-DBCC DBREINDEX (umbracoUser2NodePermission)
 GO
 DBCC DBREINDEX (umbracoNode)
 GO
