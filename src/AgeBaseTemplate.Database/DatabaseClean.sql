@@ -8,6 +8,8 @@ TRUNCATE TABLE umbracoRelation
 GO
 TRUNCATE TABLE umbracoRedirectUrl
 GO
+TRUNCATE TABLE umbracoUserLogin
+GO
 
 -- Create a temporary table for all documents which are published and not in the recycle bin
 CREATE TABLE #Nodes (id int)

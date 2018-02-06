@@ -245,6 +245,21 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+CREATE TABLE [dbo].[cmsMedia](
+	[nodeId] [int] NOT NULL,
+	[versionId] [uniqueidentifier] NOT NULL,
+	[mediaPath] [nvarchar](255) COLLATE Latin1_General_CI_AS NULL,
+ CONSTRAINT [PK_cmsMedia] PRIMARY KEY CLUSTERED 
+(
+	[versionId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 CREATE TABLE [dbo].[cmsMember](
 	[nodeId] [int] NOT NULL,
 	[Email] [nvarchar](1000) COLLATE Latin1_General_CI_AS NOT NULL,
@@ -495,6 +510,7 @@ CREATE TABLE [dbo].[umbracoCacheInstruction](
 	[utcStamp] [datetime] NOT NULL,
 	[jsonInstruction] [ntext] COLLATE Latin1_General_CI_AS NOT NULL,
 	[originated] [nvarchar](500) COLLATE Latin1_General_CI_AS NOT NULL,
+	[instructionCount] [int] NOT NULL,
  CONSTRAINT [PK_umbracoCacheInstruction] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -719,6 +735,7 @@ CREATE TABLE [dbo].[umbracoUser](
 	[invitedDate] [datetime] NULL,
 	[avatar] [nvarchar](500) COLLATE Latin1_General_CI_AS NULL,
 	[passwordConfig] [nvarchar](500) COLLATE Latin1_General_CI_AS NULL,
+	[tourData] [ntext] COLLATE Latin1_General_CI_AS NULL,
  CONSTRAINT [PK_user] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
@@ -807,6 +824,24 @@ CREATE TABLE [dbo].[umbracoUserGroup2NodePermission](
 	[userGroupId] ASC,
 	[nodeId] ASC,
 	[permission] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[umbracoUserLogin](
+	[sessionId] [uniqueidentifier] NOT NULL,
+	[userId] [int] NOT NULL,
+	[loggedInUtc] [datetime] NOT NULL,
+	[lastValidatedUtc] [datetime] NOT NULL,
+	[loggedOutUtc] [datetime] NULL,
+	[ipAddress] [nvarchar](255) COLLATE Latin1_General_CI_AS NULL,
+ CONSTRAINT [PK_umbracoUserLogin] PRIMARY KEY CLUSTERED 
+(
+	[sessionId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 )
 
@@ -1230,6 +1265,8 @@ INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (
 GO
 INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (16, N'Umbraco', CAST(N'2018-01-05 21:39:03.260' AS DateTime), N'7.7.7')
 GO
+INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (17, N'Umbraco', CAST(N'2018-02-06 16:04:57.293' AS DateTime), N'7.8.0')
+GO
 SET IDENTITY_INSERT [dbo].[umbracoMigration] OFF
 GO
 SET IDENTITY_INSERT [dbo].[umbracoNode] ON 
@@ -1335,7 +1372,7 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] ON 
 
 GO
-INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate], [createDate], [updateDate], [emailConfirmedDate], [invitedDate], [avatar], [passwordConfig]) VALUES (0, 0, 0, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2018-01-05 21:39:24.617' AS DateTime), CAST(N'2018-01-05 21:39:02.850' AS DateTime), CAST(N'2018-01-05 21:39:24.657' AS DateTime), NULL, NULL, NULL, N'{"hashAlgorithm":"SHA1"}')
+INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate], [createDate], [updateDate], [emailConfirmedDate], [invitedDate], [avatar], [passwordConfig], [tourData]) VALUES (0, 0, 0, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2018-02-06 16:11:04.683' AS DateTime), CAST(N'2018-01-05 21:39:02.850' AS DateTime), CAST(N'2018-02-06 16:11:04.683' AS DateTime), NULL, NULL, NULL, N'{"hashAlgorithm":"SHA1"}', NULL)
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] OFF
 GO
@@ -1482,6 +1519,16 @@ GO
 SET ANSI_PADDING ON
 
 GO
+CREATE UNIQUE NONCLUSTERED INDEX [IX_cmsMedia] ON [dbo].[cmsMedia]
+(
+	[nodeId] ASC,
+	[versionId] ASC,
+	[mediaPath] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
+SET ANSI_PADDING ON
+
+GO
 CREATE NONCLUSTERED INDEX [IX_cmsMember_LoginName] ON [dbo].[cmsMember]
 (
 	[LoginName] ASC
@@ -1502,6 +1549,14 @@ GO
 CREATE NONCLUSTERED INDEX [IX_cmsPropertyData_3] ON [dbo].[cmsPropertyData]
 (
 	[propertytypeid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+GO
+SET ANSI_PADDING ON
+
+GO
+CREATE NONCLUSTERED INDEX [IX_cmsPropertyTypeAlias] ON [dbo].[cmsPropertyType]
+(
+	[Alias] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 GO
 CREATE UNIQUE NONCLUSTERED INDEX [IX_cmsPropertyTypeUniqueID] ON [dbo].[cmsPropertyType]
@@ -1688,6 +1743,8 @@ CREATE UNIQUE NONCLUSTERED INDEX [IX_umbracoUserStartNode_startNodeType] ON [dbo
 	[userId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 GO
+ALTER TABLE [dbo].[umbracoCacheInstruction] ADD  CONSTRAINT [DF_umbracoCacheInstruction_instructionCount]  DEFAULT ('1') FOR [instructionCount]
+GO
 ALTER TABLE [dbo].[cmsContent]  WITH CHECK ADD  CONSTRAINT [FK_cmsContent_cmsContentType_nodeId] FOREIGN KEY([contentType])
 REFERENCES [dbo].[cmsContentType] ([nodeId])
 GO
@@ -1792,6 +1849,16 @@ ALTER TABLE [dbo].[cmsMacroProperty]  WITH CHECK ADD  CONSTRAINT [FK_cmsMacroPro
 REFERENCES [dbo].[cmsMacro] ([id])
 GO
 ALTER TABLE [dbo].[cmsMacroProperty] CHECK CONSTRAINT [FK_cmsMacroProperty_cmsMacro_id]
+GO
+ALTER TABLE [dbo].[cmsMedia]  WITH CHECK ADD  CONSTRAINT [FK_cmsMedia_cmsContent_nodeId] FOREIGN KEY([nodeId])
+REFERENCES [dbo].[cmsContent] ([nodeId])
+GO
+ALTER TABLE [dbo].[cmsMedia] CHECK CONSTRAINT [FK_cmsMedia_cmsContent_nodeId]
+GO
+ALTER TABLE [dbo].[cmsMedia]  WITH CHECK ADD  CONSTRAINT [FK_cmsMedia_umbracoNode_id] FOREIGN KEY([nodeId])
+REFERENCES [dbo].[umbracoNode] ([id])
+GO
+ALTER TABLE [dbo].[cmsMedia] CHECK CONSTRAINT [FK_cmsMedia_umbracoNode_id]
 GO
 ALTER TABLE [dbo].[cmsMember]  WITH CHECK ADD  CONSTRAINT [FK_cmsMember_cmsContent_nodeId] FOREIGN KEY([nodeId])
 REFERENCES [dbo].[cmsContent] ([nodeId])
@@ -2002,6 +2069,11 @@ ALTER TABLE [dbo].[umbracoUserGroup2NodePermission]  WITH CHECK ADD  CONSTRAINT 
 REFERENCES [dbo].[umbracoUserGroup] ([id])
 GO
 ALTER TABLE [dbo].[umbracoUserGroup2NodePermission] CHECK CONSTRAINT [FK_umbracoUserGroup2NodePermission_umbracoUserGroup_id]
+GO
+ALTER TABLE [dbo].[umbracoUserLogin]  WITH CHECK ADD  CONSTRAINT [FK_umbracoUserLogin_umbracoUser_id] FOREIGN KEY([userId])
+REFERENCES [dbo].[umbracoUser] ([id])
+GO
+ALTER TABLE [dbo].[umbracoUserLogin] CHECK CONSTRAINT [FK_umbracoUserLogin_umbracoUser_id]
 GO
 ALTER TABLE [dbo].[umbracoUserStartNode]  WITH CHECK ADD  CONSTRAINT [FK_umbracoUserStartNode_umbracoNode_id] FOREIGN KEY([startNode])
 REFERENCES [dbo].[umbracoNode] ([id])
