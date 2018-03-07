@@ -49,9 +49,8 @@
     <NoWarn>AD0001</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AgeBase.DomainManager, Version=1.0.1.24790, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgeBase.DomainManager.1.0.1\lib\AgeBase.DomainManager.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="AgeBase.DomainManager, Version=1.1.0.38014, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AgeBase.DomainManager.1.1.0\lib\AgeBase.DomainManager.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
@@ -408,7 +407,6 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="app_plugins\AgeBase.DomainManager\Package.manifest" />
     <Content Include="app_plugins\ModelsBuilder\package.manifest" />
     <Content Include="views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="views\Partials\Grid\Editors\Rte.cshtml" />
@@ -434,6 +432,7 @@
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
     <Content Include="app_plugins\uSync\package.manifest" />
+    <Content Include="app_plugins\AgeBase.DomainManager\Package.manifest" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
