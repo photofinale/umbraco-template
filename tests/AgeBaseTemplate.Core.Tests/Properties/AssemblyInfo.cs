@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AgeBaseTemplate.Core.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("AgeBase")]
 [assembly: AssemblyProduct("AgeBaseTemplate.Core.Tests")]
-[assembly: AssemblyCopyright("Copyright © AgeBase 2016")]
+[assembly: AssemblyCopyright("Copyright © AgeBase 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

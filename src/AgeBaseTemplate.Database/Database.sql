@@ -297,6 +297,7 @@ CREATE TABLE [dbo].[cmsMemberType](
 	[propertytypeId] [int] NOT NULL,
 	[memberCanEdit] [bit] NOT NULL,
 	[viewOnProfile] [bit] NOT NULL,
+	[isSensitive] [bit] NOT NULL CONSTRAINT [DF_cmsMemberType_isSensitive]  DEFAULT ('0'),
  CONSTRAINT [PK_cmsMemberType] PRIMARY KEY CLUSTERED 
 (
 	[pk] ASC
@@ -505,6 +506,27 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+CREATE TABLE [dbo].[umbracoAudit](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[performingUserId] [int] NOT NULL,
+	[performingDetails] [nvarchar](1024) COLLATE Latin1_General_CI_AS NULL,
+	[performingIp] [nvarchar](64) COLLATE Latin1_General_CI_AS NULL,
+	[eventDateUtc] [datetime] NOT NULL CONSTRAINT [DF_umbracoAudit_eventDateUtc]  DEFAULT (getdate()),
+	[affectedUserId] [int] NOT NULL,
+	[affectedDetails] [nvarchar](1024) COLLATE Latin1_General_CI_AS NULL,
+	[eventType] [nvarchar](256) COLLATE Latin1_General_CI_AS NOT NULL,
+	[eventDetails] [nvarchar](1024) COLLATE Latin1_General_CI_AS NULL,
+ CONSTRAINT [PK_umbracoAudit] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 CREATE TABLE [dbo].[umbracoCacheInstruction](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[utcStamp] [datetime] NOT NULL,
@@ -512,6 +534,26 @@ CREATE TABLE [dbo].[umbracoCacheInstruction](
 	[originated] [nvarchar](500) COLLATE Latin1_General_CI_AS NOT NULL,
 	[instructionCount] [int] NOT NULL,
  CONSTRAINT [PK_umbracoCacheInstruction] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[umbracoConsent](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[current] [bit] NOT NULL,
+	[source] [nvarchar](512) COLLATE Latin1_General_CI_AS NOT NULL,
+	[context] [nvarchar](128) COLLATE Latin1_General_CI_AS NOT NULL,
+	[action] [nvarchar](512) COLLATE Latin1_General_CI_AS NOT NULL,
+	[createDate] [datetime] NOT NULL,
+	[state] [int] NOT NULL,
+	[comment] [nvarchar](255) COLLATE Latin1_General_CI_AS NOT NULL,
+ CONSTRAINT [PK_umbracoConsent] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
@@ -1070,23 +1112,23 @@ GO
 SET IDENTITY_INSERT [dbo].[cmsMemberType] ON 
 
 GO
-INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (1, 1044, 37, 0, 0)
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile], [isSensitive]) VALUES (1, 1044, 37, 0, 0, 0)
 GO
-INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (2, 1044, 38, 0, 0)
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile], [isSensitive]) VALUES (2, 1044, 38, 0, 0, 0)
 GO
-INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (3, 1044, 28, 0, 0)
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile], [isSensitive]) VALUES (3, 1044, 28, 0, 0, 0)
 GO
-INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (4, 1044, 29, 0, 0)
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile], [isSensitive]) VALUES (4, 1044, 29, 0, 0, 0)
 GO
-INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (5, 1044, 30, 0, 0)
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile], [isSensitive]) VALUES (5, 1044, 30, 0, 0, 0)
 GO
-INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (6, 1044, 31, 0, 0)
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile], [isSensitive]) VALUES (6, 1044, 31, 0, 0, 0)
 GO
-INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (7, 1044, 32, 0, 0)
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile], [isSensitive]) VALUES (7, 1044, 32, 0, 0, 0)
 GO
-INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (8, 1044, 33, 0, 0)
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile], [isSensitive]) VALUES (8, 1044, 33, 0, 0, 0)
 GO
-INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile]) VALUES (9, 1044, 34, 0, 0)
+INSERT [dbo].[cmsMemberType] ([pk], [NodeId], [propertytypeId], [memberCanEdit], [viewOnProfile], [isSensitive]) VALUES (9, 1044, 34, 0, 0, 0)
 GO
 SET IDENTITY_INSERT [dbo].[cmsMemberType] OFF
 GO
@@ -1234,6 +1276,13 @@ INSERT [dbo].[cmsTemplate] ([pk], [nodeId], [alias], [design]) VALUES (2, 1049, 
 GO
 SET IDENTITY_INSERT [dbo].[cmsTemplate] OFF
 GO
+SET IDENTITY_INSERT [dbo].[umbracoAudit] ON 
+
+GO
+INSERT [dbo].[umbracoAudit] ([id], [performingUserId], [performingDetails], [performingIp], [eventDateUtc], [affectedUserId], [affectedDetails], [eventType], [eventDetails]) VALUES (1, 0, N'User "Dan Lister" <d.lister@agebase.co.uk>', N'192.168.68.1', CAST(N'2018-03-07 16:36:03.677' AS DateTime), 0, N'User "Dan Lister" <d.lister@agebase.co.uk>', N'umbraco/user/save', N'updating LastLoginDate, UpdateDate')
+GO
+SET IDENTITY_INSERT [dbo].[umbracoAudit] OFF
+GO
 SET IDENTITY_INSERT [dbo].[umbracoDomains] ON 
 
 GO
@@ -1266,6 +1315,8 @@ GO
 INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (16, N'Umbraco', CAST(N'2018-01-05 21:39:03.260' AS DateTime), N'7.7.7')
 GO
 INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (17, N'Umbraco', CAST(N'2018-02-06 16:04:57.293' AS DateTime), N'7.8.0')
+GO
+INSERT [dbo].[umbracoMigration] ([id], [name], [createDate], [version]) VALUES (18, N'Umbraco', CAST(N'2018-03-07 16:35:38.717' AS DateTime), N'7.9.2')
 GO
 SET IDENTITY_INSERT [dbo].[umbracoMigration] OFF
 GO
@@ -1372,13 +1423,15 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] ON 
 
 GO
-INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate], [createDate], [updateDate], [emailConfirmedDate], [invitedDate], [avatar], [passwordConfig], [tourData]) VALUES (0, 0, 0, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2018-02-06 16:11:04.683' AS DateTime), CAST(N'2018-01-05 21:39:02.850' AS DateTime), CAST(N'2018-02-06 16:11:04.683' AS DateTime), NULL, NULL, NULL, N'{"hashAlgorithm":"SHA1"}', NULL)
+INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate], [createDate], [updateDate], [emailConfirmedDate], [invitedDate], [avatar], [passwordConfig], [tourData]) VALUES (0, 0, 0, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20 10:32:05.533' AS DateTime), CAST(N'2018-03-07 16:48:30.333' AS DateTime), CAST(N'2018-01-05 21:39:02.850' AS DateTime), CAST(N'2018-03-07 16:48:30.333' AS DateTime), NULL, NULL, NULL, N'{"hashAlgorithm":"SHA1"}', NULL)
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] OFF
 GO
 INSERT [dbo].[umbracoUser2UserGroup] ([userId], [userGroupId]) VALUES (0, 1)
 GO
 INSERT [dbo].[umbracoUser2UserGroup] ([userId], [userGroupId]) VALUES (0, 5)
+GO
+INSERT [dbo].[umbracoUser2UserGroup] ([userId], [userGroupId]) VALUES (0, 6)
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUserGroup] ON 
 
@@ -1392,6 +1445,8 @@ GO
 INSERT [dbo].[umbracoUserGroup] ([id], [userGroupAlias], [userGroupName], [userGroupDefaultPermissions], [createDate], [updateDate], [icon], [startContentId], [startMediaId]) VALUES (4, N'translator', N'Translators', N'AF', CAST(N'2018-01-05 21:39:02.950' AS DateTime), CAST(N'2018-01-05 21:39:02.950' AS DateTime), N'icon-globe', -1, -1)
 GO
 INSERT [dbo].[umbracoUserGroup] ([id], [userGroupAlias], [userGroupName], [userGroupDefaultPermissions], [createDate], [updateDate], [icon], [startContentId], [startMediaId]) VALUES (5, N'MigratedSectionAccessGroup_1', N'Migrated Section Access Group 1', NULL, CAST(N'2018-01-05 21:39:02.983' AS DateTime), CAST(N'2018-01-05 21:39:02.983' AS DateTime), NULL, NULL, NULL)
+GO
+INSERT [dbo].[umbracoUserGroup] ([id], [userGroupAlias], [userGroupName], [userGroupDefaultPermissions], [createDate], [updateDate], [icon], [startContentId], [startMediaId]) VALUES (6, N'sensitiveData', N'Sensitive data', N'', CAST(N'2018-03-07 16:35:38.680' AS DateTime), CAST(N'2018-03-07 16:35:38.680' AS DateTime), N'icon-lock', -1, -1)
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUserGroup] OFF
 GO
@@ -1744,6 +1799,8 @@ CREATE UNIQUE NONCLUSTERED INDEX [IX_umbracoUserStartNode_startNodeType] ON [dbo
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
 GO
 ALTER TABLE [dbo].[umbracoCacheInstruction] ADD  CONSTRAINT [DF_umbracoCacheInstruction_instructionCount]  DEFAULT ('1') FOR [instructionCount]
+GO
+ALTER TABLE [dbo].[umbracoConsent] ADD  CONSTRAINT [DF_umbracoConsent_createDate]  DEFAULT (getdate()) FOR [createDate]
 GO
 ALTER TABLE [dbo].[cmsContent]  WITH CHECK ADD  CONSTRAINT [FK_cmsContent_cmsContentType_nodeId] FOREIGN KEY([contentType])
 REFERENCES [dbo].[cmsContentType] ([nodeId])
