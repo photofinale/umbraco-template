@@ -9,32 +9,13 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>AgeBase Umbraco Template is a hopefully handy template for creating Umbraco web applications. It includes your usual Umbraco features and also some nice extra features.</description>
     <copyright>Copyright © AgeBase 2018</copyright>
-    <dependencies>
-      <dependency id="AgeBase.DomainManager" version="1.1.1" />
-      <dependency id="ClientDependency" version="1.9.6" />
-      <dependency id="ImageProcessor" version="2.6.0" />
-      <dependency id="ImageProcessor.Web" version="4.9.1.2" />
-      <dependency id="ImageProcessor.Web.Config" version="2.4.0" />
-      <dependency id="log4net" version="2.0.8" />
-      <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
-      <dependency id="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" version="1.0.1" />
-      <dependency id="Microsoft.Owin" version="3.1.0" />
-      <dependency id="Microsoft.Owin.Security" version="3.1.0" />
-      <dependency id="Microsoft.Owin.Security.Cookies" version="3.1.0" />
-      <dependency id="Microsoft.Owin.Security.OAuth" version="3.1.0" />
-      <dependency id="Newtonsoft.Json" version="10.0.2" />
-      <dependency id="Umbraco.ModelsBuilder.Api" version="3.0.10" />
-      <dependency id="UmbracoCms" version="7.9.2" />
-      <dependency id="UmbracoCms.Core" version="7.9.2" />
-      <dependency id="uSync" version="4.0.4" />
-      <dependency id="WindowsAzure.Storage" version="6.2.0" />
-      <dependency id="xmlrpcnet" version="2.5.0" />
-    </dependencies>
     <projectUrl>https://github.com/agebase/umbraco-template</projectUrl>
     <iconUrl>https://agebase.co.uk/media/14030/nuget-logo.png</iconUrl>
   </metadata>
   <files>
     <file src="app_browsers\**\*.*" target="app_browsers" />
+    <file src="app_plugins\**\*.*" target="app_plugins" />
+    <file src="bin\**\*.*" target="bin" />
     <file src="config\**\*.*" target="config" />
     <file src="css\**\*.*" target="css" />
     <file src="fonts\**\*.*" target="fonts" />
@@ -42,6 +23,12 @@
     <file src="js\**\*.*" target="js" />
     <file src="media\**\*.*" target="media" />
     <file src="usync\**\*.*" target="usync" />
+    <file src="umbraco\**\*.*" target="umbraco" />
+    <file src="umbraco_client\**\*.*" target="umbraco_client" />
     <file src="views\**\*.*" target="views" />
+    <file src="default.aspx" target="default.aspx" />
+    <file src="global.asax" target="global.asax" />
+    <file src="robots.txt" target="robots.txt" />
+    <file src="web.config" target="web.config" />
   </files>
 </package>
