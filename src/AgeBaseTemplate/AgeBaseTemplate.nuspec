@@ -18,7 +18,6 @@
     <file src="bin\**\*.*" target="bin" />
     <file src="config\**\*.*" target="config" />
     <file src="css\**\*.*" target="css" />
-    <file src="fonts\**\*.*" target="fonts" />
     <file src="images\**\*.*" target="images" />
     <file src="js\**\*.*" target="js" />
     <file src="media\**\*.*" target="media" />
