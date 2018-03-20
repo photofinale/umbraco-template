@@ -1,7 +1,7 @@
 ﻿@charset "UTF-8";
 
-// Overrides
-$flag-icon-css-path: '/images/flags';
+// Variables
+@import 'variables/overrides';
 
 // Vendor
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
