@@ -3,33 +3,30 @@
 @if (Model?.Languages != null && Model.Languages.Any() && Model.Current != null)
 {
     <div class="language-selector">
-        <span>
-            @Umbraco.GetDictionaryValue(DictionaryItems.Language):
-        </span>
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            @Model.Current.LanguageName
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            @foreach (var lanuage in Model.Languages)
-            {
-                if (lanuage.Id.Equals(Model.Current.Id))
+        <div class="dropdown">
+            <span>
+                @Umbraco.GetDictionaryValue(DictionaryItems.Language):
+            </span>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="language-selector-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @Model.Current.LanguageName
+            </button>
+            <div class="dropdown-menu" aria-labelledby="language-selector-dropdown">
+                @foreach (var language in Model.Languages)
                 {
-                    <li>
-                        <a href="@lanuage.HomePageUrl">
-                            <strong>@lanuage.LanguageName</strong>
+                    if (language.Id.Equals(Model.Current.Id))
+                    {
+                        <a class="dropdown-item" href="@language.HomePageUrl">
+                            <strong>@language.LanguageName</strong>
                         </a>
-                    </li>
-                }
-                else
-                {
-                    <li>
-                        <a href="@lanuage.HomePageUrl">
-                            @lanuage.LanguageName
+                    }
+                    else
+                    {
+                        <a class="dropdown-item" href="@language.HomePageUrl">
+                            @language.LanguageName
                         </a>
-                    </li>
+                    }
                 }
-            }
-        </ul>
+            </div>
+        </div>
     </div>
 }

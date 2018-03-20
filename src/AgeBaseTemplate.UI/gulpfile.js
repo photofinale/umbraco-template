@@ -11,9 +11,9 @@ var jsSources = ['app/js/**/*.js'];
 
 gulp.task('vendor', function() {
 
-    var fontsVendors = ['node_modules/bootstrap-sass/assets/fonts/bootstrap/**/*'];
+    var fontsVendors = [];
     var imagesVendors = ['node_modules/flag-icon-css/**/*.svg'];
-    var jsVendors = ['node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'];
+    var jsVendors = [];
 
     gulp.src(fontsVendors)
         .pipe(gulp.dest(fontsDestination));

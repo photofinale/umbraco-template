@@ -3,36 +3,33 @@
 @if (Model?.Countries != null && Model.Countries.Any() && Model.Current != null)
 {
     <div class="country-selector">
-        <span>
-            @Umbraco.GetDictionaryValue(DictionaryItems.Country):
-        </span>
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            <span class="flag-icon flag-icon-@Model.Current.Name.ToLower()"></span>
-            @Model.Current.CountryName
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
-            @foreach (var country in Model.Countries)
-            {
-                if (country.Id.Equals(Model.Current.Id))
+        <div class="dropdown">
+            <span>
+                @Umbraco.GetDictionaryValue(DictionaryItems.Country):
+            </span>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="country-selector-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="flag-icon flag-icon-@Model.Current.Name.ToLower()"></span>
+                @Model.Current.CountryName
+            </button>
+            <div class="dropdown-menu" aria-labelledby="country-selector-dropdown">
+                @foreach (var country in Model.Countries)
                 {
-                    <li>
-                        <a href="@country.Url">
+                    if (country.Id.Equals(Model.Current.Id))
+                    {
+                        <a class="dropdown-item" href="@country.Url">
                             <span class="flag-icon flag-icon-@country.Name.ToLower()"></span>
                             <strong>@country.CountryName</strong>
                         </a>
-                    </li>
-                }
-                else
-                {
-                    <li>
-                        <a href="@country.Url">
+                    }
+                    else
+                    {
+                        <a class="dropdown-item" href="@country.Url">
                             <span class="flag-icon flag-icon-@country.Name.ToLower()"></span>
                             @country.CountryName
                         </a>
-                    </li>
+                    }
                 }
-            }
-        </ul>
+            </div>
+        </div>
     </div>
 }
