@@ -20,15 +20,21 @@ namespace AgeBaseTemplate.Core.Events
         protected override void ApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
             if (_ran)
+            {
                 return;
+            }
 
             lock (LockObj)
             {
                 if (_ran)
+                {
                     return;
+                }
 
                 if (_outputCacheManager == null)
+                {
                     _outputCacheManager = new OutputCacheManager();
+                }
 
                 CacheRefresherBase<DataTypeCacheRefresher>.CacheUpdated += DataTypeCacheRefresherOnCacheUpdated;
                 CacheRefresherBase<DictionaryCacheRefresher>.CacheUpdated += DictionaryCacheRefresherOnCacheUpdated;

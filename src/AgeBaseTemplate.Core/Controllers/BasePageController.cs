@@ -19,7 +19,9 @@ namespace AgeBaseTemplate.Core.Controllers
 
             var result = ViewEngines.Engines.FindView(ControllerContext, template, null);
             if (result.View == null || model == null)
+            {
                 return new HttpNotFoundResult();
+            }
 
             return View(template, model);
         }
