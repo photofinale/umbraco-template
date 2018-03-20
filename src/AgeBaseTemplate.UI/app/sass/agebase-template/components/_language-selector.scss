@@ -1,0 +1,14 @@
+.language-selector {
+    @extend .dropdown;
+    
+    float: right;
+    padding-left: $padding-base-horizontal;
+
+    .dropdown-menu {
+        @extend .dropdown-menu-right;
+    }
+
+    .flag-icon {
+        margin-right: $border-radius-base;
+    }
+}

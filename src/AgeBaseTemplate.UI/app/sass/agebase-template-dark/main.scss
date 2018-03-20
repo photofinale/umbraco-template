@@ -4,8 +4,8 @@
 $flag-icon-css-path: '/images/flags';
 
 // Vendor
-@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
-@import '../node_modules/flag-icon-css/sass/flag-icon';
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import '../../../node_modules/flag-icon-css/sass/flag-icon';
 
 // Layout
 @import 'layout/header';

@@ -6,8 +6,8 @@ var fontsDestination = '../AgeBaseTemplate/fonts';
 var imagesDestination = '../AgeBaseTemplate/images';
 var jsDestination = '../AgeBaseTemplate/js';
 
-var cssSources = ['sass/**/*.scss'];
-var jsSources = ['js/**/*.js'];
+var cssSources = ['app/sass/**/*.scss'];
+var jsSources = ['app/js/**/*.js'];
 
 gulp.task('vendor', function() {
 
