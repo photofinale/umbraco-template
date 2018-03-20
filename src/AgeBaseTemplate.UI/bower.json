@@ -1,8 +1,0 @@
-{
-  "name": "agebasetemplate-ui",
-  "version": "0.0.0",
-  "dependencies": {
-    "bootstrap-sass": "3.3.7",
-    "country-flags": "1.1.0"
-  }
-}

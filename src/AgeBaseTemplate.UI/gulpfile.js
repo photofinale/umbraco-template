@@ -9,13 +9,11 @@ var jsDestination = '../AgeBaseTemplate/js';
 var cssSources = ['sass/**/*.scss'];
 var jsSources = ['js/**/*.js'];
 
-// Tasks
-
 gulp.task('vendor', function() {
 
-    var fontsVendors = ['bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*'];
-    var imagesVendors = ['bower_components/country-flags/images/**/*'];
-    var jsVendors = ['bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js'];
+    var fontsVendors = ['node_modules/bootstrap-sass/assets/fonts/bootstrap/**/*'];
+    var imagesVendors = ['node_modules/flag-icon-css/**/*.svg'];
+    var jsVendors = ['node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'];
 
     gulp.src(fontsVendors)
         .pipe(gulp.dest(fontsDestination));

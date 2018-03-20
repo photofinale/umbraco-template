@@ -7,7 +7,7 @@
             @Umbraco.GetDictionaryValue(DictionaryItems.Country):
         </span>
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            <i class="flag @Model.Current.Name.ToLower()"></i>
+            <span class="flag-icon flag-icon-@Model.Current.Name.ToLower()"></span>
             @Model.Current.CountryName
             <span class="caret"></span>
         </button>
@@ -18,7 +18,7 @@
                 {
                     <li>
                         <a href="@country.Url">
-                            <i class="flag @country.Name.ToLower()"></i>
+                            <span class="flag-icon flag-icon-@country.Name.ToLower()"></span>
                             <strong>@country.CountryName</strong>
                         </a>
                     </li>
@@ -27,7 +27,7 @@
                 {
                     <li>
                         <a href="@country.Url">
-                            <i class="flag @country.Name.ToLower()"></i>
+                            <span class="flag-icon flag-icon-@country.Name.ToLower()"></span>
                             @country.CountryName
                         </a>
                     </li>

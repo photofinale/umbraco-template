@@ -7,7 +7,6 @@
             @Umbraco.GetDictionaryValue(DictionaryItems.Language):
         </span>
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-            <i class="flag @Model.Current.Name.ToLower()"></i>
             @Model.Current.LanguageName
             <span class="caret"></span>
         </button>
@@ -18,7 +17,6 @@
                 {
                     <li>
                         <a href="@lanuage.HomePageUrl">
-                            <i class="flag @lanuage.Name.ToLower()"></i>
                             <strong>@lanuage.LanguageName</strong>
                         </a>
                     </li>
@@ -27,7 +25,6 @@
                 {
                     <li>
                         <a href="@lanuage.HomePageUrl">
-                            <i class="flag @lanuage.Name.ToLower()"></i>
                             @lanuage.LanguageName
                         </a>
                     </li>
