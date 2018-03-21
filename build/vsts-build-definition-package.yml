@@ -9,11 +9,11 @@ phases:
     - msbuild
     - visualstudio
     - vstest
+  trigger:
+    - master
   steps:
     - checkout: self
       clean: true
-    - trigger:
-      - master
     - task: Npm@1
       inputs:
         workingDir: 'src/AgeBaseTemplate.UI'
