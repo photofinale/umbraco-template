@@ -1,6 +1,6 @@
 name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
 phases:
-- phase: 'Phase 1'
+- phase: Phase 1
   queue:
     name: Hosted VS2017
     demands: 
