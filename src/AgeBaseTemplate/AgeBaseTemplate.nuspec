@@ -16,7 +16,7 @@
     <file src="app_browsers\**\*.*" target="app_browsers" />
     <file src="app_plugins\**\*.*" target="app_plugins" />
     <file src="bin\**\*.*" target="bin" />
-    <file src="..\..\..\build\**\*.*" target="build" />
+    <file src="..\..\build\**\*.*" target="build" />
     <file src="config\**\*.*" target="config" />
     <file src="css\**\*.*" target="css" />
     <file src="images\**\*.*" target="images" />
