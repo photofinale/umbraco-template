@@ -1,4 +1,4 @@
-name: AgeBaseTemplate.$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+name: AgeBaseTemplate.$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)
 phases:
 - phase: BuildTestPackAndPushNugetPackage
   queue:
@@ -26,13 +26,13 @@ phases:
       inputs:
         solution: 'src/AgeBaseTemplate.sln'
         msbuildArgs: '/p:SkipInvalidConfigurations=true'
-        platform: 'any cpu'
-        configuration: 'release'
+        platform: 'Any CPU'
+        configuration: 'Release'
     - task: VSTest@2
       inputs:
-        testAssemblyVer2: '**\$(BuildConfiguration)\*test*.dll'
-        platform: 'any cpu'
-        configuration: 'release'
+        testAssemblyVer2: 'tests/AgeBaseTemplate.Core.Tests/bin/Release/AgeBaseTemplate.Core.Tests.dll'
+        platform: 'Any CPU'
+        configuration: 'Release'
     - task: NuGetCommand@2
       inputs:
         command: pack
@@ -41,4 +41,4 @@ phases:
     - task: NuGetCommand@2
       inputs:
         command: push
-        publishVstsFeed: '6f1e4b39-3b52-432d-8212-23059fcff0fb'
+        publishVstsFeed: '455699ce-8169-4770-887a-2ddf510f1289'
