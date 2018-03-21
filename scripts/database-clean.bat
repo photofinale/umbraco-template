@@ -1,0 +1,1 @@
+..\tools\sql-run-script-against-database\sql-run-script-against-database "server=.\SQL2017;database=db-agebasetemplate;user id=sa-agebasetemplate;password=S6H86T8TH688D9b" "..\src\AgeBaseTemplate.Database\DatabaseClean.sql"

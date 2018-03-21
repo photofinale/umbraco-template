@@ -1,2 +1,0 @@
-call Database.Clean.bat
-..\tools\GenerateScript\GenerateScript "server=.\SQL2017;database=db-agebasetemplate;user id=sa-agebasetemplate;password=S6H86T8TH688D9b" "..\src\AgeBaseTemplate.Database\Database.sql"

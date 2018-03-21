@@ -1,1 +1,0 @@
-..\tools\RunScript\RunScript "server=.\SQL2017;database=db-agebasetemplate;user id=sa-agebasetemplate;password=S6H86T8TH688D9b" "..\src\AgeBaseTemplate.Database\DatabaseDrop.sql"
