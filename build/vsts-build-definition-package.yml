@@ -1,4 +1,6 @@
 name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+trigger:
+  - master
 steps:
   - task: Npm@1
     inputs:
