@@ -1,34 +1,44 @@
 name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
-trigger:
-  - master
-steps:
-  - task: Npm@1
-    inputs:
-      workingDir: 'src/AgeBaseTemplate.UI'
-      verbose: false
-  - task: Gulp@0
-    inputs:
-      gulpFile: 'src/AgeBaseTemplate.UI/gulpfile.js'
-  - task: NuGetCommand@2
-    inputs:
-      restoreSolution: 'src/AgeBaseTemplate.sln'
-  - task: VSBuild@1
-    inputs:
-      solution: 'src/AgeBaseTemplate.sln'
-      msbuildArgs: '/p:SkipInvalidConfigurations=true'
-      platform: 'any cpu'
-      configuration: 'release'
-  - task: VSTest@2
-    inputs:
-      testAssemblyVer2: '**\$(BuildConfiguration)\*test*.dll'
-      platform: 'any cpu'
-      configuration: 'release'
-  - task: NuGetCommand@2
-    inputs:
-      command: pack
-      packagesToPack: 'src/AgeBaseTemplate/AgeBaseTemplate.nuspec'
-      versioningScheme: byBuildNumber
-  - task: NuGetCommand@2
-    inputs:
-      command: push
-      publishVstsFeed: '6f1e4b39-3b52-432d-8212-23059fcff0fb'
+phases:
+- phase: 'Phase 1'
+  queue:
+    name: Hosted VS2017
+    demands: 
+    - npm
+    - node.js
+    - msbuild
+    - visualstudio
+    - vstest
+  steps:
+    - checkout: self
+      clean: true
+    - task: Npm@1
+      inputs:
+        workingDir: 'src/AgeBaseTemplate.UI'
+        verbose: false
+    - task: Gulp@0
+      inputs:
+        gulpFile: 'src/AgeBaseTemplate.UI/gulpfile.js'
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: 'src/AgeBaseTemplate.sln'
+    - task: VSBuild@1
+      inputs:
+        solution: 'src/AgeBaseTemplate.sln'
+        msbuildArgs: '/p:SkipInvalidConfigurations=true'
+        platform: 'any cpu'
+        configuration: 'release'
+    - task: VSTest@2
+      inputs:
+        testAssemblyVer2: '**\$(BuildConfiguration)\*test*.dll'
+        platform: 'any cpu'
+        configuration: 'release'
+    - task: NuGetCommand@2
+      inputs:
+        command: pack
+        packagesToPack: 'src/AgeBaseTemplate/AgeBaseTemplate.nuspec'
+        versioningScheme: byBuildNumber
+    - task: NuGetCommand@2
+      inputs:
+        command: push
+        publishVstsFeed: '6f1e4b39-3b52-432d-8212-23059fcff0fb'
