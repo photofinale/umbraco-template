@@ -9,18 +9,18 @@ steps:
       gulpFile: 'src/AgeBaseTemplate.UI/gulpfile.js'
   - task: NuGetCommand@2
     inputs:
-      restoreSolution: '$(Parameters.solution)'
+      restoreSolution: 'src/AgeBaseTemplate.sln'
   - task: VSBuild@1
     inputs:
-      solution: '$(Parameters.solution)'
+      solution: 'src/AgeBaseTemplate.sln'
       msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactstagingdirectory)\\"'
-      platform: '$(BuildPlatform)'
-      configuration: '$(BuildConfiguration)'
+      platform: 'any cpu'
+      configuration: 'release'
   - task: VSTest@2
     inputs:
       testAssemblyVer2: '**\$(BuildConfiguration)\*test*.dll'
-      platform: '$(BuildPlatform)'
-      configuration: '$(BuildConfiguration)'
+      platform: 'any cpu'
+      configuration: 'release'
   - task: NuGetCommand@2
     inputs:
       command: pack
