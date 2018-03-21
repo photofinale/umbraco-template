@@ -1,4 +1,4 @@
-name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
+name: AgeBaseTemplate.$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
 phases:
 - phase: BuildTestPackAndPushNugetPackage
   queue:
