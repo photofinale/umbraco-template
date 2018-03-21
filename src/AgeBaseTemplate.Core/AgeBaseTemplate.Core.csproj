@@ -188,6 +188,9 @@
     <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.9.2\lib\net45\System.Data.SqlServerCe.Entity.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Abstractions, Version=2.1.0.178, Culture=neutral, PublicKeyToken=96bf224d23c43e59, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Abstractions.2.1.0.178\lib\net40\System.IO.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
@@ -293,6 +296,7 @@
     <Compile Include="ContentTypes\LanguagePage.generated.cs">
       <DependentUpon>Builder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Api\ThemePickerApiController.cs" />
     <Compile Include="Controllers\BasePageController.cs" />
     <Compile Include="Controllers\LanguagePageController.cs" />
     <Compile Include="Controllers\CountryPageController.cs" />
@@ -307,6 +311,10 @@
     <Compile Include="Services\Implementations\MasterPageService.cs" />
     <Compile Include="ViewModels\LanguageSelectorViewModel.cs" />
     <Compile Include="ViewModels\CountrySelectorViewModel.cs" />
+    <Compile Include="Wrappers\IHttpContext.cs" />
+    <Compile Include="Wrappers\Implementations\HttpContextWrapper.cs" />
+    <Compile Include="Wrappers\Implementations\ThreadWrapper.cs" />
+    <Compile Include="Wrappers\IThread.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

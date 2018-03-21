@@ -1,0 +1,15 @@
+﻿{
+  "propertyEditors": [
+    {
+      "name": "Theme Picker",
+      "alias": "AgeBase.ThemePicker",
+      "editor": {
+        "view": "~/App_Plugins/AgeBase.ThemePicker/ThemePickerView.html",
+        "valueType": "JSON"
+      }
+	}
+  ],
+  "javascript": [
+    "~/App_Plugins/AgeBase.ThemePicker/ThemePickerController.js"
+  ]
+}

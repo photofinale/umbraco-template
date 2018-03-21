@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO.Abstractions;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -6,6 +7,8 @@ using System.Web.Mvc;
 using AgeBaseTemplate.Core.Controllers;
 using AgeBaseTemplate.Core.Services;
 using AgeBaseTemplate.Core.Services.Implementations;
+using AgeBaseTemplate.Core.Wrappers;
+using AgeBaseTemplate.Core.Wrappers.Implementations;
 using log4net;
 using SimpleInjector;
 using SimpleInjector.Advanced;
@@ -19,6 +22,8 @@ namespace AgeBaseTemplate.Core.Global
     public class GlobalApplication : UmbracoApplication
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+        public static Container Container;
 
         protected override void OnApplicationStarting(object sender, EventArgs e)
         {
@@ -35,20 +40,24 @@ namespace AgeBaseTemplate.Core.Global
 
             base.OnApplicationStarted(sender, e);
 
-            var container = new Container();
+            Container = new Container();
 
-            container.Options.ConstructorResolutionBehavior = new UmbracoConstructorBehavior
+            Container.Options.ConstructorResolutionBehavior = new UmbracoConstructorBehavior
             {
-                DefaultBehavior = container.Options.ConstructorResolutionBehavior
+                DefaultBehavior = Container.Options.ConstructorResolutionBehavior
             };
 
-            container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
-            container.Register<IMasterPageService, MasterPageService>(Lifestyle.Scoped);
-            container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
-            container.RegisterMvcIntegratedFilterProvider();
-            container.Verify();
+            Container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 
-            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
+            Container.Register<IFileSystem, FileSystem>(Lifestyle.Scoped);
+            Container.Register<IMasterPageService, MasterPageService>(Lifestyle.Scoped);
+            Container.Register<IThread, ThreadWrapper>(Lifestyle.Scoped);
+
+            Container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
+            Container.RegisterMvcIntegratedFilterProvider();
+            Container.Verify();
+
+            DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(Container));
         }
 
         protected override void OnApplicationEnd(object sender, EventArgs e)
@@ -81,8 +90,8 @@ namespace AgeBaseTemplate.Core.Global
         }
 
         private ConstructorInfo GetUmbracoConstructor(Type i) => (from ctor in i.GetConstructors()
-                                                                  orderby ctor.GetParameters().Length
-                                                                  select ctor)
+                                                                     orderby ctor.GetParameters().Length
+                                                                     select ctor)
                                                                  .FirstOrDefault() ?? DefaultBehavior.GetConstructor(i);
     }
 }

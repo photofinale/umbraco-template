@@ -337,6 +337,8 @@
     <Content Include="app_plugins\AgeBase.DomainManager\Index.Controller.js" />
     <Content Include="app_plugins\AgeBase.DomainManager\Index.css" />
     <Content Include="app_plugins\AgeBase.DomainManager\Index.html" />
+    <Content Include="app_plugins\AgeBase.ThemePicker\ThemePickerController.js" />
+    <Content Include="app_plugins\AgeBase.ThemePicker\ThemePickerView.html" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="app_plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -433,6 +435,7 @@
     <Content Include="config\404handlers.config" />
     <Content Include="app_plugins\uSync\package.manifest" />
     <Content Include="app_plugins\AgeBase.DomainManager\Package.manifest" />
+    <Content Include="app_plugins\AgeBase.ThemePicker\package.manifest" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

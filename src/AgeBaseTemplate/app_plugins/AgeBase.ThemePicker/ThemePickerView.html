@@ -1,0 +1,7 @@
+﻿<div ng-controller="ThemePickerController">
+    <select ng-model="model.value"
+            ng-options="theme as theme.name for theme in themes track by theme.id"           
+            ng-required="model.isRequired">
+        <option value="" ng-click="model.value = null"></option>
+    </select>
+</div>
