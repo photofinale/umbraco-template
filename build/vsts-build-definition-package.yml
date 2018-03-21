@@ -41,4 +41,4 @@ phases:
     - task: NuGetCommand@2
       inputs:
         command: push
-        publishVstsFeed: '455699ce-8169-4770-887a-2ddf510f1289'
+        publishVstsFeed: 'bb745c71-01f6-4ea9-b347-7c9e47d06a60'
