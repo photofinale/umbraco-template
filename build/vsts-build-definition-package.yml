@@ -1,6 +1,4 @@
 name: $(BuildDefinitionName)_$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
-trigger:
-  - master
 phases:
 - phase: BuildTestPackAndPushNugetPackage
   queue:
@@ -11,8 +9,6 @@ phases:
     - msbuild
     - visualstudio
     - vstest
-  trigger:
-    - master
   steps:
     - checkout: self
       clean: true
