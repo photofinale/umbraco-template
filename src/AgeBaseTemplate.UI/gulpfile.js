@@ -4,7 +4,7 @@ var $ = require('gulp-load-plugins')({ lazy: true });
 var cssDestination = '../AgeBaseTemplate/css';
 var fontsDestination = '../AgeBaseTemplate/fonts';
 var imagesDestination = '../AgeBaseTemplate/images';
-var jsDestination = '../AgeBaseTemplate/js';
+var jsDestination = '../AgeBaseTemplate/scripts';
 
 var cssSources = ['app/sass/**/*.scss'];
 var jsSources = ['app/js/**/*.js'];

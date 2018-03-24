@@ -16,12 +16,11 @@
     <file src="app_browsers\**\*.*" target="app_browsers" />
     <file src="app_plugins\**\*.*" target="app_plugins" />
     <file src="bin\**\*.*" target="bin" />
-    <file src="..\..\build\vsts-build-definition-theme.yml" target="build" />
     <file src="config\**\*.*" target="config" />
     <file src="css\**\*.*" target="css" />
     <file src="images\**\*.*" target="images" />
-    <file src="js\**\*.*" target="js" />
     <file src="media\**\*.*" target="media" />
+    <file src="scripts\**\*.*" target="scripts" />
     <file src="usync\**\*.*" target="usync" />
     <file src="umbraco\**\*.*" target="umbraco" />
     <file src="umbraco_client\**\*.*" target="umbraco_client" />

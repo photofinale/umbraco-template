@@ -1,4 +1,7 @@
-﻿using AgeBaseTemplate.Core.Services;
+﻿using System.Collections.Generic;
+using AgeBaseTemplate.Core.Global;
+using AgeBaseTemplate.Core.Models;
+using AgeBaseTemplate.Core.Services;
 using Umbraco.Web.Editors;
 using Umbraco.Web.Mvc;
 
@@ -14,7 +17,12 @@ namespace AgeBaseTemplate.Core.Controllers.Api
             _themeService = themeService;
         }
 
-        public object Themes()
+        public ThemePickerApiController()
+        {
+            _themeService = GlobalApplication.Container.GetInstance<IThemeService>();
+        }
+
+        public IEnumerable<Theme> GetThemes()
         {
             return _themeService.All();
         }

@@ -301,4 +301,5 @@ src/AgeBaseTemplate/css
 src/AgeBaseTemplate/fonts
 src/AgeBaseTemplate/images
 src/AgeBaseTemplate/js
+src/AgeBaseTemplate/scripts
 package-lock.json

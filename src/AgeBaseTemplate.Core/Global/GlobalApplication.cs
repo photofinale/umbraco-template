@@ -2,6 +2,7 @@
 using System.IO.Abstractions;
 using System.Reflection;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using AgeBaseTemplate.Core.Controllers;
 using AgeBaseTemplate.Core.Services;
@@ -24,15 +25,11 @@ namespace AgeBaseTemplate.Core.Global
 
         protected override void OnApplicationStarting(object sender, EventArgs e)
         {
-            base.OnApplicationStarting(sender, e);
-
             DefaultRenderMvcControllerResolver.Current.SetDefaultControllerType(typeof(BasePageController));
         }
 
         protected override void OnApplicationStarted(object sender, EventArgs e)
         {
-            base.OnApplicationStarted(sender, e);
-
             Container = new Container();
 
             Container.Options.ConstructorResolutionBehavior = new UmbracoConstructorBehavior
@@ -48,6 +45,7 @@ namespace AgeBaseTemplate.Core.Global
             Container.Register<IFileSystem, FileSystem>(Lifestyle.Scoped);
             Container.Register<ILanguageService, LanguageService>(Lifestyle.Scoped);
             Container.Register<IMasterPageService, MasterPageService>(Lifestyle.Scoped);
+            Container.Register<IThemeService, ThemeService>(Lifestyle.Scoped);
 
             // Wrappers
             Container.Register<IHttpContext, HttpContextWrapper>(Lifestyle.Scoped);
@@ -55,10 +53,11 @@ namespace AgeBaseTemplate.Core.Global
             Container.Register<IUmbracoContext, UmbracoContextWrapper>(Lifestyle.Scoped);
             Container.Register<IUmbracoHelper, UmbracoHelperWrapper>(Lifestyle.Scoped);
 
+            Container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             Container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
             Container.RegisterMvcIntegratedFilterProvider();
             Container.Verify();
-
+            
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(Container));
         }
 
