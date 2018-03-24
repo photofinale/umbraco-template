@@ -1,25 +1,23 @@
-﻿using System.Reflection;
-using System.Web.Mvc;
-using AgeBaseTemplate.Core.ContentTypes;
+﻿using System.Web.Mvc;
+using AgeBaseTemplate.Core.Services;
 using DevTrends.MvcDonutCaching;
-using log4net;
-using Umbraco.Web;
 using Umbraco.Web.Models;
 
 namespace AgeBaseTemplate.Core.Controllers
 {
     public class LanguagePageController : BasePageController
     {
-        private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        private readonly IContentService _contentService;
+
+        public LanguagePageController(IContentService contentService)
+        {
+            _contentService = contentService;
+        }
 
         [DonutOutputCache(CacheProfile = "OneDay")]
         public override ActionResult Index(RenderModel model)
         {
-            var homePage = model.Content.FirstChild<HomePage>();
-
-            Log.Debug($"Redirecting to {homePage.Id}");
-
-            return RedirectToUmbracoPage(homePage);
+            return RedirectToUmbracoPage(_contentService.CurrentHomePage());
         }
     }
 }

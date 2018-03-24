@@ -1,6 +1,6 @@
 ﻿@inherits UmbracoViewPage<CountrySelectorViewModel>
 
-@if (Model?.Countries != null && Model.Countries.Any() && Model.Current != null)
+@if (Model?.Countries?.Count() > 1 && Model.Current != null)
 {
     <div class="country-selector">
         <div class="dropdown">

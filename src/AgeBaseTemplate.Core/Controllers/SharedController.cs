@@ -1,56 +1,40 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using AgeBaseTemplate.Core.ContentTypes;
+﻿using System.Web.Mvc;
+using AgeBaseTemplate.Core.Services;
 using AgeBaseTemplate.Core.ViewModels;
-using Umbraco.Web;
 
 namespace AgeBaseTemplate.Core.Controllers
 {
     public class SharedController : BasePageController
     {
+        private readonly ICountryService _countryService;
+        private readonly ILanguageService _languageService;
+
+        public SharedController(
+            ICountryService countryService,
+            ILanguageService languageService)
+        {
+            _countryService = countryService;
+            _languageService = languageService;
+        }
+
         [ChildActionOnly]
         public ActionResult CountrySelector()
         {
-            var model = new CountrySelectorViewModel
+            return PartialView("CountrySelector", new CountrySelectorViewModel
             {
-                Countries = Umbraco.TypedContentAtRoot()
-                    .Select(c => c as CountryPage)
-                    .Where(c => c != null)
-                    .OrderBy(c => c.CountryName),
-
-                Current = CurrentPage.AncestorOrSelf<CountryPage>()
-            };
-
-            if (model.Countries.Count() < 2)
-            {
-                return Content(string.Empty);
-            }
-
-            return PartialView("CountrySelector", model);
+                Countries = _countryService.All(),
+                Current = _countryService.Current()
+            });
         }
 
         [ChildActionOnly]
         public ActionResult LanguageSelector()
         {
-            var countryPage = CurrentPage.AncestorOrSelf<CountryPage>();
-            
-            var model = new LanguageSelectorViewModel
+            return PartialView("LanguageSelector", new LanguageSelectorViewModel
             {
-                Languages = countryPage.Children<LanguagePage>().OrderBy(l => l.LanguageName),
-                Current = CurrentPage.AncestorOrSelf<LanguagePage>()
-            };
-
-            if (model.Languages.Count() < 2)
-            {
-                return Content(string.Empty);
-            }
-
-            foreach (var language in model.Languages)
-            {
-                language.HomePageUrl = language.FirstChild<HomePage>().Url;
-            }
-
-            return PartialView("LanguageSelector", model);
+                Languages = _languageService.All(),
+                Current = _languageService.Current()
+            });
         }
     }
 }

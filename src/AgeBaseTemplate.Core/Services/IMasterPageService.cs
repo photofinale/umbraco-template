@@ -4,6 +4,6 @@ namespace AgeBaseTemplate.Core.Services
 {
     public interface IMasterPageService
     {
-        T CreateModel<T>(IPublishedContent content) where T : class;
+        T Create<T>(IPublishedContent content) where T : class;
     }
 }

@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO.Abstractions;
-using AgeBaseTemplate.Core.Global;
+using AgeBaseTemplate.Core.Models;
 using AgeBaseTemplate.Core.Wrappers;
-using Umbraco.Web.Editors;
-using Umbraco.Web.Mvc;
 
-namespace AgeBaseTemplate.Core.Api
+namespace AgeBaseTemplate.Core.Services.Implementations
 {
-    [PluginController("ThemePicker")]
-    public class ThemePickerApiController : UmbracoAuthorizedJsonController
+    public class ThemeService : IThemeService
     {
         private readonly IFileSystem _fileSystem;
         private readonly IHttpContext _httpContext;
         private readonly IThread _thread;
 
-        public ThemePickerApiController(
+        public ThemeService(
             IFileSystem fileSystem, 
-            IHttpContext httpContext,
+            IHttpContext httpContext, 
             IThread thread)
         {
             _fileSystem = fileSystem;
@@ -25,16 +22,9 @@ namespace AgeBaseTemplate.Core.Api
             _thread = thread;
         }
 
-        public ThemePickerApiController()
+        public IEnumerable<Theme> All()
         {
-            _fileSystem = GlobalApplication.Container.GetInstance<IFileSystem>();
-            _httpContext = GlobalApplication.Container.GetInstance<IHttpContext>();
-            _thread = GlobalApplication.Container.GetInstance<IThread>();
-        }
-
-        public object GetThemes()
-        {
-            var retval = new List<object>();
+            var retval = new List<Theme>();
 
             var themesPath = _httpContext.Current.Server.MapPath("~/css/");
             var themes = _fileSystem.Directory.GetDirectories(themesPath);
@@ -47,7 +37,11 @@ namespace AgeBaseTemplate.Core.Api
                     .ToTitleCase(id.Replace("-", " "))
                     .Replace("Agebase", "AgeBase");
 
-                retval.Add(new { id, name });
+                retval.Add(new Theme
+                {
+                    Id = id,
+                    Name = name
+                });
             }
 
             return retval;
