@@ -282,12 +282,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\IContentService.cs" />
-    <Compile Include="Services\ICountryService.cs" />
-    <Compile Include="Services\ILanguageService.cs" />
-    <Compile Include="Services\Implementations\ContentService.cs" />
-    <Compile Include="Services\Implementations\LanguageService.cs" />
-    <Compile Include="Services\Implementations\CountryService.cs" />
+    <Compile Include="Services\Implementations\HomePageService.cs" />
+    <Compile Include="Services\IPageService.cs" />
+    <Compile Include="Services\ICountryPageService.cs" />
+    <Compile Include="Services\IHomePageService.cs" />
+    <Compile Include="Services\ILanguagePageService.cs" />
+    <Compile Include="Services\Implementations\PageService.cs" />
+    <Compile Include="Services\Implementations\LanguagePageService.cs" />
+    <Compile Include="Services\Implementations\CountryPageService.cs" />
     <Compile Include="Umbraco\UmbracoConstructorBehavior.cs" />
     <Compile Include="Constants\DictionaryItems.cs" />
     <Compile Include="ContentTypes\Builder.cs">
@@ -323,8 +325,12 @@
     <Compile Include="Services\IThemeService.cs" />
     <Compile Include="ViewModels\LanguageSelectorViewModel.cs" />
     <Compile Include="ViewModels\CountrySelectorViewModel.cs" />
+    <Compile Include="Wrappers\ICultureInfo.cs" />
     <Compile Include="Wrappers\IHttpContext.cs" />
+    <Compile Include="Wrappers\IHttpServerUtility.cs" />
+    <Compile Include="Wrappers\Implementations\CultureInfoWrapper.cs" />
     <Compile Include="Wrappers\Implementations\HttpContextWrapper.cs" />
+    <Compile Include="Wrappers\Implementations\HttpServerUtilityWrapper.cs" />
     <Compile Include="Wrappers\Implementations\ThreadWrapper.cs" />
     <Compile Include="Wrappers\Implementations\UmbracoContextWrapper.cs" />
     <Compile Include="Wrappers\Implementations\UmbracoHelperWrapper.cs" />

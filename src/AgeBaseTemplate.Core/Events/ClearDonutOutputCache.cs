@@ -7,12 +7,12 @@ namespace AgeBaseTemplate.Core.Events
 {
     public class ClearDonutOutputCache : ApplicationEventHandler
     {
-        private IOutputCacheManager _outputCacheManager;
-
         private static readonly object LockObj = new object();
         private static bool _ran;
+        private IOutputCacheManager _outputCacheManager;
 
-        protected override void ApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
+        protected override void ApplicationStarting(UmbracoApplicationBase umbracoApplication,
+            ApplicationContext applicationContext)
         {
             if (_ran)
             {
@@ -45,47 +45,56 @@ namespace AgeBaseTemplate.Core.Events
             }
         }
 
-        private void DataTypeCacheRefresherOnCacheUpdated(DataTypeCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
+        private void DataTypeCacheRefresherOnCacheUpdated(DataTypeCacheRefresher sender,
+            CacheRefresherEventArgs cacheRefresherEventArgs)
         {
             ClearCache();
         }
 
-        private void DictionaryCacheRefresherOnCacheUpdated(DictionaryCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
+        private void DictionaryCacheRefresherOnCacheUpdated(DictionaryCacheRefresher sender,
+            CacheRefresherEventArgs cacheRefresherEventArgs)
         {
             ClearCache();
         }
 
-        private void DomainCacheRefresherOnCacheUpdated(DomainCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
+        private void DomainCacheRefresherOnCacheUpdated(DomainCacheRefresher sender,
+            CacheRefresherEventArgs cacheRefresherEventArgs)
         {
             ClearCache();
         }
 
-        private void LanguageCacheRefresherOnCacheUpdated(LanguageCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
+        private void LanguageCacheRefresherOnCacheUpdated(LanguageCacheRefresher sender,
+            CacheRefresherEventArgs cacheRefresherEventArgs)
         {
             ClearCache();
         }
 
-        private void MediaCacheRefresherOnCacheUpdated(MediaCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
+        private void MediaCacheRefresherOnCacheUpdated(MediaCacheRefresher sender,
+            CacheRefresherEventArgs cacheRefresherEventArgs)
         {
             ClearCache();
         }
 
-        private void MemberCacheRefresherOnCacheUpdated(MemberCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
+        private void MemberCacheRefresherOnCacheUpdated(MemberCacheRefresher sender,
+            CacheRefresherEventArgs cacheRefresherEventArgs)
         {
             ClearCache();
         }
 
-        private void PageCacheRefresherOnCacheUpdated(PageCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
+        private void PageCacheRefresherOnCacheUpdated(PageCacheRefresher sender,
+            CacheRefresherEventArgs cacheRefresherEventArgs)
         {
             ClearCache();
         }
 
-        private void PublicAccessCacheRefresherOnCacheUpdated(PublicAccessCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
+        private void PublicAccessCacheRefresherOnCacheUpdated(PublicAccessCacheRefresher sender,
+            CacheRefresherEventArgs cacheRefresherEventArgs)
         {
             ClearCache();
         }
 
-        private void UnpublishedPageCacheRefresherOnCacheUpdated(UnpublishedPageCacheRefresher sender, CacheRefresherEventArgs cacheRefresherEventArgs)
+        private void UnpublishedPageCacheRefresherOnCacheUpdated(UnpublishedPageCacheRefresher sender,
+            CacheRefresherEventArgs cacheRefresherEventArgs)
         {
             ClearCache();
         }

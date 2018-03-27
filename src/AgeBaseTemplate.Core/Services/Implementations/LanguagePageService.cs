@@ -5,22 +5,22 @@ using Umbraco.Web;
 
 namespace AgeBaseTemplate.Core.Services.Implementations
 {
-    public class LanguageService : ILanguageService
+    public class LanguagePageService : ILanguagePageService
     {
-        private readonly IContentService _contentService;
-        private readonly ICountryService _countryService;
+        private readonly ICountryPageService _countryPageService;
+        private readonly IPageService _pageService;
 
-        public LanguageService(
-            IContentService contentService, 
-            ICountryService countryService)
+        public LanguagePageService(
+            IPageService pageService,
+            ICountryPageService countryPageService)
         {
-            _contentService = contentService;
-            _countryService = countryService;
+            _pageService = pageService;
+            _countryPageService = countryPageService;
         }
 
         public IEnumerable<LanguagePage> All()
         {
-            var country = _countryService.Current();
+            var country = _countryPageService.Current();
 
             var languages = country?.Children<LanguagePage>().OrderBy(l => l.LanguageName).ToList();
             if (languages == null)
@@ -38,7 +38,7 @@ namespace AgeBaseTemplate.Core.Services.Implementations
 
         public LanguagePage Current()
         {
-            return _contentService.CurrentPage().AncestorOrSelf<LanguagePage>();
+            return _pageService.Current().AncestorOrSelf<LanguagePage>();
         }
     }
 }

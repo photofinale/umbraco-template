@@ -6,7 +6,7 @@ namespace AgeBaseTemplate.Core.Wrappers
 {
     public interface IUmbracoHelper
     {
-        IPublishedContent TypedContentSingleAtXPath(string xpath, params XPathVariable[] vars);
         IEnumerable<IPublishedContent> TypedContentAtXPath(string xpath, params XPathVariable[] vars);
+        IPublishedContent TypedContentSingleAtXPath(string xpath, params XPathVariable[] vars);
     }
 }

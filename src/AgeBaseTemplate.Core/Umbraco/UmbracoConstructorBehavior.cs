@@ -20,14 +20,21 @@ namespace AgeBaseTemplate.Core.Umbraco
             {
                 return GetNonDefaultConstructor(implementationType);
             }
-            
+
             return DefaultBehavior.GetConstructor(implementationType);
         }
 
-        private ConstructorInfo GetNonDefaultConstructor(Type i) => (from ctor in i.GetConstructors()
-                                                                        orderby ctor.GetParameters().Length
-                                                                        select ctor)
-                                                                    .FirstOrDefault() ??
-                                                                    DefaultBehavior.GetConstructor(i);
+        private ConstructorInfo GetNonDefaultConstructor(Type i)
+        {
+            ConstructorInfo retval = null;
+
+            foreach (var info in i.GetConstructors().OrderBy(ctor => ctor.GetParameters().Length))
+            {
+                retval = info;
+                break;
+            }
+
+            return retval ?? DefaultBehavior.GetConstructor(i);
+        }
     }
 }

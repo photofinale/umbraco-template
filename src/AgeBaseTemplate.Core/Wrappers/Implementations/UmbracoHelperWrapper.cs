@@ -11,7 +11,7 @@ namespace AgeBaseTemplate.Core.Wrappers.Implementations
 
         public UmbracoHelperWrapper(IUmbracoContext umbracoContext)
         {
-            _umbracoHelper = new UmbracoHelper(umbracoContext.Current());
+            _umbracoHelper = new UmbracoHelper(umbracoContext.Current);
         }
 
         public IPublishedContent TypedContentSingleAtXPath(string xpath, params XPathVariable[] vars)

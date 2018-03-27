@@ -3,9 +3,9 @@ using AgeBaseTemplate.Core.ContentTypes;
 
 namespace AgeBaseTemplate.Core.Services
 {
-    public interface ICountryService
+    public interface ILanguagePageService
     {
-        IEnumerable<CountryPage> All();
-        CountryPage Current();
+        IEnumerable<LanguagePage> All();
+        LanguagePage Current();
     }
 }

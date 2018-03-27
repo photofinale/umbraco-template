@@ -6,15 +6,15 @@ namespace AgeBaseTemplate.Core.Controllers
 {
     public class SharedController : BasePageController
     {
-        private readonly ICountryService _countryService;
-        private readonly ILanguageService _languageService;
+        private readonly ICountryPageService _countryPageService;
+        private readonly ILanguagePageService _languagePageService;
 
         public SharedController(
-            ICountryService countryService,
-            ILanguageService languageService)
+            ICountryPageService countryPageService,
+            ILanguagePageService languagePageService)
         {
-            _countryService = countryService;
-            _languageService = languageService;
+            _countryPageService = countryPageService;
+            _languagePageService = languagePageService;
         }
 
         [ChildActionOnly]
@@ -22,8 +22,8 @@ namespace AgeBaseTemplate.Core.Controllers
         {
             return PartialView("CountrySelector", new CountrySelectorViewModel
             {
-                Countries = _countryService.All(),
-                Current = _countryService.Current()
+                Countries = _countryPageService.All(),
+                Current = _countryPageService.Current()
             });
         }
 
@@ -32,8 +32,8 @@ namespace AgeBaseTemplate.Core.Controllers
         {
             return PartialView("LanguageSelector", new LanguageSelectorViewModel
             {
-                Languages = _languageService.All(),
-                Current = _languageService.Current()
+                Languages = _languagePageService.All(),
+                Current = _languagePageService.Current()
             });
         }
     }

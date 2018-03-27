@@ -16,6 +16,7 @@ using SimpleInjector.Integration.Web.Mvc;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
 using HttpContextWrapper = AgeBaseTemplate.Core.Wrappers.Implementations.HttpContextWrapper;
+using HttpServerUtilityWrapper = AgeBaseTemplate.Core.Wrappers.Implementations.HttpServerUtilityWrapper;
 
 namespace AgeBaseTemplate.Core.Global
 {
@@ -39,16 +40,17 @@ namespace AgeBaseTemplate.Core.Global
 
             Container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
 
-            // Services
-            Container.Register<IContentService, ContentService>(Lifestyle.Scoped);
-            Container.Register<ICountryService, CountryService>(Lifestyle.Scoped);
+            Container.Register<ICountryPageService, CountryPageService>(Lifestyle.Scoped);
             Container.Register<IFileSystem, FileSystem>(Lifestyle.Scoped);
-            Container.Register<ILanguageService, LanguageService>(Lifestyle.Scoped);
+            Container.Register<IHomePageService, HomePageService>(Lifestyle.Scoped);
+            Container.Register<ILanguagePageService, LanguagePageService>(Lifestyle.Scoped);
             Container.Register<IMasterPageService, MasterPageService>(Lifestyle.Scoped);
+            Container.Register<IPageService, PageService>(Lifestyle.Scoped);
             Container.Register<IThemeService, ThemeService>(Lifestyle.Scoped);
 
-            // Wrappers
+            Container.Register<ICultureInfo, CultureInfoWrapper>(Lifestyle.Scoped);
             Container.Register<IHttpContext, HttpContextWrapper>(Lifestyle.Scoped);
+            Container.Register<IHttpServerUtility, HttpServerUtilityWrapper>(Lifestyle.Scoped);
             Container.Register<IThread, ThreadWrapper>(Lifestyle.Scoped);
             Container.Register<IUmbracoContext, UmbracoContextWrapper>(Lifestyle.Scoped);
             Container.Register<IUmbracoHelper, UmbracoHelperWrapper>(Lifestyle.Scoped);
@@ -57,7 +59,7 @@ namespace AgeBaseTemplate.Core.Global
             Container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
             Container.RegisterMvcIntegratedFilterProvider();
             Container.Verify();
-            
+
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(Container));
         }
 

@@ -4,6 +4,6 @@ namespace AgeBaseTemplate.Core.Wrappers
 {
     public interface IUmbracoContext
     {
-        UmbracoContext Current();
+        UmbracoContext Current { get; }
     }
 }

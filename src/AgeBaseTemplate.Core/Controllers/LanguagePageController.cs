@@ -7,17 +7,17 @@ namespace AgeBaseTemplate.Core.Controllers
 {
     public class LanguagePageController : BasePageController
     {
-        private readonly IContentService _contentService;
+        private readonly IHomePageService _homePageService;
 
-        public LanguagePageController(IContentService contentService)
+        public LanguagePageController(IHomePageService homePageService)
         {
-            _contentService = contentService;
+            _homePageService = homePageService;
         }
 
         [DonutOutputCache(CacheProfile = "OneDay")]
         public override ActionResult Index(RenderModel model)
         {
-            return RedirectToUmbracoPage(_contentService.CurrentHomePage());
+            return RedirectToUmbracoPage(_homePageService.Current());
         }
     }
 }

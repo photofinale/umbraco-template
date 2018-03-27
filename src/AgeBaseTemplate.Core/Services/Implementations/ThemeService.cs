@@ -8,32 +8,33 @@ namespace AgeBaseTemplate.Core.Services.Implementations
 {
     public class ThemeService : IThemeService
     {
+        private readonly ICultureInfo _cultureInfo;
         private readonly IFileSystem _fileSystem;
-        private readonly IHttpContext _httpContext;
-        private readonly IThread _thread;
+        private readonly IHttpServerUtility _httpServerUtility;
 
         public ThemeService(
-            IFileSystem fileSystem, 
-            IHttpContext httpContext, 
-            IThread thread)
+            ICultureInfo cultureInfo,
+            IFileSystem fileSystem,
+            IHttpServerUtility httpServerUtility)
         {
+            _cultureInfo = cultureInfo;
             _fileSystem = fileSystem;
-            _httpContext = httpContext;
-            _thread = thread;
+            _httpServerUtility = httpServerUtility;
         }
 
         public IEnumerable<Theme> All()
         {
             var retval = new List<Theme>();
 
-            var themesPath = _httpContext.Current.Server.MapPath("~/css/");
+            var themesPath = _httpServerUtility.MapPath("~/css/");
             var themes = _fileSystem.Directory.GetDirectories(themesPath);
 
             foreach (var theme in themes)
             {
-                var id = theme.Substring(theme.LastIndexOf("\\", StringComparison.Ordinal) + 1);
+                var id = theme.TrimEnd('\\');
+                id = id.Substring(id.LastIndexOf("\\", StringComparison.Ordinal) + 1);
 
-                var name = _thread.CurrentCulture.TextInfo
+                var name = _cultureInfo.CurrentCulture.TextInfo
                     .ToTitleCase(id.Replace("-", " "))
                     .Replace("Agebase", "AgeBase");
 
