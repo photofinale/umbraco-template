@@ -331,10 +331,10 @@
     <Compile Include="Wrappers\Implementations\CultureInfoWrapper.cs" />
     <Compile Include="Wrappers\Implementations\HttpContextWrapper.cs" />
     <Compile Include="Wrappers\Implementations\HttpServerUtilityWrapper.cs" />
-    <Compile Include="Wrappers\Implementations\ThreadWrapper.cs" />
+    <Compile Include="Wrappers\Implementations\ProfileLoggerWrapper.cs" />
     <Compile Include="Wrappers\Implementations\UmbracoContextWrapper.cs" />
     <Compile Include="Wrappers\Implementations\UmbracoHelperWrapper.cs" />
-    <Compile Include="Wrappers\IThread.cs" />
+    <Compile Include="Wrappers\IProfileLogger.cs" />
     <Compile Include="Wrappers\IUmbracoContext.cs" />
     <Compile Include="Wrappers\IUmbracoHelper.cs" />
   </ItemGroup>

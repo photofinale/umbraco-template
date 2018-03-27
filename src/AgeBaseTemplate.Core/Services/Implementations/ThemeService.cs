@@ -11,41 +11,47 @@ namespace AgeBaseTemplate.Core.Services.Implementations
         private readonly ICultureInfo _cultureInfo;
         private readonly IFileSystem _fileSystem;
         private readonly IHttpServerUtility _httpServerUtility;
+        private readonly IProfileLogger _profileLogger;
 
         public ThemeService(
             ICultureInfo cultureInfo,
             IFileSystem fileSystem,
-            IHttpServerUtility httpServerUtility)
+            IHttpServerUtility httpServerUtility, 
+            IProfileLogger profileLogger)
         {
             _cultureInfo = cultureInfo;
             _fileSystem = fileSystem;
             _httpServerUtility = httpServerUtility;
+            _profileLogger = profileLogger;
         }
 
         public IEnumerable<Theme> All()
         {
-            var retval = new List<Theme>();
-
-            var themesPath = _httpServerUtility.MapPath("~/css/");
-            var themes = _fileSystem.Directory.GetDirectories(themesPath);
-
-            foreach (var theme in themes)
+            using (_profileLogger.TraceDuration<ThemeService>("All"))
             {
-                var id = theme.TrimEnd('\\');
-                id = id.Substring(id.LastIndexOf("\\", StringComparison.Ordinal) + 1);
+                var retval = new List<Theme>();
 
-                var name = _cultureInfo.CurrentCulture.TextInfo
-                    .ToTitleCase(id.Replace("-", " "))
-                    .Replace("Agebase", "AgeBase");
+                var themesPath = _httpServerUtility.MapPath("~/css/");
+                var themes = _fileSystem.Directory.GetDirectories(themesPath);
 
-                retval.Add(new Theme
+                foreach (var theme in themes)
                 {
-                    Id = id,
-                    Name = name
-                });
-            }
+                    var id = theme.TrimEnd('\\');
+                    id = id.Substring(id.LastIndexOf("\\", StringComparison.Ordinal) + 1);
 
-            return retval;
+                    var name = _cultureInfo.CurrentCulture.TextInfo
+                        .ToTitleCase(id.Replace("-", " "))
+                        .Replace("Agebase", "AgeBase");
+
+                    retval.Add(new Theme
+                    {
+                        Id = id,
+                        Name = name
+                    });
+                }
+
+                return retval;
+            }
         }
     }
 }

@@ -51,7 +51,7 @@ namespace AgeBaseTemplate.Core.Global
             Container.Register<ICultureInfo, CultureInfoWrapper>(Lifestyle.Scoped);
             Container.Register<IHttpContext, HttpContextWrapper>(Lifestyle.Scoped);
             Container.Register<IHttpServerUtility, HttpServerUtilityWrapper>(Lifestyle.Scoped);
-            Container.Register<IThread, ThreadWrapper>(Lifestyle.Scoped);
+            Container.Register<IProfileLogger, ProfileLoggerWrapper>(Lifestyle.Scoped);
             Container.Register<IUmbracoContext, UmbracoContextWrapper>(Lifestyle.Scoped);
             Container.Register<IUmbracoHelper, UmbracoHelperWrapper>(Lifestyle.Scoped);
 

@@ -5,21 +5,31 @@ namespace AgeBaseTemplate.Core.Services.Implementations
 {
     public class PageService : IPageService
     {
+        private readonly IProfileLogger _profileLogger;
         private readonly IUmbracoContext _umbracoContext;
 
-        public PageService(IUmbracoContext umbracoContext)
+        public PageService(
+            IProfileLogger profileLogger, 
+            IUmbracoContext umbracoContext)
         {
+            _profileLogger = profileLogger;
             _umbracoContext = umbracoContext;
         }
 
         public IPublishedContent Current()
         {
-            return _umbracoContext.Current.PublishedContentRequest.PublishedContent;
+            using (_profileLogger.TraceDuration<PageService>("Current"))
+            {
+                return _umbracoContext.Current.PublishedContentRequest.PublishedContent;
+            }
         }
 
         public T Current<T>() where T : class
         {
-            return Current() as T;
+            using (_profileLogger.TraceDuration<PageService>("Current<T>"))
+            {
+                return Current() as T;
+            }
         }
     }
 }

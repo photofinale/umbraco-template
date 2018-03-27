@@ -9,26 +9,37 @@ namespace AgeBaseTemplate.Core.Services.Implementations
     public class CountryPageService : ICountryPageService
     {
         private readonly IPageService _pageService;
+        private readonly IProfileLogger _profileLogger;
         private readonly IUmbracoHelper _umbracoHelper;
 
-        public CountryPageService(IPageService contentService, IUmbracoHelper umbracoHelper)
+        public CountryPageService(
+            IPageService pageService,
+            IProfileLogger profileLogger,
+            IUmbracoHelper umbracoHelper)
         {
-            _pageService = contentService;
+            _pageService = pageService;
+            _profileLogger = profileLogger;
             _umbracoHelper = umbracoHelper;
         }
 
         public IEnumerable<CountryPage> All()
         {
-            return _umbracoHelper
-                .TypedContentAtXPath($"/root/{CountryPage.ModelTypeAlias}")
-                .Select(c => c as CountryPage)
-                .Where(c => c != null)
-                .OrderBy(c => c.CountryName);
+            using (_profileLogger.TraceDuration<CountryPageService>("All"))
+            {
+                return _umbracoHelper
+                    .TypedContentAtXPath($"/root/{CountryPage.ModelTypeAlias}")
+                    .Select(c => c as CountryPage)
+                    .Where(c => c != null)
+                    .OrderBy(c => c.CountryName);
+            }
         }
 
         public CountryPage Current()
         {
-            return _pageService.Current().AncestorOrSelf<CountryPage>();
+            using (_profileLogger.TraceDuration<CountryPageService>("Current"))
+            {
+                return _pageService.Current().AncestorOrSelf<CountryPage>();
+            }
         }
     }
 }
