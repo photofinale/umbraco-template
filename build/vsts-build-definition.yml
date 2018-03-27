@@ -31,6 +31,7 @@ phases:
     - task: VSTest@2
       inputs:
         testAssemblyVer2: 'tests/AgeBaseTemplate.Core.Tests/bin/Release/AgeBaseTemplate.Core.Tests.dll'
+        codeCoverageEnabled: true
         platform: 'Any CPU'
         configuration: 'Release'
     - task: NuGetCommand@2
