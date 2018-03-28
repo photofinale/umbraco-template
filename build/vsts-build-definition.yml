@@ -32,9 +32,9 @@ phases:
         Company: 'AgeBase Ltd'
         Copyright: 'Copyright © $(date:yyyy) AgeBase Ltd'
         Trademark: 'Trademark of AgeBase Ltd'
-        VersionNumber: '$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)'
-        FileVersionNumber: '$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)'
-        InformationalVersion: '$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)'
+        VersionNumber: '$(Build.DefinitionName)_$(date:yyyy).$(date:MM).$(date:dd)$(rev:.r)'
+        FileVersionNumber: '$(Build.DefinitionName)_$(date:yyyy).$(date:MM).$(date:dd)$(rev:.r)'
+        InformationalVersion: '$(Build.DefinitionName)_$(date:yyyy).$(date:MM).$(date:dd)$(rev:.r)'
     - task: VSBuild@1
       inputs:
         solution: 'src/AgeBaseTemplate.sln'
