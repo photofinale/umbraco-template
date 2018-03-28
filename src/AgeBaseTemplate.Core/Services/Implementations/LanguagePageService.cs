@@ -13,12 +13,12 @@ namespace AgeBaseTemplate.Core.Services.Implementations
         private readonly IProfileLogger _profileLogger;
 
         public LanguagePageService(
-            IPageService pageService,
             ICountryPageService countryPageService, 
+            IPageService pageService,
             IProfileLogger profileLogger)
         {
-            _pageService = pageService;
             _countryPageService = countryPageService;
+            _pageService = pageService;
             _profileLogger = profileLogger;
         }
 
@@ -34,9 +34,16 @@ namespace AgeBaseTemplate.Core.Services.Implementations
                     return null;
                 }
 
+                var currentLanguage = Current();
+
                 foreach (var language in languages)
                 {
                     language.HomePageUrl = language.FirstChild<HomePage>().Url;
+
+                    if (language.Id == currentLanguage.Id)
+                    {
+                        language.Selected = true;
+                    }
                 }
 
                 return languages;

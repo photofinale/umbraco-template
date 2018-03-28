@@ -51,10 +51,10 @@ namespace AgeBaseTemplate.Core.Tests.Services
         }
 
         [TestMethod]
-        public void All_GivenAgeBaseTheme_ReturnsCorrectFormattingOfAgeBase()
+        public void All_GivenAgeBaseTheme_ShouldReturnCorrectFormattingOfAgeBase()
         {
-            var response = _themeService.All();
-            var themes = response?.ToList();
+            var retval = _themeService.All();
+            var themes = retval?.ToList();
 
             Assert.IsNotNull(themes);
             Assert.AreEqual(2, themes.Count);

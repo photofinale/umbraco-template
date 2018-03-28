@@ -266,7 +266,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mocks\ModelsBuilderMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\LanguagePageServiceTests.cs" />
+    <Compile Include="Services\CountryPageServiceTests.cs" />
     <Compile Include="Services\ThemeServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>

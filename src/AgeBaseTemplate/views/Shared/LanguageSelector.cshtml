@@ -13,7 +13,7 @@
             <div class="dropdown-menu" aria-labelledby="language-selector-dropdown">
                 @foreach (var language in Model.Languages)
                 {
-                    if (language.Id.Equals(Model.Current.Id))
+                    if (language.Selected)
                     {
                         <a class="dropdown-item" href="@language.HomePageUrl">
                             <strong>@language.LanguageName</strong>

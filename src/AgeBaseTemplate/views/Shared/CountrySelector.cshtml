@@ -14,7 +14,7 @@
             <div class="dropdown-menu" aria-labelledby="country-selector-dropdown">
                 @foreach (var country in Model.Countries)
                 {
-                    if (country.Id.Equals(Model.Current.Id))
+                    if (country.Selected)
                     {
                         <a class="dropdown-item" href="@country.Url">
                             <span class="flag-icon flag-icon-@country.Name.ToLower()"></span>

@@ -26,11 +26,25 @@ namespace AgeBaseTemplate.Core.Services.Implementations
         {
             using (_profileLogger.TraceDuration<CountryPageService>("All"))
             {
-                return _umbracoHelper
+                var countries = _umbracoHelper
                     .TypedContentAtXPath($"/root/{CountryPage.ModelTypeAlias}")
                     .Select(c => c as CountryPage)
                     .Where(c => c != null)
-                    .OrderBy(c => c.CountryName);
+                    .OrderBy(c => c.CountryName)
+                    .ToList();
+
+                var currentCountry = Current();
+
+                foreach (var country in countries)
+                {
+                    if (country.Id == currentCountry.Id)
+                    {
+                        country.Selected = true;
+                        break;
+                    }
+                }
+
+                return countries;
             }
         }
 
