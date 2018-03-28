@@ -22,6 +22,19 @@ phases:
     - task: NuGetCommand@2
       inputs:
         restoreSolution: 'src/AgeBaseTemplate.sln'
+    - task: bleddynrichards.Assembly-Info-Task.Assembly-Info-Task.Assembly-Info-Task@1
+      inputs:
+        Path: src
+        FileNames: AssemblyInfo.cs
+        Title: 'AgeBase Template'
+        Product: 'AgeBase Template'
+        Description: 'AgeBase Umbraco Template is a hopefully handy template for creating Umbraco web applications. It includes your usual Umbraco features and also some nice extra features.'
+        Company: 'AgeBase Ltd'
+        Copyright: 'Copyright © $(date:yyyy) AgeBase Ltd'
+        Trademark: 'Trademark of AgeBase Ltd'
+        VersionNumber: '$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)'
+        FileVersionNumber: '$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)'
+        InformationalVersion: '$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)'
     - task: VSBuild@1
       inputs:
         solution: 'src/AgeBaseTemplate.sln'
