@@ -1,11 +1,8 @@
 ﻿@charset "UTF-8";
 
-// Variables
-@import 'variables/overrides';
+// Overrides
+$body-bg: #000;
+$body-color: #fff;
 
-// Vendor
-@import "../../../node_modules/bootstrap/scss/bootstrap";
-@import '../../../node_modules/flag-icon-css/sass/flag-icon';
-
-// Layout
-@import 'layout/header';
+// AgeBaseTemplate
+@import '../agebase-template/main'

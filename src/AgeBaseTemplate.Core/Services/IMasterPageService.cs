@@ -1,9 +1,10 @@
-﻿using Umbraco.Core.Models;
+﻿using AgeBaseTemplate.Core.Models;
+using Umbraco.Core.Models;
 
 namespace AgeBaseTemplate.Core.Services
 {
     public interface IMasterPageService
     {
-        T Create<T>(IPublishedContent content) where T : class;
+        MasterPage<T> Create<T>(IPublishedContent content) where T : class, IPublishedContent;
     }
 }

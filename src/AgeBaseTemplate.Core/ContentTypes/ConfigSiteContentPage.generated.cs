@@ -44,14 +44,5 @@ namespace AgeBaseTemplate.Core.ContentTypes
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
-
-		///<summary>
-		/// Site Theme: Select a theme that the current site will use to display.
-		///</summary>
-		[ImplementPropertyType("siteTheme")]
-		public Newtonsoft.Json.Linq.JToken SiteTheme
-		{
-			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("siteTheme"); }
-		}
 	}
 }

@@ -7,14 +7,18 @@ namespace AgeBaseTemplate.Core.Services.Implementations
 {
     public class MasterPageService : IMasterPageService
     {
+        private readonly IConfigPageService _configPageService;
         private readonly IProfileLogger _profileLogger;
 
-        public MasterPageService(IProfileLogger profileLogger)
+        public MasterPageService(
+            IConfigPageService configPageService, 
+            IProfileLogger profileLogger)
         {
+            _configPageService = configPageService;
             _profileLogger = profileLogger;
         }
 
-        public T Create<T>(IPublishedContent content) where T : class
+        MasterPage<T> IMasterPageService.Create<T>(IPublishedContent content)
         {
             using (_profileLogger.TraceDuration<MasterPageService>("Create"))
             {
@@ -22,7 +26,14 @@ namespace AgeBaseTemplate.Core.Services.Implementations
                 var masterType = typeof(MasterPage<>);
 
                 var modelType = masterType.MakeGenericType(contentType);
-                return Activator.CreateInstance(modelType, content) as T;
+
+                if (!(Activator.CreateInstance(modelType, content) is MasterPage<T> retval))
+                {
+                    return null;
+                }
+
+                retval.Theme = _configPageService.CurrentSiteContentPage()?.SiteTheme;
+                return retval;
             }
         }
     }

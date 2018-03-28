@@ -285,6 +285,7 @@
     <Compile Include="ContentTypes\ConfigPage.generated.cs">
       <DependentUpon>Builder.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContentTypes\ConfigSiteContentPage.cs" />
     <Compile Include="ContentTypes\ConfigSiteContentPage.generated.cs">
       <DependentUpon>Builder.cs</DependentUpon>
     </Compile>
@@ -297,6 +298,8 @@
     <Compile Include="ContentTypes\LanguagePage.generated.cs">
       <DependentUpon>Builder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\IConfigPageService.cs" />
+    <Compile Include="Services\Implementations\ConfigPageService.cs" />
     <Compile Include="Services\Implementations\HomePageService.cs" />
     <Compile Include="Services\IPageService.cs" />
     <Compile Include="Services\ICountryPageService.cs" />

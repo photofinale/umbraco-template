@@ -39,7 +39,8 @@ namespace AgeBaseTemplate.Core.Global
             };
 
             Container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
-
+            
+            Container.Register<IConfigPageService, ConfigPageService>(Lifestyle.Scoped);
             Container.Register<ICountryPageService, CountryPageService>(Lifestyle.Scoped);
             Container.Register<IFileSystem, FileSystem>(Lifestyle.Scoped);
             Container.Register<IHomePageService, HomePageService>(Lifestyle.Scoped);

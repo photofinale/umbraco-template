@@ -5,7 +5,7 @@
       "alias": "AgeBase.ThemePicker",
       "editor": {
         "view": "~/App_Plugins/AgeBase.ThemePicker/ThemePickerView.html",
-        "valueType": "JSON"
+        "valueType": "STRING"
       }
 	}
   ],

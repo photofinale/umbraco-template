@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using AgeBaseTemplate.Core.ContentTypes;
-using AgeBaseTemplate.Core.Models;
 using AgeBaseTemplate.Core.Services;
 using DevTrends.MvcDonutCaching;
 
@@ -18,7 +17,7 @@ namespace AgeBaseTemplate.Core.Controllers
         [DonutOutputCache(CacheProfile = "OneDay")]
         public ActionResult HomePage()
         {
-            return CurrentTemplate(_masterPageService.Create<MasterPage<HomePage>>(CurrentPage));
+            return CurrentTemplate(_masterPageService.Create<HomePage>(CurrentPage));
         }
     }
 }

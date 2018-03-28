@@ -985,15 +985,15 @@ INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate])
 GO
 INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (64, 1077, N'717cc5bd-a0c6-4600-82b4-9881ba3fddd7', CAST(N'2018-03-28T22:33:42.770' AS DateTime))
 GO
-INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (65, 1078, N'81a7e85e-8f20-4bad-b09c-d3de4da32071', CAST(N'2018-03-28T22:41:39.707' AS DateTime))
-GO
 INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (70, 1079, N'c68a9e32-5ba2-4899-9e24-28e36f476d49', CAST(N'2018-03-28T22:36:03.810' AS DateTime))
 GO
 INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (72, 1081, N'd01c6693-f79f-410e-a61a-54d7984edce5', CAST(N'2018-03-28T22:36:10.503' AS DateTime))
 GO
-INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (74, 1080, N'857b5000-6534-4e20-b372-6fa62182efaf', CAST(N'2018-03-28T22:41:34.927' AS DateTime))
+INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (85, 1080, N'b14b5fe9-391b-4e4a-adfb-c0372306baf0', CAST(N'2018-03-28T23:58:48.187' AS DateTime))
 GO
-INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (75, 1082, N'f42d68aa-95c9-4bf1-a4ab-5d32ebd608d2', CAST(N'2018-03-28T22:41:30.270' AS DateTime))
+INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (86, 1082, N'ab5b600e-0064-4bdf-818d-b030f4164a66', CAST(N'2018-03-28T23:58:53.600' AS DateTime))
+GO
+INSERT [dbo].[cmsContentVersion] ([id], [ContentId], [VersionId], [VersionDate]) VALUES (90, 1078, N'e60312a9-2de3-4611-9419-6ba69cf48597', CAST(N'2018-03-28T23:58:41.850' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[cmsContentVersion] OFF
 GO
@@ -1013,24 +1013,15 @@ INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1068, N'<homePage id="106
 GO
 INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1077, N'<configPage id="1077" key="1c788e04-4d30-461d-800a-c25427e1448b" parentID="1052" level="2" creatorID="0" sortOrder="1" createDate="2018-03-28T22:33:42" updateDate="2018-03-28T22:33:42" nodeName="Configuration" urlName="configuration" path="-1,1052,1077" isDoc="" nodeType="1071" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configPage" isPublished="true" />')
 GO
-INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1078, N'<configSiteContentPage id="1078" key="c7955690-c4d4-47ed-a0bc-21ad40fb2679" parentID="1077" level="3" creatorID="0" sortOrder="0" createDate="2018-03-28T22:33:53" updateDate="2018-03-28T22:41:39" nodeName="Site Content" urlName="site-content" path="-1,1052,1077,1078" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[{
-  "Id": "agebase-template",
-  "Name": "AgeBase Template"
-}]]></siteTheme></configSiteContentPage>')
+INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1078, N'<configSiteContentPage id="1078" key="c7955690-c4d4-47ed-a0bc-21ad40fb2679" parentID="1077" level="3" creatorID="0" sortOrder="0" createDate="2018-03-28T22:33:53" updateDate="2018-03-28T23:58:41" nodeName="Site Content" urlName="site-content" path="-1,1052,1077,1078" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[agebase-template]]></siteTheme></configSiteContentPage>')
 GO
 INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1079, N'<configPage id="1079" key="b95e3b03-3bc8-47a4-84de-daee9cc32152" parentID="1054" level="3" creatorID="0" sortOrder="1" createDate="2018-03-28T22:34:39" updateDate="2018-03-28T22:36:03" nodeName="Configuration" urlName="configuration" path="-1,1053,1054,1079" isDoc="" nodeType="1071" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configPage" isPublished="true" />')
 GO
-INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1080, N'<configSiteContentPage id="1080" key="73819704-7f66-4515-8ee9-559933866e43" parentID="1079" level="4" creatorID="0" sortOrder="0" createDate="2018-03-28T22:34:40" updateDate="2018-03-28T22:41:34" nodeName="Site Content" urlName="site-content" path="-1,1053,1054,1079,1080" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[{
-  "Id": "agebase-template-dark",
-  "Name": "AgeBase Template Dark"
-}]]></siteTheme></configSiteContentPage>')
+INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1080, N'<configSiteContentPage id="1080" key="73819704-7f66-4515-8ee9-559933866e43" parentID="1079" level="4" creatorID="0" sortOrder="0" createDate="2018-03-28T22:34:40" updateDate="2018-03-28T23:58:48" nodeName="Site Content" urlName="site-content" path="-1,1053,1054,1079,1080" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[agebase-template-dark]]></siteTheme></configSiteContentPage>')
 GO
 INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1081, N'<configPage id="1081" key="f1f06aae-7bab-42e4-ac43-86f84e347e99" parentID="1055" level="3" creatorID="0" sortOrder="1" createDate="2018-03-28T22:34:49" updateDate="2018-03-28T22:36:10" nodeName="Configuration" urlName="configuration" path="-1,1053,1055,1081" isDoc="" nodeType="1071" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configPage" isPublished="true" />')
 GO
-INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1082, N'<configSiteContentPage id="1082" key="de50c725-a531-4502-9fd5-7fd4873abd24" parentID="1081" level="4" creatorID="0" sortOrder="0" createDate="2018-03-28T22:34:49" updateDate="2018-03-28T22:41:30" nodeName="Site Content" urlName="site-content" path="-1,1053,1055,1081,1082" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[{
-  "Id": "agebase-template-high-contrast",
-  "Name": "AgeBase Template High Contrast"
-}]]></siteTheme></configSiteContentPage>')
+INSERT [dbo].[cmsContentXml] ([nodeId], [xml]) VALUES (1082, N'<configSiteContentPage id="1082" key="de50c725-a531-4502-9fd5-7fd4873abd24" parentID="1081" level="4" creatorID="0" sortOrder="0" createDate="2018-03-28T22:34:49" updateDate="2018-03-28T23:58:53" nodeName="Site Content" urlName="site-content" path="-1,1053,1055,1081,1082" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[agebase-template-high-contrast]]></siteTheme></configSiteContentPage>')
 GO
 SET IDENTITY_INSERT [dbo].[cmsDataType] ON 
 
@@ -1083,7 +1074,7 @@ INSERT [dbo].[cmsDataType] ([pk], [nodeId], [propertyEditorAlias], [dbType]) VAL
 GO
 INSERT [dbo].[cmsDataType] ([pk], [nodeId], [propertyEditorAlias], [dbType]) VALUES (25, 1045, N'Umbraco.MultipleMediaPicker', N'Nvarchar')
 GO
-INSERT [dbo].[cmsDataType] ([pk], [nodeId], [propertyEditorAlias], [dbType]) VALUES (26, 1069, N'AgeBase.ThemePicker', N'Ntext')
+INSERT [dbo].[cmsDataType] ([pk], [nodeId], [propertyEditorAlias], [dbType]) VALUES (26, 1069, N'AgeBase.ThemePicker', N'Nvarchar')
 GO
 SET IDENTITY_INSERT [dbo].[cmsDataType] OFF
 GO
@@ -1129,11 +1120,9 @@ INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], 
 GO
 INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1081, 1, 0, N'd01c6693-f79f-410e-a61a-54d7984edce5', N'Configuration', NULL, NULL, CAST(N'2018-03-28T22:36:10.503' AS DateTime), NULL, 1)
 GO
-INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1082, 1, 0, N'f42d68aa-95c9-4bf1-a4ab-5d32ebd608d2', N'Site Content', NULL, NULL, CAST(N'2018-03-28T22:41:30.270' AS DateTime), NULL, 1)
-GO
 INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1055, 1, 0, N'067d55d9-0010-4a89-b038-5d38b50e692a', N'NL', NULL, NULL, CAST(N'2017-02-24T14:58:15.710' AS DateTime), NULL, 1)
 GO
-INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1080, 1, 0, N'857b5000-6534-4e20-b372-6fa62182efaf', N'Site Content', NULL, NULL, CAST(N'2018-03-28T22:41:34.927' AS DateTime), NULL, 1)
+INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1078, 1, 0, N'e60312a9-2de3-4611-9419-6ba69cf48597', N'Site Content', NULL, NULL, CAST(N'2018-03-28T23:58:41.850' AS DateTime), NULL, 1)
 GO
 INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1054, 1, 0, N'16141db2-bcd3-4d32-a63d-76a1a9653d3b', N'FR', NULL, NULL, CAST(N'2017-02-24T14:58:04.980' AS DateTime), NULL, 1)
 GO
@@ -1141,9 +1130,11 @@ INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], 
 GO
 INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1077, 1, 0, N'717cc5bd-a0c6-4600-82b4-9881ba3fddd7', N'Configuration', NULL, NULL, CAST(N'2018-03-28T22:33:42.770' AS DateTime), NULL, 1)
 GO
+INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1082, 1, 0, N'ab5b600e-0064-4bdf-818d-b030f4164a66', N'Site Content', NULL, NULL, CAST(N'2018-03-28T23:58:53.600' AS DateTime), NULL, 1)
+GO
 INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1052, 1, 0, N'c1c540b9-5f8b-4cc4-bbf7-bf88d48fd4c1', N'GB', NULL, NULL, CAST(N'2018-03-24T01:55:54.620' AS DateTime), NULL, 1)
 GO
-INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1078, 1, 0, N'81a7e85e-8f20-4bad-b09c-d3de4da32071', N'Site Content', NULL, NULL, CAST(N'2018-03-28T22:41:39.707' AS DateTime), NULL, 1)
+INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1080, 1, 0, N'b14b5fe9-391b-4e4a-adfb-c0372306baf0', N'Site Content', NULL, NULL, CAST(N'2018-03-28T23:58:48.187' AS DateTime), NULL, 1)
 GO
 INSERT [dbo].[cmsDocument] ([nodeId], [published], [documentUser], [versionId], [text], [releaseDate], [expireDate], [updateDate], [templateId], [newest]) VALUES (1068, 1, 0, N'ff1e7a5e-7d70-4c7b-9cf1-d9ff79e4bd59', N'Home', NULL, NULL, CAST(N'2017-02-23T14:13:31.793' AS DateTime), 1046, 1)
 GO
@@ -1207,24 +1198,15 @@ INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES 
 GO
 INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1077, N'717cc5bd-a0c6-4600-82b4-9881ba3fddd7', CAST(N'2018-03-28T22:33:42.787' AS DateTime), N'<configPage id="1077" key="1c788e04-4d30-461d-800a-c25427e1448b" parentID="1052" level="2" creatorID="0" sortOrder="1" createDate="2018-03-28T22:33:42" updateDate="2018-03-28T22:33:42" nodeName="Configuration" urlName="configuration" path="-1,1052,1077" isDoc="" nodeType="1071" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configPage" isPublished="true" />')
 GO
-INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1078, N'81a7e85e-8f20-4bad-b09c-d3de4da32071', CAST(N'2018-03-28T22:41:39.717' AS DateTime), N'<configSiteContentPage id="1078" key="c7955690-c4d4-47ed-a0bc-21ad40fb2679" parentID="1077" level="3" creatorID="0" sortOrder="0" createDate="2018-03-28T22:33:53" updateDate="2018-03-28T22:41:39" nodeName="Site Content" urlName="site-content" path="-1,1052,1077,1078" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[{
-  "Id": "agebase-template",
-  "Name": "AgeBase Template"
-}]]></siteTheme></configSiteContentPage>')
+INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1078, N'e60312a9-2de3-4611-9419-6ba69cf48597', CAST(N'2018-03-28T23:58:41.883' AS DateTime), N'<configSiteContentPage id="1078" key="c7955690-c4d4-47ed-a0bc-21ad40fb2679" parentID="1077" level="3" creatorID="0" sortOrder="0" createDate="2018-03-28T22:33:53" updateDate="2018-03-28T23:58:41" nodeName="Site Content" urlName="site-content" path="-1,1052,1077,1078" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[agebase-template]]></siteTheme></configSiteContentPage>')
 GO
 INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1079, N'c68a9e32-5ba2-4899-9e24-28e36f476d49', CAST(N'2018-03-28T22:36:03.840' AS DateTime), N'<configPage id="1079" key="b95e3b03-3bc8-47a4-84de-daee9cc32152" parentID="1054" level="3" creatorID="0" sortOrder="1" createDate="2018-03-28T22:34:39" updateDate="2018-03-28T22:36:03" nodeName="Configuration" urlName="configuration" path="-1,1053,1054,1079" isDoc="" nodeType="1071" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configPage" isPublished="true" />')
 GO
-INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1080, N'857b5000-6534-4e20-b372-6fa62182efaf', CAST(N'2018-03-28T22:41:34.950' AS DateTime), N'<configSiteContentPage id="1080" key="73819704-7f66-4515-8ee9-559933866e43" parentID="1079" level="4" creatorID="0" sortOrder="0" createDate="2018-03-28T22:34:40" updateDate="2018-03-28T22:41:34" nodeName="Site Content" urlName="site-content" path="-1,1053,1054,1079,1080" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[{
-  "Id": "agebase-template-dark",
-  "Name": "AgeBase Template Dark"
-}]]></siteTheme></configSiteContentPage>')
+INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1080, N'b14b5fe9-391b-4e4a-adfb-c0372306baf0', CAST(N'2018-03-28T23:58:48.197' AS DateTime), N'<configSiteContentPage id="1080" key="73819704-7f66-4515-8ee9-559933866e43" parentID="1079" level="4" creatorID="0" sortOrder="0" createDate="2018-03-28T22:34:40" updateDate="2018-03-28T23:58:48" nodeName="Site Content" urlName="site-content" path="-1,1053,1054,1079,1080" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[agebase-template-dark]]></siteTheme></configSiteContentPage>')
 GO
 INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1081, N'd01c6693-f79f-410e-a61a-54d7984edce5', CAST(N'2018-03-28T22:36:10.510' AS DateTime), N'<configPage id="1081" key="f1f06aae-7bab-42e4-ac43-86f84e347e99" parentID="1055" level="3" creatorID="0" sortOrder="1" createDate="2018-03-28T22:34:49" updateDate="2018-03-28T22:36:10" nodeName="Configuration" urlName="configuration" path="-1,1053,1055,1081" isDoc="" nodeType="1071" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configPage" isPublished="true" />')
 GO
-INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1082, N'f42d68aa-95c9-4bf1-a4ab-5d32ebd608d2', CAST(N'2018-03-28T22:41:30.337' AS DateTime), N'<configSiteContentPage id="1082" key="de50c725-a531-4502-9fd5-7fd4873abd24" parentID="1081" level="4" creatorID="0" sortOrder="0" createDate="2018-03-28T22:34:49" updateDate="2018-03-28T22:41:30" nodeName="Site Content" urlName="site-content" path="-1,1053,1055,1081,1082" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[{
-  "Id": "agebase-template-high-contrast",
-  "Name": "AgeBase Template High Contrast"
-}]]></siteTheme></configSiteContentPage>')
+INSERT [dbo].[cmsPreviewXml] ([nodeId], [versionId], [timestamp], [xml]) VALUES (1082, N'ab5b600e-0064-4bdf-818d-b030f4164a66', CAST(N'2018-03-28T23:58:53.610' AS DateTime), N'<configSiteContentPage id="1082" key="de50c725-a531-4502-9fd5-7fd4873abd24" parentID="1081" level="4" creatorID="0" sortOrder="0" createDate="2018-03-28T22:34:49" updateDate="2018-03-28T23:58:53" nodeName="Site Content" urlName="site-content" path="-1,1053,1055,1081,1082" isDoc="" nodeType="1076" creatorName="Dan Lister" writerName="Dan Lister" writerID="0" template="0" nodeTypeAlias="configSiteContentPage" isPublished="true"><siteTheme><![CDATA[agebase-template-high-contrast]]></siteTheme></configSiteContentPage>')
 GO
 SET IDENTITY_INSERT [dbo].[cmsPropertyData] ON 
 
@@ -1237,20 +1219,11 @@ INSERT [dbo].[cmsPropertyData] ([id], [contentNodeId], [versionId], [propertytyp
 GO
 INSERT [dbo].[cmsPropertyData] ([id], [contentNodeId], [versionId], [propertytypeid], [dataInt], [dataDecimal], [dataDate], [dataNvarchar], [dataNtext]) VALUES (18, 1053, N'445b52be-8aeb-44c6-b100-30ab580f28c9', 35, NULL, NULL, NULL, N'Belgium', NULL)
 GO
-INSERT [dbo].[cmsPropertyData] ([id], [contentNodeId], [versionId], [propertytypeid], [dataInt], [dataDecimal], [dataDate], [dataNvarchar], [dataNtext]) VALUES (19, 1078, N'81a7e85e-8f20-4bad-b09c-d3de4da32071', 39, NULL, NULL, NULL, NULL, N'{
-  "Id": "agebase-template",
-  "Name": "AgeBase Template"
-}')
+INSERT [dbo].[cmsPropertyData] ([id], [contentNodeId], [versionId], [propertytypeid], [dataInt], [dataDecimal], [dataDate], [dataNvarchar], [dataNtext]) VALUES (35, 1080, N'b14b5fe9-391b-4e4a-adfb-c0372306baf0', 39, NULL, NULL, NULL, N'agebase-template-dark', NULL)
 GO
-INSERT [dbo].[cmsPropertyData] ([id], [contentNodeId], [versionId], [propertytypeid], [dataInt], [dataDecimal], [dataDate], [dataNvarchar], [dataNtext]) VALUES (24, 1080, N'857b5000-6534-4e20-b372-6fa62182efaf', 39, NULL, NULL, NULL, NULL, N'{
-  "Id": "agebase-template-dark",
-  "Name": "AgeBase Template Dark"
-}')
+INSERT [dbo].[cmsPropertyData] ([id], [contentNodeId], [versionId], [propertytypeid], [dataInt], [dataDecimal], [dataDate], [dataNvarchar], [dataNtext]) VALUES (36, 1082, N'ab5b600e-0064-4bdf-818d-b030f4164a66', 39, NULL, NULL, NULL, N'agebase-template-high-contrast', NULL)
 GO
-INSERT [dbo].[cmsPropertyData] ([id], [contentNodeId], [versionId], [propertytypeid], [dataInt], [dataDecimal], [dataDate], [dataNvarchar], [dataNtext]) VALUES (25, 1082, N'f42d68aa-95c9-4bf1-a4ab-5d32ebd608d2', 39, NULL, NULL, NULL, NULL, N'{
-  "Id": "agebase-template-high-contrast",
-  "Name": "AgeBase Template High Contrast"
-}')
+INSERT [dbo].[cmsPropertyData] ([id], [contentNodeId], [versionId], [propertytypeid], [dataInt], [dataDecimal], [dataDate], [dataNvarchar], [dataNtext]) VALUES (40, 1078, N'e60312a9-2de3-4611-9419-6ba69cf48597', 39, NULL, NULL, NULL, N'agebase-template', NULL)
 GO
 SET IDENTITY_INSERT [dbo].[cmsPropertyData] OFF
 GO
@@ -1500,7 +1473,7 @@ INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [p
 GO
 INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (1071, 0, 1070, 0, 2, N'-1,1070,1071', 5, N'15df15c8-6999-4593-ba90-c98e3b8e0a0e', N'Config Page', N'a2cb7800-f571-4787-9638-bc48539a0efb', CAST(N'2018-03-28T22:28:36.183' AS DateTime))
 GO
-INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (1076, 0, 1070, 0, 2, N'-1,1070,1076', 6, N'6c49a7fa-4439-4945-97c7-1dd7e2c6ab70', N'Config Site Content Page', N'a2cb7800-f571-4787-9638-bc48539a0efb', CAST(N'2018-03-28T22:33:05.113' AS DateTime))
+INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (1076, 0, 1070, 0, 2, N'-1,1070,1076', 7, N'6c49a7fa-4439-4945-97c7-1dd7e2c6ab70', N'Config Site Content Page', N'a2cb7800-f571-4787-9638-bc48539a0efb', CAST(N'2018-03-28T22:33:05.113' AS DateTime))
 GO
 INSERT [dbo].[umbracoNode] ([id], [trashed], [parentID], [nodeUser], [level], [path], [sortOrder], [uniqueID], [text], [nodeObjectType], [createDate]) VALUES (1077, 0, 1052, 0, 2, N'-1,1052,1077', 1, N'1c788e04-4d30-461d-800a-c25427e1448b', N'Configuration', N'c66ba18e-eaf3-4cff-8a22-41b16d66a972', CAST(N'2018-03-28T22:33:42.770' AS DateTime))
 GO
@@ -1528,7 +1501,7 @@ GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] ON 
 
 GO
-INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate], [createDate], [updateDate], [emailConfirmedDate], [invitedDate], [avatar], [passwordConfig], [tourData]) VALUES (0, 0, 0, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20T10:32:05.533' AS DateTime), CAST(N'2018-03-28T22:46:05.807' AS DateTime), CAST(N'2018-01-05T21:39:02.850' AS DateTime), CAST(N'2018-03-28T22:46:05.863' AS DateTime), NULL, NULL, NULL, N'{"hashAlgorithm":"SHA1"}', NULL)
+INSERT [dbo].[umbracoUser] ([id], [userDisabled], [userNoConsole], [userName], [userLogin], [userPassword], [userEmail], [userLanguage], [securityStampToken], [failedLoginAttempts], [lastLockoutDate], [lastPasswordChangeDate], [lastLoginDate], [createDate], [updateDate], [emailConfirmedDate], [invitedDate], [avatar], [passwordConfig], [tourData]) VALUES (0, 0, 0, N'Dan Lister', N'd.lister@agebase.co.uk', N'CXNnVWSN440vtoPyuQ+BBlgm3uU=', N'd.lister@agebase.co.uk', N'en-GB', N'3165769c-debc-4941-bf1a-c094b38eb15f', 0, NULL, CAST(N'2016-09-20T10:32:05.533' AS DateTime), CAST(N'2018-03-28T23:55:16.517' AS DateTime), CAST(N'2018-01-05T21:39:02.850' AS DateTime), CAST(N'2018-03-28T23:55:16.573' AS DateTime), NULL, NULL, NULL, N'{"hashAlgorithm":"SHA1"}', NULL)
 GO
 SET IDENTITY_INSERT [dbo].[umbracoUser] OFF
 GO

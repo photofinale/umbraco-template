@@ -26,13 +26,7 @@ namespace AgeBaseTemplate.Core.Umbraco
 
         private ConstructorInfo GetNonDefaultConstructor(Type i)
         {
-            ConstructorInfo retval = null;
-
-            foreach (var info in i.GetConstructors().OrderBy(ctor => ctor.GetParameters().Length))
-            {
-                retval = info;
-                break;
-            }
+            var retval = i.GetConstructors().OrderBy(ctor => ctor.GetParameters().Length).FirstOrDefault();
 
             return retval ?? DefaultBehavior.GetConstructor(i);
         }
