@@ -1,4 +1,4 @@
-name: AgeBaseTemplate.$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)
+name: AgeBaseTemplate.$(build.version)
 phases:
 - phase: BuildTestPackAndPushNugetPackage
   queue:
@@ -32,7 +32,7 @@ phases:
         Company: 'AgeBase Ltd'
         Copyright: 'Copyright © $(date:yyyy) AgeBase Ltd'
         Trademark: 'Trademark of AgeBase Ltd'
-        VersionNumber: '$(Year:yyyy).$(Month).$(DayOfMonth).$(Rev:r)'
+        VersionNumber: '$(build.version)'
     - task: VSBuild@1
       inputs:
         solution: 'src/AgeBaseTemplate.sln'
