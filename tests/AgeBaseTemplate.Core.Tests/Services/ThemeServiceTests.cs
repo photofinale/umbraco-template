@@ -35,6 +35,10 @@ namespace AgeBaseTemplate.Core.Tests.Services
                 {
                     @"c:\themes\agebase-template-dark\theme.txt",
                     new MockFileData(string.Empty)
+                },
+                {
+                    @"c:\themes\agebase-template-high-contrast\theme.txt",
+                    new MockFileData(string.Empty)
                 }
             });
 
@@ -57,9 +61,10 @@ namespace AgeBaseTemplate.Core.Tests.Services
             var themes = retval?.ToList();
 
             Assert.IsNotNull(themes);
-            Assert.AreEqual(2, themes.Count);
+            Assert.AreEqual(3, themes.Count);
             Assert.AreEqual("AgeBase Template", themes[0].Name);
             Assert.AreEqual("AgeBase Template Dark", themes[1].Name);
+            Assert.AreEqual("AgeBase Template High Contrast", themes[2].Name);
         }
     }
 }
