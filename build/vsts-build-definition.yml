@@ -46,6 +46,6 @@ phases:
     - task: CopyPublishBuildArtifacts@1
       inputs:
         CopyRoot: '$(Build.ArtifactStagingDirectory)'
-        Contents: '**/*.zip'
+        Contents: '**/*.nupkg'
         ArtifactName: drop
         ArtifactType: Container
