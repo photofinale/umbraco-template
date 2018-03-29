@@ -43,3 +43,9 @@ phases:
       inputs:
         command: push
         publishVstsFeed: 'bb745c71-01f6-4ea9-b347-7c9e47d06a60'
+    - task: CopyPublishBuildArtifacts@1
+      inputs:
+        CopyRoot: '$(Build.ArtifactStagingDirectory)'
+        Contents: '**/*.zip'
+        ArtifactName: drop
+        ArtifactType: Container
