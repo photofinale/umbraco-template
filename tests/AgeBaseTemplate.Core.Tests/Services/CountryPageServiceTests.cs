@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AgeBaseTemplate.Core.ContentTypes;
 using AgeBaseTemplate.Core.Services;
 using AgeBaseTemplate.Core.Services.Implementations;
 using AgeBaseTemplate.Core.Tests.Mocks;
@@ -23,21 +22,15 @@ namespace AgeBaseTemplate.Core.Tests.Services
         [TestInitialize]
         public void Setup()
         {
+            var countryUkraine = new MockCountryPage(1, "Ukraine");
+            var countryEngland = new MockCountryPage(2, "England");
+            var countryGermany = new MockCountryPage(3, "Germany");
+            var countryFrance = new MockCountryPage(4, "France");
+            var countryItaly = new MockCountryPage(5, "Italy");
+
             _pageService = new Mock<IPageService>();
             _profileLogger = new Mock<IProfileLogger>();
             _umbracoHelper = new Mock<IUmbracoHelper>();
-
-            var countryUkraine = new ModelsBuilderMock<CountryPage>(1);
-            var countryEngland = new ModelsBuilderMock<CountryPage>(2);
-            var countryGermany = new ModelsBuilderMock<CountryPage>(3);
-            var countryFrance = new ModelsBuilderMock<CountryPage>(4);
-            var countryItaly = new ModelsBuilderMock<CountryPage>(5);
-
-            countryUkraine.SetProperty(c => c.CountryName, "Ukraine");
-            countryEngland.SetProperty(c => c.CountryName, "England");
-            countryGermany.SetProperty(c => c.CountryName, "Germany");
-            countryFrance.SetProperty(c => c.CountryName, "France");
-            countryItaly.SetProperty(c => c.CountryName, "Italy");
 
             _pageService
                 .Setup(ps => ps.Current())
@@ -63,8 +56,7 @@ namespace AgeBaseTemplate.Core.Tests.Services
         [TestMethod]
         public void All_GivenUnorderedCountryPages_ShouldReturnOrderedCountryPagesList()
         {
-            var retval = _countryPageService.All();
-            var countries = retval.ToList();
+            var countries = _countryPageService.All().ToList();
 
             Assert.IsNotNull(countries);
             Assert.AreEqual(5, countries.Count);
@@ -78,12 +70,11 @@ namespace AgeBaseTemplate.Core.Tests.Services
         [TestMethod]
         public void All_GivenCurrentCountryPage_ShouldReturnOneSelectedCountryPage()
         {
-            var retval = _countryPageService.All();
-            var countries = retval.ToList();
-            var selected = countries.SingleOrDefault(c => c.Selected);
+            var countries = _countryPageService.All().ToList();
+            var selected = countries.Single(c => c.Selected);
 
             Assert.IsNotNull(selected);
-            Assert.AreEqual(selected.CountryName, "Ukraine");
+            Assert.AreEqual("Ukraine", selected.CountryName);
         }
     }
 }

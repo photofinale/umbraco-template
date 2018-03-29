@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using AgeBaseTemplate.Core.ContentTypes;
+﻿using System.Linq;
 using AgeBaseTemplate.Core.Services;
 using AgeBaseTemplate.Core.Services.Implementations;
 using AgeBaseTemplate.Core.Tests.Mocks;
 using AgeBaseTemplate.Core.Wrappers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Umbraco.Core.Models;
 
 namespace AgeBaseTemplate.Core.Tests.Services
 {
@@ -23,44 +20,20 @@ namespace AgeBaseTemplate.Core.Tests.Services
         [TestInitialize]
         public void Setup()
         {
+            var selected = new MockLanguagePage(1, "Dutch", true);
+
+            var country = new MockCountryPage()
+                .WithLanguagePage(new MockLanguagePage(2, "French", true))
+                .WithLanguagePage(selected)
+                .WithLanguagePage(new MockLanguagePage(3, "Arabic", true));
+
             _countryPageService = new Mock<ICountryPageService>();
             _pageService = new Mock<IPageService>();
             _profileLogger = new Mock<IProfileLogger>();
 
-            var languageFrench = new ModelsBuilderMock<LanguagePage>(1);
-            var langaugeDutch = new ModelsBuilderMock<LanguagePage>(2);
-            var languageArabic = new ModelsBuilderMock<LanguagePage>(3);
-            
-            languageFrench.SetProperty(l => l.LanguageName, "French");
-            languageFrench.SetChildren(new List<IPublishedContent>
-            {
-                new ModelsBuilderMock<HomePage>(4).Object
-            });
-
-            langaugeDutch.SetProperty(l => l.LanguageName, "Dutch");
-            langaugeDutch.SetChildren(new List<IPublishedContent>
-            {
-                new ModelsBuilderMock<HomePage>(5).Object
-            });
-
-            languageArabic.SetProperty(l => l.LanguageName, "Arabic");
-            languageArabic.SetChildren(new List<IPublishedContent>
-            {
-                new ModelsBuilderMock<HomePage>(6).Object
-            });
-
-            var country = new ModelsBuilderMock<CountryPage>(7);
-
-            country.SetChildren(new List<IPublishedContent>
-            {
-                languageFrench.Object,
-                langaugeDutch.Object,
-                languageArabic.Object
-            });
-
             _countryPageService.Setup(ps => ps.Current()).Returns(country.Object);
 
-            _pageService.Setup(ps => ps.Current()).Returns(langaugeDutch.Object);
+            _pageService.Setup(ps => ps.Current()).Returns(selected.Object);
 
             _languagePageService = new LanguagePageService(
                 _countryPageService.Object,
@@ -71,8 +44,7 @@ namespace AgeBaseTemplate.Core.Tests.Services
         [TestMethod]
         public void All_GivenUnorderedlanguagePages_ShouldReturnOrderedLanguagePagesList()
         {
-            var retval = _languagePageService.All();
-            var languages = retval.ToList();
+            var languages = _languagePageService.All().ToList();
 
             Assert.IsNotNull(languages);
             Assert.AreEqual(3, languages.Count);
@@ -84,12 +56,11 @@ namespace AgeBaseTemplate.Core.Tests.Services
         [TestMethod]
         public void All_GivenCurrentLanguagePage_ShouldReturnOneSelectedLanguagePage()
         {
-            var retval = _languagePageService.All();
-            var languages = retval.ToList();
-            var selected = languages.SingleOrDefault(c => c.Selected);
+            var languages = _languagePageService.All().ToList();
+            var selected = languages.Single(c => c.Selected);
 
             Assert.IsNotNull(selected);
-            Assert.AreEqual(selected.LanguageName, "Dutch");
+            Assert.AreEqual("Dutch", selected.LanguageName);
         }
     }
 }

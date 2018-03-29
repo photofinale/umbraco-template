@@ -9,23 +9,28 @@ using Umbraco.Core.Models;
 
 namespace AgeBaseTemplate.Core.Tests.Mocks
 {
-    public class ModelsBuilderMock<T> where T : IPublishedContent
+    public abstract class MockBasePage<T> where T : IPublishedContent
     {
-        private readonly Mock<IPublishedContent> _publishedContent;
+        protected readonly Mock<IPublishedContent> PublishedContent;
 
         public T Object { get; }
 
-        public ModelsBuilderMock(int id)
+        protected MockBasePage(int id, string name)
         {
-            _publishedContent = new Mock<IPublishedContent>();
-            _publishedContent.Setup(pc => pc.Id).Returns(id);
+            PublishedContent = new Mock<IPublishedContent>();
+            PublishedContent.Setup(pc => pc.Id).Returns(id);
+            PublishedContent.Setup(pc => pc.Name).Returns(name);
+            PublishedContent.Setup(pc => pc.Url).Returns(string.Empty);
 
-            Object = CreateObjectWithAnyConstructor<T>(_publishedContent.Object);
+            Object = CreateObjectWithAnyConstructor<T>(PublishedContent.Object);
         }
 
-        public void SetChildren(List<IPublishedContent> children)
+        public void AddChild(IPublishedContent child)
         {
-            _publishedContent.Setup(pc => pc.Children).Returns(children);
+            var children = PublishedContent.Object?.Children?.ToList() ?? new List<IPublishedContent>();
+            children.Add(child);
+
+            PublishedContent.Setup(pc => pc.Children).Returns(children);
         }
 
         public void SetProperty(Expression<Func<T, object>> propertyExpression, object value)
@@ -35,7 +40,7 @@ namespace AgeBaseTemplate.Core.Tests.Mocks
 
             var mockedProperty = new Mock<IPublishedProperty>();
 
-            _publishedContent.Setup(pc => pc.GetProperty(propertyName, false)).Returns(mockedProperty.Object);
+            PublishedContent.Setup(pc => pc.GetProperty(propertyName, false)).Returns(mockedProperty.Object);
 
             mockedProperty.SetupAllProperties();
             mockedProperty.SetupGet(mp => mp.Value).Returns(value);

@@ -24,6 +24,9 @@ namespace AgeBaseTemplate.Core.Tests.Services
         public void Setup()
         {
             _cultureInfo = new Mock<ICultureInfo>();
+            _httpServerUtility = new Mock<IHttpServerUtility>();
+            _profileLogger = new Mock<IProfileLogger>();
+
             _cultureInfo.Setup(ci => ci.CurrentCulture).Returns(Thread.CurrentThread.CurrentCulture);
 
             _fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
@@ -42,10 +45,7 @@ namespace AgeBaseTemplate.Core.Tests.Services
                 }
             });
 
-            _httpServerUtility = new Mock<IHttpServerUtility>();
             _httpServerUtility.Setup(hsu => hsu.MapPath(It.IsAny<string>())).Returns(@"c:\themes");
-
-            _profileLogger = new Mock<IProfileLogger>();
 
             _themeService = new ThemeService(
                 _cultureInfo.Object,
