@@ -1,7 +1,6 @@
-﻿using System;
-using AgeBaseTemplate.Core.ContentTypes;
+﻿using AgeBaseTemplate.Core.ContentTypes;
 
-namespace AgeBaseTemplate.Core.Tests.Mocks
+namespace AgeBaseTemplate.Core.Tests.ContentTypes
 {
     public class MockLanguagePage : MockBasePage<LanguagePage>
     {
