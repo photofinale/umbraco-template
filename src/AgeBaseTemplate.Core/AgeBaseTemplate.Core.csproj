@@ -282,6 +282,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentTypes\Builder.generated.cs">
+      <DependentUpon>Builder.cs</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="ContentTypes\ConfigAnalyticsPage.generated.cs">
+      <DependentUpon>Builder.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContentTypes\ConfigPage.generated.cs">
       <DependentUpon>Builder.cs</DependentUpon>
     </Compile>
@@ -299,7 +307,9 @@
       <DependentUpon>Builder.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\IConfigPageService.cs" />
+    <Compile Include="Services\IGoogleAnalyticsService.cs" />
     <Compile Include="Services\Implementations\ConfigPageService.cs" />
+    <Compile Include="Services\Implementations\GoogleAnalyticsService.cs" />
     <Compile Include="Services\Implementations\HomePageService.cs" />
     <Compile Include="Services\IPageService.cs" />
     <Compile Include="Services\ICountryPageService.cs" />

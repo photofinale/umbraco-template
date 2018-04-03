@@ -43,6 +43,7 @@ namespace AgeBaseTemplate.Core.Global
             Container.Register<IConfigPageService, ConfigPageService>(Lifestyle.Scoped);
             Container.Register<ICountryPageService, CountryPageService>(Lifestyle.Scoped);
             Container.Register<IFileSystem, FileSystem>(Lifestyle.Scoped);
+            Container.Register<IGoogleAnalyticsService, GoogleAnalyticsService>(Lifestyle.Scoped);
             Container.Register<IHomePageService, HomePageService>(Lifestyle.Scoped);
             Container.Register<ILanguagePageService, LanguagePageService>(Lifestyle.Scoped);
             Container.Register<IMasterPageService, MasterPageService>(Lifestyle.Scoped);

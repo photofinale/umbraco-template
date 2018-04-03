@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using Moq;
 using Umbraco.Core.Models;
 
-namespace AgeBaseTemplate.Core.Tests.Mocks
+namespace AgeBaseTemplate.Core.Tests.ContentTypes
 {
     public abstract class MockBasePage<T> where T : IPublishedContent
     {

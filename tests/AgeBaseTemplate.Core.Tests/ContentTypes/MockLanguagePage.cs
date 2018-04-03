@@ -1,7 +1,6 @@
-﻿using System;
-using AgeBaseTemplate.Core.ContentTypes;
+﻿using AgeBaseTemplate.Core.ContentTypes;
 
-namespace AgeBaseTemplate.Core.Tests.Mocks
+namespace AgeBaseTemplate.Core.Tests.ContentTypes
 {
     public class MockLanguagePage : MockBasePage<LanguagePage>
     {
@@ -17,13 +16,18 @@ namespace AgeBaseTemplate.Core.Tests.Mocks
         {
         }
 
-        public MockLanguagePage(int id, string name, bool includeHomePage = false) : base(id, name)
+        public MockLanguagePage(int id, string name, bool includeHomePage = false, bool includeConfigPage = false) : base(id, name)
         {
             SetProperty(l => l.LanguageName, name);
 
             if (includeHomePage)
             {
                 AddChild(new MockHomePage().Object);
+            }
+
+            if (includeConfigPage)
+            {
+                AddChild(new MockConfigPage().Object);
             }
         }
     }

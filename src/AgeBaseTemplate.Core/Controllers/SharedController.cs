@@ -7,13 +7,16 @@ namespace AgeBaseTemplate.Core.Controllers
     public class SharedController : BasePageController
     {
         private readonly ICountryPageService _countryPageService;
+        private readonly IGoogleAnalyticsService _googleAnalyticsService;
         private readonly ILanguagePageService _languagePageService;
 
         public SharedController(
             ICountryPageService countryPageService,
+            IGoogleAnalyticsService googleAnalyticsService,
             ILanguagePageService languagePageService)
         {
             _countryPageService = countryPageService;
+            _googleAnalyticsService = googleAnalyticsService;
             _languagePageService = languagePageService;
         }
 
@@ -25,6 +28,12 @@ namespace AgeBaseTemplate.Core.Controllers
                 Countries = _countryPageService.All(),
                 Current = _countryPageService.Current()
             });
+        }
+
+        [ChildActionOnly]
+        public ActionResult GoogleAnalytics()
+        {
+            return PartialView("GoogleAnalytics", _googleAnalyticsService.CurrentTrackingId());
         }
 
         [ChildActionOnly]

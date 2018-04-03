@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using AgeBaseTemplate.Core.Services;
 using AgeBaseTemplate.Core.Services.Implementations;
-using AgeBaseTemplate.Core.Tests.Mocks;
+using AgeBaseTemplate.Core.Tests.ContentTypes;
 using AgeBaseTemplate.Core.Wrappers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
