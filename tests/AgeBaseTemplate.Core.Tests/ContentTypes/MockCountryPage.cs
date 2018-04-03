@@ -16,9 +16,19 @@ namespace AgeBaseTemplate.Core.Tests.ContentTypes
         {
         }
 
-        public MockCountryPage(int id, string name) : base(id, name)
+        public MockCountryPage(int id, string name, bool includeHomePage = false, bool includeConfigPage = false) : base(id, name)
         {
             SetProperty(c => c.CountryName, name);
+
+            if (includeHomePage)
+            {
+                AddChild(new MockHomePage().Object);
+            }
+
+            if (includeConfigPage)
+            {
+                AddChild(new MockConfigPage().Object);
+            }
         }
 
         public MockCountryPage WithLanguagePage(MockLanguagePage mockLanguagePage)

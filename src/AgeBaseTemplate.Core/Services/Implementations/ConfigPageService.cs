@@ -1,5 +1,6 @@
 ﻿using AgeBaseTemplate.Core.ContentTypes;
 using AgeBaseTemplate.Core.Wrappers;
+using Umbraco.Core.Models;
 
 namespace AgeBaseTemplate.Core.Services.Implementations
 {
@@ -22,20 +23,30 @@ namespace AgeBaseTemplate.Core.Services.Implementations
             _umbracoHelper = umbracoHelper;
         }
 
+        public ConfigAnalyticsPage CurrentAnalyticsPage()
+        {
+            return FindConfigPage(ConfigAnalyticsPage.ModelTypeAlias) as ConfigAnalyticsPage;
+        }
+
         public ConfigSiteContentPage CurrentSiteContentPage()
         {
-            using (_profileLogger.TraceDuration<ConfigPageService>("CurrentSiteContentPage"))
+            return FindConfigPage(ConfigSiteContentPage.ModelTypeAlias) as ConfigSiteContentPage;
+        }
+
+        private IPublishedContent FindConfigPage(string docTypeAlias)
+        {
+            using (_profileLogger.TraceDuration<ConfigPageService>("FindConfigPage"))
             {
                 var currentLanguage = _languagePageService.Current();
                 if (currentLanguage != null)
                 {
                     var languageSiteContentPage =
                         _umbracoHelper.TypedContentSingleAtXPath(
-                                $"//*[@id={currentLanguage.Id}]//{ConfigSiteContentPage.ModelTypeAlias}");
+                                $"//*[@id={currentLanguage.Id}]//{docTypeAlias}");
 
                     if (languageSiteContentPage != null)
                     {
-                        return languageSiteContentPage as ConfigSiteContentPage;
+                        return languageSiteContentPage;
                     }
                 }
 
@@ -47,9 +58,9 @@ namespace AgeBaseTemplate.Core.Services.Implementations
 
                 var countrySiteConfigPage =
                     _umbracoHelper.TypedContentSingleAtXPath(
-                        $"//*[@id={currentCountry.Id}]//{ConfigSiteContentPage.ModelTypeAlias}");
+                        $"//*[@id={currentCountry.Id}]//{docTypeAlias}");
 
-                return countrySiteConfigPage as ConfigSiteContentPage;
+                return countrySiteConfigPage;
             }
         }
     }

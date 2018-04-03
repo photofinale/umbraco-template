@@ -267,10 +267,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContentTypes\MockBasePage.cs" />
+    <Compile Include="ContentTypes\MockConfigSiteContentPage.cs" />
+    <Compile Include="ContentTypes\MockConfigAnalyticsPage.cs" />
+    <Compile Include="ContentTypes\MockConfigPage.cs" />
     <Compile Include="ContentTypes\MockLanguagePage.cs" />
     <Compile Include="ContentTypes\MockHomePage.cs" />
     <Compile Include="ContentTypes\MockCountryPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GoogleAnalyticsServiceTests.cs" />
     <Compile Include="Services\LanguagePageServiceTests.cs" />
     <Compile Include="Services\CountryPageServiceTests.cs" />
     <Compile Include="Services\ThemeServiceTests.cs" />
